@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">mobile-app</string>
+    <string name="upload">Upload</string>
+    <string name="choose_a_machine_learning_model">Choose a machine learning model</string>
+    <string name="model">Model</string>
+    <string name="file">File</string>
+    <string name="choose_your_file">Choose your file</string>
+
+    <string-array name="model_list">
+        <item>Model 1</item>
+        <item>Model 2</item>
+        <item>Model 3</item>
+        <item>Model 4</item>
+        <item>Model 5</item>
+    </string-array>
 </resources>
