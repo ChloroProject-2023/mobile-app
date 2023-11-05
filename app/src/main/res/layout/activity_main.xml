@@ -28,64 +28,15 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/modelDropdown"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+        <FrameLayout
+            android:id="@+id/fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent">
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteModel"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="@string/model"
-                app:hintTextAppearance="@style/TextHint"
-                android:inputType="none"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/choose_a_machine_learning_model" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/fileChoose"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="0dp"
-            android:layout_height="80dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@id/modelDropdown"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <AutoCompleteTextView
-                android:id="@+id/autoCompleteFilePath"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:hint="@string/file"
-                android:inputType="none"
-                android:paddingStart="10dp"
-                android:paddingEnd="10dp"
-                android:text="@string/choose_your_file" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <Button
-            android:id="@+id/uploadButton"
-            android:layout_width="wrap_content"
-            android:layout_height="60dp"
-            android:text="@string/upload"
-            android:layout_marginTop="20dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/modelDropdown" />
+            app:layout_constraintTop_toBottomOf="@+id/materialToolbar">
+        </FrameLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
