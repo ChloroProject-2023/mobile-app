@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.35" />
+        app:layout_constraintGuide_percent="0.3" />
 
     <TextView
         android:id="@+id/textview_login_title"
@@ -48,7 +48,7 @@
         android:id="@+id/textinputlayout_login_username"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="60dp"
+        android:layout_height="80dp"
         android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="@+id/textinputlayout_login_password"
         app:layout_constraintStart_toStartOf="@+id/textinputlayout_login_password"
@@ -71,12 +71,12 @@
         android:id="@+id/textinputlayout_login_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="25dp"
-        app:startIconDrawable="@drawable/baseline_password_24"
+        android:layout_height="80dp"
+        android:layout_marginTop="35dp"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
         app:layout_constraintStart_toStartOf="@+id/button_login"
-        app:layout_constraintTop_toBottomOf="@+id/textinputlayout_login_username">
+        app:layout_constraintTop_toBottomOf="@+id/textinputlayout_login_username"
+        app:startIconDrawable="@drawable/baseline_password_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_login_password"
@@ -93,7 +93,7 @@
         android:id="@+id/textview_login_forgotpwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:alpha="0.7"
         android:text="@string/forgot_password"
         android:textSize="16sp"
@@ -104,7 +104,7 @@
         android:id="@+id/button_login"
         android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="20dp"
         android:text="@string/log_in_CAP"
         android:textColor="#F6F0F0"
         android:textSize="22sp"
