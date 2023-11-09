@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.google.android.material.navigation.NavigationBarView
+import vn.edu.usth.mobile_app.ui.HistoryFragment
 import vn.edu.usth.mobile_app.ui.LoginActivity
 import vn.edu.usth.mobile_app.ui.UploadFragment
 
@@ -41,6 +41,9 @@ class MainActivity : AppCompatActivity() {
                     if (!isLogin) {
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
+                    }
+                    else {
+                        replaceFragment(HistoryFragment())
                     }
                     true
                 }
