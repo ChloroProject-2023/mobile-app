@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navLogin"
-        android:title="@string/login" />
+        android:id="@+id/navUpload"
+        android:enabled="true"
+        android:icon="@drawable/baseline_upload_file_24"
+        android:title="@string/upload" />
     <item
         android:id="@+id/navHistory"
+        android:enabled="true"
+        android:icon="@drawable/baseline_history_24"
         android:title="@string/history" />
     <item
         android:id="@+id/navSettings"
+        android:enabled="true"
+        android:icon="@drawable/baseline_settings_24"
         android:title="@string/settings" />
 </menu>
