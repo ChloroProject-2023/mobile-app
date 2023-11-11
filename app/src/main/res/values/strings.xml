@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AI Result</string>
     <string name="upload">Upload</string>
-    <string name="choose_a_machine_learning_model">Choose a machine learning model</string>
+    <string name="choose_machine_learning_model">Choose machine learning model</string>
     <string name="model">Model</string>
     <string name="file">File</string>
     <string name="choose_your_file">Choose your file</string>
@@ -29,6 +29,7 @@
         <item>Model 4</item>
         <item>Model 5</item>
     </string-array>
+
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="prompt_email">Email</string>
@@ -52,4 +53,6 @@
     <string name="top_5_models">Top 5 Models</string>
     <string name="last_24h_users">Last 24h Users</string>
     <string name="last_24h_request">Last 24h Request</string>
+    <string name="profile">Profile</string>
+    <string name="admin">Admin</string>
 </resources>

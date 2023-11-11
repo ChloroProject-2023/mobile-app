@@ -26,7 +26,9 @@
             android:inputType="none"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="@string/choose_your_file" />
+            android:textColor="?attr/colorOnBackground"
+            android:text="@string/choose_your_file"
+            android:textSize="16sp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -50,7 +52,9 @@
             android:inputType="none"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            android:text="@string/choose_a_machine_learning_model"
+            android:text="@string/choose_machine_learning_model"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="16sp"
             app:hintTextAppearance="@style/TextHint" />
     </com.google.android.material.textfield.TextInputLayout>
 

@@ -12,8 +12,8 @@
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:hint="@string/back"
         android:background="@drawable/baseline_arrow_back_24"
+        android:hint="@string/back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -25,6 +25,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:text="@string/signuplayout_toptext"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView_signup_subtitle"
@@ -37,6 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="35dp"
         android:text="@string/signuplayout_bottomtext"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="17sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline_signup"
         app:layout_constraintEnd_toEndOf="@+id/textview_signup_title"
@@ -48,8 +50,9 @@
         android:layout_width="194dp"
         android:layout_height="80dp"
         android:focusable="auto"
+        app:layout_constraintBottom_toTopOf="@+id/textinputlayout_signup_usernameField"
         app:layout_constraintStart_toStartOf="@+id/textinputlayout_signup_usernameField"
-        app:layout_constraintTop_toBottomOf="@id/guideline_signup">
+        app:layout_constraintTop_toBottomOf="@+id/guideline_signup">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_signup_firstName"
@@ -85,6 +88,7 @@
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textinputlayout_signup_pwField"
         app:layout_constraintEnd_toEndOf="@+id/textinputlayout_signup_pwField"
         app:layout_constraintStart_toStartOf="@+id/textinputlayout_signup_pwField"
         app:layout_constraintTop_toBottomOf="@+id/textinputlayout_signup_fnField"
@@ -105,6 +109,7 @@
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/textinputlayout_signup_cfField"
         app:layout_constraintEnd_toEndOf="@+id/textinputlayout_signup_cfField"
         app:layout_constraintStart_toStartOf="@+id/textinputlayout_signup_cfField"
         app:layout_constraintTop_toBottomOf="@+id/textinputlayout_signup_usernameField"
@@ -126,10 +131,11 @@
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
-        app:startIconDrawable="@drawable/baseline_password_24"
+        app:layout_constraintBottom_toTopOf="@+id/button_signup"
         app:layout_constraintEnd_toEndOf="@+id/button_signup"
         app:layout_constraintStart_toStartOf="@+id/button_signup"
-        app:layout_constraintTop_toBottomOf="@+id/textinputlayout_signup_pwField">
+        app:layout_constraintTop_toBottomOf="@+id/textinputlayout_signup_pwField"
+        app:startIconDrawable="@drawable/baseline_password_24">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/edittext_signup_passCf"
@@ -146,10 +152,12 @@
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginTop="35dp"
+        android:layout_marginBottom="5dp"
         android:contentDescription="@string/sign_up_CAP"
         android:text="@string/sign_up_CAP"
         android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button_login_signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textinputlayout_signup_cfField" />
@@ -158,14 +166,15 @@
         android:id="@+id/button_login_signup"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
+        android:layout_marginBottom="16dp"
         android:gravity="center_vertical"
         android:text="@string/already_have_an_account_log_in"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="15sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_signup" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline_signup"

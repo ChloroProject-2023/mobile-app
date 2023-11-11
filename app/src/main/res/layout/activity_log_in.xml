@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/imageView_login_topImage"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:contentDescription="@string/contentDescription_background_img"
         app:layout_constraintBottom_toTopOf="@+id/guideline_login"
@@ -30,6 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loginLayout_topText"
+        android:textColor="?attr/colorOnBackground"
         android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textinputlayout_login_username"
@@ -40,6 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/loginLayout_bottomText"
+        android:textColor="?attr/colorOnBackground"
         android:textSize="17sp"
         app:layout_constraintStart_toStartOf="@+id/textinputlayout_login_username"
         app:layout_constraintTop_toBottomOf="@+id/textview_login_title" />
@@ -61,6 +63,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/username"
+            android:textColorHint="?attr/colorOutline"
             android:inputType="none"
             android:paddingStart="10dp"
             android:paddingEnd="10dp" />
@@ -84,6 +87,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:hint="@string/password"
+            android:textColorHint="?attr/colorOutline"
             android:inputType="none"
             android:paddingStart="10dp"
             android:paddingEnd="10dp" />
@@ -94,8 +98,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:alpha="0.7"
         android:text="@string/forgot_password"
+        android:textColor="?attr/colorOutline"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/textinputlayout_login_password"
         app:layout_constraintTop_toBottomOf="@id/textinputlayout_login_password" />
@@ -106,7 +110,6 @@
         android:layout_height="60dp"
         android:layout_marginTop="20dp"
         android:text="@string/log_in_CAP"
-        android:textColor="#F6F0F0"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/button_login_signup"
@@ -121,6 +124,7 @@
         android:text="@string/do_not_have_an_account_sign_up"
         android:textSize="15sp"
         android:textStyle="bold|italic"
+        android:textColor="?attr/colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
