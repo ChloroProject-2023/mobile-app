@@ -55,37 +55,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
         bottomBar.setOnItemReselectedListener {}
-
-//        // Set the listener for both navigation bar and navigation drawer
-//        // Doesn't work ???
-
-//        NavigationBarView.OnItemSelectedListener { item ->
-//            when (item.itemId) {
-//                R.id.navUpload -> {
-//                    true
-//                }
-//                R.id.navHistory -> {
-//                    println("\n\n\nHistory\n\n\n")
-//                    if (!isLogin) {
-//                        println("\n\n\nNot logged in!\n\n\n")
-//                        val intent = Intent(this, LoginActivity::class.java)
-//                        startActivity(intent)
-//                    }
-//                    true
-//                }
-//                R.id.navSettings -> {
-//                  true
-//                }
-//                else -> false
-//            }
-//        }
-//        NavigationBarView.OnItemReselectedListener { item ->
-//            when (item.itemId) {
-//                R.id.navUpload -> {}
-//                R.id.navHistory -> {}
-//                R.id.navSettings -> {}
-//            }
-//        }
     }
 
     private fun replaceFragment(fragment: Fragment) {
