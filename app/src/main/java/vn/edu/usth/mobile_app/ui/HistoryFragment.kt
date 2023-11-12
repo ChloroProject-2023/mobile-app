@@ -34,7 +34,7 @@ class HistoryFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_recycler_view, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView_recyclerView)
         recyclerView.adapter = expandableCardRecyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         return view

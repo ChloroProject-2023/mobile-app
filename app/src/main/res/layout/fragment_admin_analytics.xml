@@ -14,7 +14,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout"
+            android:id="@+id/linearLayout_adminAnalytics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -22,7 +22,7 @@
             android:paddingEnd="16dp">
 
             <TextView
-                android:id="@+id/textView_requestFrequency"
+                android:id="@+id/textView_adminAnalytics_requestFrequency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -32,99 +32,99 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-                android:id="@+id/requestFrequencyChart"
+                android:id="@+id/chartView_adminAnalytics_requestFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_requestFrequency" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_requestFrequency" />
 
             <View
-                android:id="@+id/divider"
+                android:id="@+id/divider_adminAnalytics"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/requestFrequencyChart" />
+                app:layout_constraintTop_toBottomOf="@+id/chartView_adminAnalytics_requestFrequency" />
 
             <TextView
-                android:id="@+id/textView_last24hRequest"
+                android:id="@+id/textView_adminAnalytics_last24hRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/last_24h_request"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_vertical1"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_adminAnalytics" />
 
             <TextView
-                android:id="@+id/textView_last24hRequestValue"
+                android:id="@+id/textView_adminAnalytics_last24hRequestValue"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="230"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView_last24hRequest"
-                app:layout_constraintStart_toStartOf="@+id/textView_last24hRequest"
-                app:layout_constraintTop_toBottomOf="@id/textView_last24hRequest" />
+                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hRequest"
+                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hRequest"
+                app:layout_constraintTop_toBottomOf="@id/textView_adminAnalytics_last24hRequest" />
 
             <TextView
-                android:id="@+id/textView_last24hUsers"
+                android:id="@+id/textView_adminAnalytics_last24hUsers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/last_24h_users"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_last24hRequest"
+                app:layout_constraintBottom_toBottomOf="@+id/textView_adminAnalytics_last24hRequest"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline_vertical1" />
+                app:layout_constraintStart_toStartOf="@+id/guideline_adminAnalytics_vertical1" />
 
             <TextView
-                android:id="@+id/textView_last24hUsersValue"
+                android:id="@+id/textView_adminAnalytics_last24hUsersValue"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="20"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView_last24hUsers"
-                app:layout_constraintStart_toStartOf="@+id/textView_last24hUsers"
-                app:layout_constraintTop_toBottomOf="@id/textView_last24hUsers" />
+                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hUsers"
+                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hUsers"
+                app:layout_constraintTop_toBottomOf="@id/textView_adminAnalytics_last24hUsers" />
 
             <com.google.android.material.divider.MaterialDivider
-                android:id="@+id/view2"
+                android:id="@+id/divider_adminAnalytics_2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginTop="10dp"
                 android:background="#3e3d42"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_last24hRequestValue" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_last24hRequestValue" />
 
             <TextView
-                android:id="@+id/textView_top5Models"
+                android:id="@+id/textView_adminAnalytics_top5Models"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:text="@string/top_5_models"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/view2" />
+                app:layout_constraintTop_toBottomOf="@id/divider_adminAnalytics_2" />
 
             <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-                android:id="@+id/top5ModelsChart"
+                android:id="@+id/chartView_adminAnalytics_top5Models"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:layout_marginTop="10dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView_top5Models" />
+                app:layout_constraintTop_toBottomOf="@id/textView_adminAnalytics_top5Models" />
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline_vertical1"
+                android:id="@+id/guideline_adminAnalytics_vertical1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"

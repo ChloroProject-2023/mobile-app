@@ -23,9 +23,9 @@ class ExpandableCardRecyclerAdapter(
         init {
             viewItem.setOnClickListener {
                 expanded = !expanded
-                val expandButton = viewItem.findViewById<MaterialButton>(R.id.expandButton)
-                val expandArea = viewItem.findViewById<ConstraintLayout>(R.id.expandableLayout)
-                val body = viewItem.findViewById<LinearLayout>(R.id.linearLayout_expandableCard_body)
+                val expandButton = viewItem.findViewById<MaterialButton>(R.id.button_itemHistory_expandButton)
+                val expandArea = viewItem.findViewById<ConstraintLayout>(R.id.constraintLayout_itemHistory_expandableLayout)
+                val body = viewItem.findViewById<LinearLayout>(R.id.linearLayout_itemHistory_cardBody)
                 body.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
                 TransitionManager.beginDelayedTransition(body, android.transition.AutoTransition())
@@ -58,10 +58,10 @@ class ExpandableCardRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.findViewById<TextView>(R.id.textView_modelName).text = historyList[position].getModelName()
-        holder.itemView.findViewById<TextView>(R.id.textView_runDate).text = historyList[position].getDate()
-        holder.itemView.findViewById<TextView>(R.id.textView_dataPath).text = historyList[position].getUploadedData()
-        holder.itemView.findViewById<TextView>(R.id.textView_result).text = historyList[position].getResult()
+        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_modelName).text = historyList[position].getModelName()
+        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_runDate).text = historyList[position].getDate()
+        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_dataPath).text = historyList[position].getUploadedData()
+        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_resultDetails).text = historyList[position].getResult()
     }
 
 }

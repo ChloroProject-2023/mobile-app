@@ -9,7 +9,6 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
-import com.github.aachartmodel.aainfographics.aaoptionsmodel.AASeries
 import vn.edu.usth.mobile_app.R
 
 class AdminAnalyticsFragment : Fragment() {
@@ -19,7 +18,7 @@ class AdminAnalyticsFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.fragment_admin_analytics, container, false)
-        val requestFreqChart = view.findViewById<AAChartView>(R.id.requestFrequencyChart)
+        val requestFreqChart = view.findViewById<AAChartView>(R.id.chartView_adminAnalytics_requestFrequency)
         val requestFreqChartModel = AAChartModel()
             .chartType(AAChartType.Areaspline)
             .legendEnabled(false)
@@ -40,7 +39,7 @@ class AdminAnalyticsFragment : Fragment() {
             "Model 5" to 5,
         )
 
-        val top5ModelsChart = view.findViewById<AAChartView>(R.id.top5ModelsChart)
+        val top5ModelsChart = view.findViewById<AAChartView>(R.id.chartView_adminAnalytics_top5Models)
         val top5ModelsChartModel = AAChartModel()
             .chartType(AAChartType.Bar)
             .legendEnabled(false)

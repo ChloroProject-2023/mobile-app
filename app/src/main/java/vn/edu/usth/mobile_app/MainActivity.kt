@@ -23,17 +23,17 @@ class MainActivity : AppCompatActivity() {
             isLogin = intent.extras!!.getBoolean("isLogin")
         }
 
-        val toolbar = findViewById<Toolbar>(R.id.materialToolbar)
+        val toolbar = findViewById<Toolbar>(R.id.materialToolbar_main)
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         replaceFragment(UploadFragment())
 
-        val bottomBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView)
+        val bottomBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView_main)
         bottomBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navUpload -> {
-                    replaceFragment(UploadFragment())
+                    replaceFragment(ExploreFragment())
                     true
                 }
 
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun replaceFragment(fragment: Fragment) {
         val fragmentTransaction = fragmentManager.beginTransaction()
-        fragmentTransaction.replace(R.id.fragment_container, fragment)
+        fragmentTransaction.replace(R.id.frameLayout_main_fragmentContainer, fragment)
         fragmentTransaction.commit()
     }
 }

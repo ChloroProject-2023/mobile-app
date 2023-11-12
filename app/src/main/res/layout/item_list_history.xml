@@ -9,7 +9,7 @@
     app:cardCornerRadius="15dp">
 
     <LinearLayout
-        android:id="@+id/linearLayout_expandableCard_body"
+        android:id="@+id/linearLayout_itemHistory_cardBody"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:animateLayoutChanges="true"
@@ -18,41 +18,41 @@
         android:paddingEnd="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintLayout_expandableCard_nonExpandableLayout"
+            android:id="@+id/constraintLayout_itemHistory_nonExpandableLayout"
             android:layout_width="match_parent"
             android:layout_height="100dp">
 
             <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline2"
+                android:id="@+id/guideline_itemHistory"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 app:layout_constraintGuide_percent="0.5" />
 
             <TextView
-                android:id="@+id/textView_modelName"
+                android:id="@+id/textView_itemHistory_modelName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Model 1"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnSecondaryContainer"
-                app:layout_constraintBottom_toTopOf="@+id/guideline2"
+                app:layout_constraintBottom_toTopOf="@+id/guideline_itemHistory"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView_runDate"
+                android:id="@+id/textView_itemHistory_runDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1/1/1970"
                 android:textColor="?attr/colorOnSecondaryContainer"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/guideline2" />
+                app:layout_constraintTop_toTopOf="@+id/guideline_itemHistory" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/expandButton"
+                android:id="@+id/button_itemHistory_expandButton"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:background="@drawable/baseline_keyboard_arrow_down_24"
@@ -64,56 +64,56 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/expandableLayout"
+            android:id="@+id/constraintLayout_itemHistory_expandableLayout"
             android:layout_width="match_parent"
             android:layout_height="120dp"
             android:visibility="gone">
 
             <TextView
-                android:id="@+id/textView_uploadedData"
+                android:id="@+id/textView_itemHistory_data"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Data:"
+                android:textColor="?attr/colorOnSecondaryContainer"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="?attr/colorOnSecondaryContainer"
-                app:layout_constraintBottom_toTopOf="@+id/textView8"
+                app:layout_constraintBottom_toTopOf="@+id/textView_itemHistory_result"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView_dataPath"
+                android:id="@+id/textView_itemHistory_dataPath"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
                 android:text="C:/Users/..."
                 android:textColor="?attr/colorOnSecondaryContainer"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_uploadedData"
-                app:layout_constraintStart_toStartOf="@+id/textView_result"
-                app:layout_constraintTop_toTopOf="@+id/textView_uploadedData" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView_itemHistory_data"
+                app:layout_constraintStart_toStartOf="@+id/textView_itemHistory_resultDetails"
+                app:layout_constraintTop_toTopOf="@+id/textView_itemHistory_data" />
 
             <TextView
-                android:id="@+id/textView8"
+                android:id="@+id/textView_itemHistory_result"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Result:"
+                android:textColor="?attr/colorOnSecondaryContainer"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:textColor="?attr/colorOnSecondaryContainer"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_uploadedData" />
+                app:layout_constraintTop_toBottomOf="@+id/textView_itemHistory_data" />
 
             <TextView
-                android:id="@+id/textView_result"
+                android:id="@+id/textView_itemHistory_resultDetails"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:text="N: 20; P: 30; K: 10"
                 android:textColor="?attr/colorOnSecondaryContainer"
-                app:layout_constraintStart_toEndOf="@+id/textView8"
-                app:layout_constraintTop_toTopOf="@+id/textView8" />
+                app:layout_constraintStart_toEndOf="@+id/textView_itemHistory_result"
+                app:layout_constraintTop_toTopOf="@+id/textView_itemHistory_result" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
