@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app
+package vn.edu.usth.mobile_app.model
 
 import java.text.SimpleDateFormat
 import java.util.Date

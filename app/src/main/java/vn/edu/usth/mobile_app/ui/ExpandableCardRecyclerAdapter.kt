@@ -5,12 +5,13 @@ import android.transition.TransitionManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
-import vn.edu.usth.mobile_app.HistoryData
+import vn.edu.usth.mobile_app.model.HistoryData
 import vn.edu.usth.mobile_app.R
 
 class ExpandableCardRecyclerAdapter(
@@ -24,7 +25,7 @@ class ExpandableCardRecyclerAdapter(
                 expanded = !expanded
                 val expandButton = viewItem.findViewById<MaterialButton>(R.id.expandButton)
                 val expandArea = viewItem.findViewById<ConstraintLayout>(R.id.expandableLayout)
-                val body = viewItem.findViewById<ConstraintLayout>(R.id.constraintLayout_expandableCard_body)
+                val body = viewItem.findViewById<LinearLayout>(R.id.linearLayout_expandableCard_body)
                 body.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
 
                 TransitionManager.beginDelayedTransition(body, android.transition.AutoTransition())

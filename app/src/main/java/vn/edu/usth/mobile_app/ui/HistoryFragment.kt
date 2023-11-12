@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import vn.edu.usth.mobile_app.HistoryData
+import vn.edu.usth.mobile_app.model.HistoryData
 import vn.edu.usth.mobile_app.R
 
 class HistoryFragment : Fragment() {
@@ -33,8 +33,8 @@ class HistoryFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        val view = inflater.inflate(R.layout.fragment_history, container, false)
-        val recyclerView = view.findViewById<RecyclerView>(R.id.historyRecyclerView)
+        val view = inflater.inflate(R.layout.fragment_recycler_view, container, false)
+        val recyclerView = view.findViewById<RecyclerView>(R.id.recyclerView)
         recyclerView.adapter = expandableCardRecyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         return view
