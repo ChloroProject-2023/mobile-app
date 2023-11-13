@@ -13,10 +13,11 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.button.MaterialButton
 import vn.edu.usth.mobile_app.model.HistoryData
 import vn.edu.usth.mobile_app.R
+import java.text.DateFormat
 
-class ExpandableCardRecyclerAdapter(
+class HistoryListRecyclerAdapter(
     private var historyList: ArrayList<HistoryData>
-): RecyclerView.Adapter<ExpandableCardRecyclerAdapter.ViewHolder>() {
+): RecyclerView.Adapter<HistoryListRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem){
         private var expanded: Boolean = false
@@ -59,7 +60,10 @@ class ExpandableCardRecyclerAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_modelName).text = historyList[position].getModelName()
-        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_runDate).text = historyList[position].getDate()
+
+        // Format Date to String dd/MM/yyyy
+        val dateString = DateFormat.getDateInstance(DateFormat.SHORT).format(historyList[position].getDate())
+        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_runDate).text = dateString
         holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_dataPath).text = historyList[position].getUploadedData()
         holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_resultDetails).text = historyList[position].getResult()
     }
