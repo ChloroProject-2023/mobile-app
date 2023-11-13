@@ -21,15 +21,6 @@
     <string name="confirm_password">Confirm password</string>
     <string name="log_in_CAP">SIGN IN</string>
     <string name="sign_up_CAP">SIGN UP</string>
-
-    <string-array name="model_list">
-        <item>Model 1</item>
-        <item>Model 2</item>
-        <item>Model 3</item>
-        <item>Model 4</item>
-        <item>Model 5</item>
-    </string-array>
-
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="prompt_email">Email</string>
@@ -55,4 +46,8 @@
     <string name="last_24h_request">Last 24h Request</string>
     <string name="profile">Profile</string>
     <string name="admin">Admin</string>
+    <string name="itemHistory_result">Result:</string>
+    <string name="itemHistory_data">Data:</string>
+    <string name="itemHistory_hintExpandHistoryDetail">Expand history detail</string>
+    <string name="all_0">0</string>
 </resources>
