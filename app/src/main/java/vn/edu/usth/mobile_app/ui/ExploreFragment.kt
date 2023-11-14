@@ -13,16 +13,16 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.fragment.app.Fragment
 import vn.edu.usth.mobile_app.R
 
-class UploadFragment : Fragment() {
+class ExploreFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.fragment_upload, container, false)
 
-        val modelList = resources.getStringArray(R.array.model_list)
+        val modelList = listOf("Model 1", "Model 2", "Model 3", "Model 4", "Model 5")
         val modelAdapter = ArrayAdapter(requireContext(), R.layout.simple_dropdown_item, modelList)
-        val autoCompleteModel = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteModel)
+        val autoCompleteModel = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView_upload_model)
         autoCompleteModel.setAdapter(modelAdapter)
 
-        val fileChoose = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteFilePath)
+        val fileChoose = view.findViewById<AutoCompleteTextView>(R.id.autoCompleteTextView_upload_filePath)
         val getFile = getFileLauncher(fileChoose)
         fileChoose.setOnClickListener { getFile.launch("application/sed") }
 

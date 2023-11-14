@@ -9,7 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import vn.edu.usth.mobile_app.ui.AdminAnalyticsFragment
 import vn.edu.usth.mobile_app.ui.HistoryFragment
 import vn.edu.usth.mobile_app.ui.LoginActivity
-import vn.edu.usth.mobile_app.ui.UploadFragment
+import vn.edu.usth.mobile_app.ui.ExploreFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
             isLogin = intent.extras!!.getBoolean("isLogin")
             isAdmin = intent.extras!!.getBoolean("isAdmin")
         }
-
-        replaceFragment(UploadFragment())
 
         val bottomBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView_main)
         bottomBar.menu.findItem(R.id.navAdmin).isVisible = isAdmin
@@ -61,6 +59,8 @@ class MainActivity : AppCompatActivity() {
         toolbar.background = bottomBar.background
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        replaceFragment(ExploreFragment())
     }
 
     private fun replaceFragment(fragment: Fragment) {
