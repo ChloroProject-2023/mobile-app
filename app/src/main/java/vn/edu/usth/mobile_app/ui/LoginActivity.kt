@@ -23,8 +23,12 @@ class LoginActivity : AppCompatActivity() {
         login.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtras(
-                Bundle().apply {putBoolean("isLogin", true)}
+                Bundle().apply {
+                    putBoolean("isLogin", true)
+                    putBoolean("isAdmin", true)
+                }
             )
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
     }

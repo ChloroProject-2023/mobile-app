@@ -50,4 +50,6 @@
     <string name="itemHistory_data">Data:</string>
     <string name="itemHistory_hintExpandHistoryDetail">Expand history detail</string>
     <string name="all_0">0</string>
+    <string name="adminAnalytics_modelList">Model List</string>
+    <string name="adminAnalytics_userList">User List</string>
 </resources>

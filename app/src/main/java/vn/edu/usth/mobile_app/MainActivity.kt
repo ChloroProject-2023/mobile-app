@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import vn.edu.usth.mobile_app.ui.AdminAnalyticsFragment
 import vn.edu.usth.mobile_app.ui.HistoryFragment
 import vn.edu.usth.mobile_app.ui.LoginActivity
 import vn.edu.usth.mobile_app.ui.UploadFragment
@@ -13,6 +14,7 @@ import vn.edu.usth.mobile_app.ui.UploadFragment
 
 class MainActivity : AppCompatActivity() {
     private var isLogin = false
+    private var isAdmin = false
     private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,15 +23,13 @@ class MainActivity : AppCompatActivity() {
 
         if (intent.extras != null) {
             isLogin = intent.extras!!.getBoolean("isLogin")
+            isAdmin = intent.extras!!.getBoolean("isAdmin")
         }
-
-        val toolbar = findViewById<Toolbar>(R.id.materialToolbar_main)
-        setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         replaceFragment(UploadFragment())
 
         val bottomBar = findViewById<BottomNavigationView>(R.id.bottomNavigationView_main)
+        bottomBar.menu.findItem(R.id.navAdmin).isVisible = isAdmin
         bottomBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.navUpload -> {
@@ -48,13 +48,19 @@ class MainActivity : AppCompatActivity() {
                     true
                 }
 
-                R.id.navSettings -> {
+                R.id.navAdmin -> {
+                    replaceFragment(AdminAnalyticsFragment())
                     true
                 }
                 else -> false
             }
         }
         bottomBar.setOnItemReselectedListener {}
+
+        val toolbar = findViewById<Toolbar>(R.id.materialToolbar_main)
+        toolbar.background = bottomBar.background
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
 
     private fun replaceFragment(fragment: Fragment) {

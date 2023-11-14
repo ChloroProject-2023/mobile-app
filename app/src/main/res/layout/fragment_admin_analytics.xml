@@ -21,21 +21,61 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_adminAnalytics_userList"
+                style="@style/Widget.MaterialComponents.TimePicker"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="?attr/colorSecondaryContainer"
+                android:drawableTop="@drawable/baseline_groups_24"
+                android:drawableTint="?attr/colorOnSecondaryContainer"
+                android:text="@string/adminAnalytics_userList"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_adminAnalytics_modelList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/baseline_list_24"
+                android:drawableTint="?attr/colorOnSecondaryContainer"
+                style="@style/Widget.MaterialComponents.TimePicker"
+                android:backgroundTint="?attr/colorSecondaryContainer"
+                android:text="@string/adminAnalytics_modelList"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                app:layout_constraintBottom_toBottomOf="@+id/button_adminAnalytics_userList"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_adminAnalytics_vertical1"
+                app:layout_constraintTop_toTopOf="@+id/button_adminAnalytics_userList" />
+
+            <View
+                android:id="@+id/divider_adminAnalytics_3"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="16dp"
+                android:background="?android:attr/listDivider"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/button_adminAnalytics_userList" />
+
             <TextView
                 android:id="@+id/textView_adminAnalytics_requestFrequency"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/request_frequency"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/divider_adminAnalytics_3" />
 
             <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
                 android:id="@+id/chartView_adminAnalytics_requestFrequency"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_requestFrequency" />
@@ -44,7 +84,7 @@
                 android:id="@+id/divider_adminAnalytics"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:background="?android:attr/listDivider"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +94,7 @@
                 android:id="@+id/textView_adminAnalytics_last24hRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/last_24h_request"
                 app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +139,7 @@
                 android:id="@+id/divider_adminAnalytics_2"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:background="#3e3d42"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -109,7 +149,7 @@
                 android:id="@+id/textView_adminAnalytics_top5Models"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 android:text="@string/top_5_models"
                 android:textSize="20sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -119,7 +159,7 @@
                 android:id="@+id/chartView_adminAnalytics_top5Models"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
