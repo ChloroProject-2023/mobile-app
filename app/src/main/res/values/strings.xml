@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">AI Result</string>
     <string name="upload">Upload</string>
-    <string name="choose_a_machine_learning_model">Choose a machine learning model</string>
+    <string name="choose_machine_learning_model">Choose machine learning model</string>
     <string name="model">Model</string>
     <string name="file">File</string>
     <string name="choose_your_file">Choose your file</string>
@@ -19,16 +19,8 @@
     <string name="first_name">First name</string>
     <string name="last_name">Last name</string>
     <string name="confirm_password">Confirm password</string>
-    <string name="log_in">Log in</string>
-    <string name="sign_up">Sign up</string>
-
-    <string-array name="model_list">
-        <item>Model 1</item>
-        <item>Model 2</item>
-        <item>Model 3</item>
-        <item>Model 4</item>
-        <item>Model 5</item>
-    </string-array>
+    <string name="log_in_CAP">SIGN IN</string>
+    <string name="sign_up_CAP">SIGN UP</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="title_activity_signup">SignupActivity</string>
     <string name="prompt_email">Email</string>
@@ -39,4 +31,25 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="contentDescription_avatar">Avatar</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="contentDescription_background_img">background image</string>
+    <string name="loginLayout_topText">Welcome Back,</string>
+    <string name="loginLayout_bottomText">Sign in to continue!</string>
+    <string name="already_have_an_account_log_in">Already have an account? Log in</string>
+    <string name="signuplayout_toptext">Let\'s Get Started!</string>
+    <string name="signuplayout_bottomtext">Create an account to get all latest\'s features</string>
+    <string name="upload_CAP">UPLOAD</string>
+    <string name="request_frequency">Request Frequency</string>
+    <string name="top_5_models">Top 5 Models</string>
+    <string name="last_24h_users">Last 24h Users</string>
+    <string name="last_24h_request">Last 24h Request</string>
+    <string name="profile">Profile</string>
+    <string name="admin">Admin</string>
+    <string name="itemHistory_result">Result:</string>
+    <string name="itemHistory_data">Data:</string>
+    <string name="itemHistory_hintExpandHistoryDetail">Expand history detail</string>
+    <string name="all_0">0</string>
+    <string name="adminAnalytics_modelList">Model List</string>
+    <string name="adminAnalytics_userList">User List</string>
 </resources>
