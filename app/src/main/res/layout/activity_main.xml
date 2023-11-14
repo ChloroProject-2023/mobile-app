@@ -12,15 +12,14 @@
         android:id="@+id/materialToolbar_main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
         android:minHeight="?attr/actionBarSize"
-        app:titleTextColor="?attr/colorOnPrimary"
-        app:navigationIconTint="?attr/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/baseline_menu_24"
-        app:titleCentered="true" />
+        app:titleCentered="true"
+        app:navigationIconTint="?attr/colorOnSurface"
+        app:titleTextColor="?attr/colorOnSurface"/>
 
     <FrameLayout
         android:id="@+id/frameLayout_main_fragmentContainer"

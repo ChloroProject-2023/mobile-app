@@ -37,7 +37,7 @@
                 tools:text="Model 1"
                 android:textSize="18sp"
                 android:textStyle="bold"
-                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textColor="?attr/colorOnBackground"
                 app:layout_constraintBottom_toTopOf="@+id/guideline_itemHistory"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -47,7 +47,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="1/1/1970"
-                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textColor="?attr/colorOnBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="@+id/guideline_itemHistory" />
@@ -76,7 +76,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/itemHistory_data"
-                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/textView_itemHistory_result"
@@ -89,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:ellipsize="marquee"
                 tools:text="C:/Users/..."
-                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textColor="?attr/colorOnBackground"
                 app:layout_constraintBottom_toBottomOf="@+id/textView_itemHistory_data"
                 app:layout_constraintStart_toStartOf="@+id/textView_itemHistory_resultDetails"
                 app:layout_constraintTop_toTopOf="@+id/textView_itemHistory_data" />
@@ -100,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/itemHistory_result"
-                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -113,7 +113,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 tools:text="N: 20; P: 30; K: 10"
-                android:textColor="?attr/colorOnSecondaryContainer"
+                android:textColor="?attr/colorOnBackground"
                 app:layout_constraintStart_toEndOf="@+id/textView_itemHistory_result"
                 app:layout_constraintTop_toTopOf="@+id/textView_itemHistory_result" />
 

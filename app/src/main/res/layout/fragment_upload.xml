@@ -63,9 +63,11 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="45dp"
+        android:backgroundTint="?attr/colorPrimaryContainer"
         android:text="@string/upload_CAP"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:textColor="?attr/colorOnPrimaryContainer"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_upload_modelDropdown"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_upload_modelDropdown"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_upload_modelDropdown" />
