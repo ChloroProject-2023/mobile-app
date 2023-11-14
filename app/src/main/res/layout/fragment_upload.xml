@@ -3,7 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/constraintLayout_upload_fragmentUpload"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/textInputLayout_upload_fileChoose"
@@ -63,11 +66,9 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="45dp"
-        android:backgroundTint="?attr/colorPrimaryContainer"
         android:text="@string/upload_CAP"
         android:textSize="22sp"
         android:textStyle="bold"
-        android:textColor="?attr/colorOnPrimaryContainer"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_upload_modelDropdown"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_upload_modelDropdown"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_upload_modelDropdown" />

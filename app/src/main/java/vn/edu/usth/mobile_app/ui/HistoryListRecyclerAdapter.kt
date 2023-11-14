@@ -46,6 +46,31 @@ class HistoryListRecyclerAdapter(
                     )
                 }
             }
+
+            viewItem.findViewById<MaterialButton>(R.id.button_itemHistory_expandButton).setOnClickListener {
+                expanded = !expanded
+                val expandButton = viewItem.findViewById<MaterialButton>(R.id.button_itemHistory_expandButton)
+                val expandArea = viewItem.findViewById<ConstraintLayout>(R.id.constraintLayout_itemHistory_expandableLayout)
+                val body = viewItem.findViewById<LinearLayout>(R.id.linearLayout_itemHistory_cardBody)
+                body.layoutTransition.enableTransitionType(LayoutTransition.CHANGING)
+
+                TransitionManager.beginDelayedTransition(body, android.transition.AutoTransition())
+
+                if (expanded) {
+                    expandArea.visibility = View.VISIBLE
+                    expandButton.background = AppCompatResources.getDrawable(
+                        viewItem.context,
+                        R.drawable.baseline_keyboard_arrow_up_24
+                    )
+                }
+                else {
+                    expandArea.visibility = View.GONE
+                    expandButton.background = AppCompatResources.getDrawable(
+                        viewItem.context,
+                        R.drawable.baseline_keyboard_arrow_down_24
+                    )
+                }
+            }
         }
     }
 
