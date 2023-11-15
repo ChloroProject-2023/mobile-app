@@ -52,4 +52,9 @@
     <string name="all_0">0</string>
     <string name="adminAnalytics_modelList">Model List</string>
     <string name="adminAnalytics_userList">User List</string>
+    <string name="by">by</string>
+    <string name="inferences">inferences</string>
+    <string name="Use">Use</string>
+    <string name="Details">Details</string>
+    <string name="Explore">Explore</string>
 </resources>

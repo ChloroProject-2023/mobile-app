@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         bottomBar.menu.findItem(R.id.navAdmin).isVisible = isAdmin
         bottomBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navUpload -> {
+                R.id.navExplore -> {
                     replaceFragment(ExploreFragment())
                     true
                 }
