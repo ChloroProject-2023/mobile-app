@@ -21,7 +21,16 @@ class HistoryListRecyclerAdapter(
 
     class ViewHolder(viewItem: View) : RecyclerView.ViewHolder(viewItem){
         private var expanded: Boolean = false
+        var modelName: TextView
+        var runDate: TextView
+        var dataPath: TextView
+        var resultDetails: TextView
         init {
+            modelName = viewItem.findViewById(R.id.textView_itemHistory_modelName)
+            runDate = viewItem.findViewById(R.id.textView_itemHistory_runDate)
+            dataPath = viewItem.findViewById(R.id.textView_itemHistory_dataPath)
+            resultDetails = viewItem.findViewById(R.id.textView_itemHistory_resultDetails)
+
             viewItem.setOnClickListener {
                 expanded = !expanded
                 val expandButton = viewItem.findViewById<MaterialButton>(R.id.button_itemHistory_expandButton)
@@ -84,13 +93,13 @@ class HistoryListRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_modelName).text = historyList[position].getModelName()
+        holder.modelName.text = historyList[position].getModelName()
 
         // Format Date to String dd/MM/yyyy
         val dateString = DateFormat.getDateInstance(DateFormat.SHORT).format(historyList[position].getDate())
-        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_runDate).text = dateString
-        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_dataPath).text = historyList[position].getUploadedData()
-        holder.itemView.findViewById<TextView>(R.id.textView_itemHistory_resultDetails).text = historyList[position].getResult()
+        holder.runDate.text = dateString
+        holder.dataPath.text = historyList[position].getUploadedData()
+        holder.resultDetails.text = historyList[position].getResult()
     }
 
 }
