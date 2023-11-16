@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.3" />
+        app:layout_constraintGuide_percent="0.38" />
 
     <TextView
         android:id="@+id/textview_login_title"
@@ -54,7 +54,9 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="80dp"
-        android:layout_marginTop="40dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login_password"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_login_password"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_login_password"
         app:layout_constraintTop_toBottomOf="@+id/textView_login_subtitle"
@@ -64,12 +66,8 @@
             android:id="@+id/editText_login_username"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:hint="@string/username"
-            android:textColorHint="?attr/colorOutline"
-            android:inputType="none"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp" />
+            android:inputType="textAutoComplete" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,8 +76,11 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="80dp"
-        android:layout_marginTop="35dp"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
+        app:layout_constraintBottom_toTopOf="@+id/textView_login_forgotpwd"
         app:layout_constraintEnd_toEndOf="@+id/button_login"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/button_login"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_login_username"
         app:startIconDrawable="@drawable/baseline_password_24">
@@ -88,34 +89,31 @@
             android:id="@+id/editText_login_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
             android:hint="@string/password"
-            android:textColorHint="?attr/colorOutline"
-            android:inputType="none"
-            android:paddingStart="10dp"
-            android:paddingEnd="10dp" />
+            android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView_login_forgotpwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
         android:text="@string/forgot_password"
         android:textColor="?attr/colorOutline"
         android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/button_login"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_login_password"
-        app:layout_constraintTop_toBottomOf="@id/textInputLayout_login_password" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_login_password" />
 
     <Button
         android:id="@+id/button_login"
         android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="20dp"
         android:text="@string/log_in_CAP"
         android:textSize="22sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/button_login_signup"
         app:layout_constraintEnd_toEndOf="@+id/button_login_signup"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/button_login_signup"
         app:layout_constraintTop_toBottomOf="@+id/textView_login_forgotpwd" />
 
@@ -123,14 +121,14 @@
         android:id="@+id/button_login_signup"
         android:layout_width="wrap_content"
         android:layout_height="60dp"
+        android:layout_marginBottom="24dp"
         android:gravity="center_vertical"
         android:text="@string/do_not_have_an_account_sign_up"
+        android:textColor="?attr/colorOnBackground"
         android:textSize="15sp"
         android:textStyle="bold|italic"
-        android:textColor="?attr/colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button_login" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

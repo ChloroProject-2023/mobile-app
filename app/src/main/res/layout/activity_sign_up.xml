@@ -54,6 +54,8 @@
         android:layout_width="194dp"
         android:layout_height="80dp"
         android:focusable="auto"
+        app:errorEnabled="true"
+        app:helperTextEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_usernameField"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_signup_usernameField"
         app:layout_constraintTop_toBottomOf="@+id/guideline_signup">
@@ -63,7 +65,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/first_name"
-            android:inputType="text" />
+            android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -73,6 +75,7 @@
         android:layout_width="138dp"
         android:layout_height="80dp"
         android:focusable="auto"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="@+id/textInputLayout_signup_fnField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_usernameField">
 
@@ -81,7 +84,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="@string/last_name"
-            android:inputType="text" />
+            android:inputType="textPersonName" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,6 +95,7 @@
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_pwField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_pwField"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_signup_pwField"
@@ -113,6 +117,7 @@
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_cfField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_cfField"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_signup_cfField"
@@ -135,6 +140,7 @@
         android:layout_width="350dp"
         android:layout_height="80dp"
         android:layout_marginTop="25dp"
+        app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/button_signup"
         app:layout_constraintEnd_toEndOf="@+id/button_signup"
         app:layout_constraintStart_toStartOf="@+id/button_signup"
