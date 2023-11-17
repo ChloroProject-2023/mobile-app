@@ -52,4 +52,6 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
     implementation("com.github.AAChartModel:AAChartCore-Kotlin:7.2.1")
+    implementation ("androidx.activity:activity-ktx:1.8.1")
+    implementation ("androidx.fragment:fragment-ktx:1.6.2")
 }
