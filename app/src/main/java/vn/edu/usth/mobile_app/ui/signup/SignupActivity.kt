@@ -1,39 +1,41 @@
-package vn.edu.usth.mobile_app.ui
+package vn.edu.usth.mobile_app.ui.signup
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
-import android.widget.Button
-import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.button.MaterialButton
-import com.google.android.material.textfield.TextInputLayout
 import vn.edu.usth.mobile_app.MainActivity
-import vn.edu.usth.mobile_app.R
+import vn.edu.usth.mobile_app.databinding.ActivitySignUpBinding
 
 class SignupActivity : AppCompatActivity() {
+    private lateinit var binding: ActivitySignUpBinding
+    private val viewModel: SignupViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_sign_up)
+        binding = ActivitySignUpBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        val fnField = findViewById<TextInputLayout>(R.id.textInputLayout_signup_fnField)
-        val lnField = findViewById<TextInputLayout>(R.id.textInputLayout_signup_lnField)
-        val usernameField = findViewById<TextInputLayout>(R.id.textInputLayout_signup_usernameField)
-        val passwordField = findViewById<TextInputLayout>(R.id.textInputLayout_signup_pwField)
-        val confirmPasswordField = findViewById<TextInputLayout>(R.id.textInputLayout_signup_cfField)
+        val fnField = binding.textInputLayoutSignupFnField
+        val lnField = binding.textInputLayoutSignupLnField
+        val usernameField = binding.textInputLayoutSignupUsernameField
+        val passwordField = binding.textInputLayoutSignupPwField
+        val confirmPasswordField = binding.textInputLayoutSignupCfField
 
-        val firstname = findViewById<TextView>(R.id.editText_signup_firstName)
-        val lastname = findViewById<TextView>(R.id.editText_signup_lastName)
-        val username = findViewById<TextView>(R.id.editText_signup_username)
-        val password = findViewById<TextView>(R.id.editText_signup_password)
-        val confirmPassword = findViewById<TextView>(R.id.editText_signup_passCf)
+        val firstname = binding.editTextSignupFirstName
+        val lastname = binding.editTextSignupLastName
+        val username = binding.editTextSignupUsername
+        val password = binding.editTextSignupPassword
+        val confirmPassword = binding.editTextSignupPassCf
 
-        val backButton = findViewById<MaterialButton>(R.id.button_signup_back)
+        val backButton = binding.buttonSignupBack
         backButton.setOnClickListener {
             finish()
         }
 
-        val signup = findViewById<Button>(R.id.button_signup)
+        val signup = binding.buttonSignup
         signup.setOnClickListener {
             fnField.error = null
             lnField.error = null
@@ -61,6 +63,20 @@ class SignupActivity : AppCompatActivity() {
                 confirmPasswordField.error = "Please confirm your password"
                 return@setOnClickListener
             }
+            if (password.text.toString() != confirmPassword.text.toString()){
+                confirmPasswordField.error = "Password does not match"
+                return@setOnClickListener
+            }
+
+            val result = viewModel.submit(
+                firstname.text.toString(),
+                lastname.text.toString(),
+                username.text.toString(),
+                password.text.toString()
+            )
+            if (!result) {
+                return@setOnClickListener
+            }
 
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtras(
@@ -73,7 +89,7 @@ class SignupActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        val login = findViewById<TextView>(R.id.button_signup_login)
+        val login = binding.buttonSignupLogin
         login.setOnClickListener {
             finish()
         }

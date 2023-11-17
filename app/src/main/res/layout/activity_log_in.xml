@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".ui.LoginActivity">
+    tools:context=".ui.login.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView_login_topImage"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.38" />
+        app:layout_constraintGuide_percent="0.35" />
 
     <TextView
         android:id="@+id/textview_login_title"
@@ -53,7 +53,7 @@
         android:id="@+id/textInputLayout_login_username"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:helperTextEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_login_password"
@@ -65,7 +65,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_login_username"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/username"
             android:inputType="textAutoComplete" />
 
@@ -75,7 +75,7 @@
         android:id="@+id/textInputLayout_login_password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         app:errorEnabled="true"
         app:helperTextEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textView_login_forgotpwd"
@@ -88,7 +88,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_login_password"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/password"
             android:inputType="textPassword" />
     </com.google.android.material.textfield.TextInputLayout>

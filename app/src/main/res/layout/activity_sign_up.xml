@@ -8,7 +8,7 @@
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".ui.SignupActivity">
+    tools:context=".ui.signup.SignupActivity">
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/button_signup_back"
@@ -52,7 +52,7 @@
         android:id="@+id/textInputLayout_signup_fnField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="194dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:focusable="auto"
         app:errorEnabled="true"
         app:helperTextEnabled="true"
@@ -63,7 +63,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_firstName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/first_name"
             android:inputType="textPersonName" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -73,7 +73,7 @@
         android:id="@+id/textInputLayout_signup_lnField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="138dp"
-        android:layout_height="80dp"
+        android:layout_height="wrap_content"
         android:focusable="auto"
         app:errorEnabled="true"
         app:layout_constraintBottom_toBottomOf="@+id/textInputLayout_signup_fnField"
@@ -82,7 +82,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_lastName"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/last_name"
             android:inputType="textPersonName" />
 
@@ -93,8 +93,8 @@
         android:id="@+id/textInputLayout_signup_usernameField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_pwField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_pwField"
@@ -105,7 +105,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_username"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/username" />
 
     </com.google.android.material.textfield.TextInputLayout>
@@ -115,8 +115,8 @@
         android:id="@+id/textInputLayout_signup_pwField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_cfField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_cfField"
@@ -127,7 +127,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_password"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/password"
             android:inputType="textPassword" />
 
@@ -138,8 +138,8 @@
         android:id="@+id/textInputLayout_signup_cfField"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="25dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/button_signup"
         app:layout_constraintEnd_toEndOf="@+id/button_signup"
@@ -150,7 +150,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_passCf"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="80dp"
             android:hint="@string/confirm_password"
             android:inputType="textPassword" />
 
@@ -161,7 +161,7 @@
         android:id="@+id/button_signup"
         android:layout_width="350dp"
         android:layout_height="60dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="5dp"
         android:contentDescription="@string/sign_up_CAP"
         android:text="@string/sign_up_CAP"

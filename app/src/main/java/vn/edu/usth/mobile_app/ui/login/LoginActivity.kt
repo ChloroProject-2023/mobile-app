@@ -1,33 +1,38 @@
-package vn.edu.usth.mobile_app.ui
+package vn.edu.usth.mobile_app.ui.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
-import android.widget.Button
-import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputLayout
 import vn.edu.usth.mobile_app.MainActivity
-import vn.edu.usth.mobile_app.R
+import vn.edu.usth.mobile_app.databinding.ActivityLogInBinding
+import vn.edu.usth.mobile_app.ui.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityLogInBinding
+    private val viewModel: LoginViewModel by viewModels()
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_log_in)
+        binding = ActivityLogInBinding.inflate(layoutInflater)
 
-        val usernameField = findViewById<TextInputLayout>(R.id.textInputLayout_login_username)
-        val passwordField = findViewById<TextInputLayout>(R.id.textInputLayout_login_password)
+        val view = binding.root
+        setContentView(view)
 
-        val username = findViewById<TextView>(R.id.editText_login_username)
-        val password = findViewById<TextView>(R.id.editText_login_password)
+        val usernameField = binding.textInputLayoutLoginUsername
+        val passwordField = binding.textInputLayoutLoginPassword
 
-        val signup = findViewById<TextView>(R.id.button_login_signup)
+        val username = binding.editTextLoginUsername
+        val password = binding.editTextLoginPassword
+
+        val signup = binding.buttonLoginSignup
         signup.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
         }
 
-        val login = findViewById<Button>(R.id.button_login)
+        val login = binding.buttonLogin
         login.setOnClickListener {
             usernameField.error = null
             passwordField.error = null
@@ -41,6 +46,11 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
+            val result = viewModel.submit(username.text.toString(), password.text.toString())
+            if (!result) {
+                usernameField.error = "Username or password is incorrect"
+                return@setOnClickListener
+            }
             val intent = Intent(this, MainActivity::class.java)
             intent.putExtras(
                 Bundle().apply {
