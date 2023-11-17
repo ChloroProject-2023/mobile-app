@@ -94,7 +94,6 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_pwField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_pwField"
@@ -116,13 +115,15 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_cfField"
         app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_cfField"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_signup_cfField"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_signup_usernameField"
-        app:startIconDrawable="@drawable/baseline_password_24">
+        app:startIconDrawable="@drawable/baseline_password_24"
+        app:endIconDrawable="@drawable/baseline_visibility_24"
+        app:endIconCheckable="true"
+        app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_password"
@@ -139,13 +140,15 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="350dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         app:errorEnabled="true"
         app:layout_constraintBottom_toTopOf="@+id/button_signup"
         app:layout_constraintEnd_toEndOf="@+id/button_signup"
         app:layout_constraintStart_toStartOf="@+id/button_signup"
         app:layout_constraintTop_toBottomOf="@+id/textInputLayout_signup_pwField"
-        app:startIconDrawable="@drawable/baseline_password_24">
+        app:startIconDrawable="@drawable/baseline_password_24"
+        app:endIconDrawable="@drawable/baseline_visibility_24"
+        app:endIconCheckable="true"
+        app:endIconMode="password_toggle">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/editText_signup_passCf"

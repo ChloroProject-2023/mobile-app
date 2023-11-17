@@ -6,6 +6,7 @@ import android.view.MotionEvent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.MainActivity
+import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityLogInBinding
 import vn.edu.usth.mobile_app.ui.signup.SignupActivity
 
@@ -25,6 +26,16 @@ class LoginActivity : AppCompatActivity() {
 
         val username = binding.editTextLoginUsername
         val password = binding.editTextLoginPassword
+        passwordField.setEndIconOnClickListener {
+            if (password.transformationMethod == null) {
+                password.transformationMethod = android.text.method.PasswordTransformationMethod()
+                passwordField.setEndIconDrawable(R.drawable.baseline_visibility_24)
+            } else {
+                password.transformationMethod = null
+                passwordField.setEndIconDrawable(R.drawable.baseline_visibility_off_24)
+            }
+        }
+
 
         val signup = binding.buttonLoginSignup
         signup.setOnClickListener {

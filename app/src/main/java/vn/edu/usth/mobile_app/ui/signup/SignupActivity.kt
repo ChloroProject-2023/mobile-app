@@ -6,6 +6,7 @@ import android.view.MotionEvent
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.MainActivity
+import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivitySignUpBinding
 
 class SignupActivity : AppCompatActivity() {
@@ -28,7 +29,26 @@ class SignupActivity : AppCompatActivity() {
         val lastname = binding.editTextSignupLastName
         val username = binding.editTextSignupUsername
         val password = binding.editTextSignupPassword
+        passwordField.setEndIconOnClickListener{
+            if (password.transformationMethod == null) {
+                password.transformationMethod = android.text.method.PasswordTransformationMethod()
+                passwordField.setEndIconDrawable(R.drawable.baseline_visibility_24)
+            } else {
+                password.transformationMethod = null
+                passwordField.setEndIconDrawable(R.drawable.baseline_visibility_off_24)
+            }
+        }
+
         val confirmPassword = binding.editTextSignupPassCf
+        confirmPasswordField.setEndIconOnClickListener {
+            if (confirmPassword.transformationMethod == null) {
+                confirmPassword.transformationMethod = android.text.method.PasswordTransformationMethod()
+                confirmPasswordField.setEndIconDrawable(R.drawable.baseline_visibility_24)
+            } else {
+                confirmPassword.transformationMethod = null
+                confirmPasswordField.setEndIconDrawable(R.drawable.baseline_visibility_off_24)
+            }
+        }
 
         val backButton = binding.buttonSignupBack
         backButton.setOnClickListener {
