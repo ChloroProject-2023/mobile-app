@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui
+package vn.edu.usth.mobile_app.ui.history
 
 import android.animation.LayoutTransition
 import android.transition.TransitionManager
