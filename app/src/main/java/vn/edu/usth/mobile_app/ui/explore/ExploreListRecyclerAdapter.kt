@@ -1,32 +1,24 @@
 package vn.edu.usth.mobile_app.ui.explore
 
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import vn.edu.usth.mobile_app.R
+import vn.edu.usth.mobile_app.databinding.ItemListExploreBinding
 import vn.edu.usth.mobile_app.model.ModelData
 
 class ExploreListRecyclerAdapter(
     private var modelList: ArrayList<ModelData>
 ): RecyclerView.Adapter<ExploreListRecyclerAdapter.ViewHolder>() {
 
-    class ViewHolder(viewItem: View): RecyclerView.ViewHolder(viewItem){
-        var modelName: TextView
-        var authorName: TextView
-        var usage: TextView
-
-        init {
-            modelName = viewItem.findViewById(R.id.textView_itemExplore_modelName)
-            authorName = viewItem.findViewById(R.id.textView_itemExplore_authorName)
-            usage = viewItem.findViewById(R.id.textView_itemExplore_usage)
-        }
+    class ViewHolder(binding: ItemListExploreBinding): RecyclerView.ViewHolder(binding.root){
+        var modelName = binding.textViewItemExploreModelName
+        var authorName = binding.textViewItemExploreAuthorName
+        var usage = binding.textViewItemExploreUsage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_list_explore, parent, false)
-        return ViewHolder(view)
+        val binding = ItemListExploreBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        return ViewHolder(binding)
     }
 
     override fun getItemCount(): Int {
