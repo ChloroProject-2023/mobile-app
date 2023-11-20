@@ -57,4 +57,16 @@
     <string name="Use">Use</string>
     <string name="Details">Details</string>
     <string name="Explore">Explore</string>
+    <!--String of model details-->
+    <string name="model_name">Model Name</string>
+    <string name="name">Model 1</string>
+    <string name="model_date">Training Date</string>
+    <string name="date">XX/YY/ZZZZ</string>
+    <string name="model_time">Training Time</string>
+    <string name="training">Training</string>
+    <string name="result">Result</string>
+    <string name="amount_n">Amount of N</string>
+    <string name="amount_p">Amount of P</string>
+    <string name="amount_k">Amount of K</string>
+    <string name="image">Image of the model</string>
 </resources>

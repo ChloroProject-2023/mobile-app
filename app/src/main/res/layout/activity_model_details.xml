@@ -6,8 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    tools:context=".ui.ModelDetailsActivity">
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/materialToolbar"
@@ -20,6 +19,210 @@
         app:title="Model Details"
         app:titleTextColor="?attr/colorOnSurface" />
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/image"
+        android:src="@drawable/login_startimage"
+        app:layout_constraintBottom_toTopOf="@+id/modeldetails_training"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/modeldetails_training"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/training"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/modeldetails_modelname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/modeldetails_modelname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/model_name"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_training" />
+
+            <TextView
+                android:id="@+id/modeldetails_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/name"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                app:layout_constraintBottom_toBottomOf="@+id/modeldetails_modelname"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/modeldetails_modelname" />
+
+            <TextView
+                android:id="@+id/modeldetails_modeldate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/model_date"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modelname" />
+
+            <TextView
+                android:id="@+id/modeldetails_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_name"/>
+
+            <TextView
+                android:id="@+id/modeldetails_modeldata"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/itemHistory_data"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeldate" />
+
+            <TextView
+                android:id="@+id/modeldetails_data"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="C:/Users/..."
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_date"/>
+
+
+            <TextView
+                android:id="@+id/modeldetails_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/result"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeldata" />
+
+            <TextView
+                android:id="@+id/modeldetails_modeltime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/model_time"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_result" />
+
+            <TextView
+                android:id="@+id/modeldetails_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="11.114s"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_result"/>
+
+            <TextView
+                android:id="@+id/modeldetails_amountN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_n"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeltime" />
+
+            <TextView
+                android:id="@+id/modeldetails_N"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="0.123kg"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_time"/>
+
+            <TextView
+                android:id="@+id/modeldetails_amountP"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_p"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_amountN" />
+
+            <TextView
+                android:id="@+id/modeldetails_P"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="0.123kg"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_N"/>
+
+            <TextView
+                android:id="@+id/modeldetails_amountK"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/amount_k"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_amountP" />
+
+            <TextView
+                android:id="@+id/modeldetails_K"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="0.123kg"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_P"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
 
 </LinearLayout>
