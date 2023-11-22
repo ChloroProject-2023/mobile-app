@@ -57,4 +57,22 @@
     <string name="Use">Use</string>
     <string name="Details">Details</string>
     <string name="Explore">Explore</string>
+    <!--String of model details-->
+    <string name="model_name">Model Name</string>
+    <string name="name">Model 1</string>
+    <string name="model_date">Created Date</string>
+    <string name="date">XX/YY/ZZZZ</string>
+    <string name="model_creator">Creator</string>
+    <string name="creator">A, B, C, etc.</string>
+    <string name="model_description">Description</string>
+    <string name="description">This model use something to do something and something </string>
+    <string name="model_source">Source</string>
+    <string name="model_numuse">Number of using</string>
+    <string name="like">Like</string>
+    <string name="dislike">Dislike</string>
+    <string name="image">Image of the model</string>
+    <string name="thumb_up">Thumb up</string>
+    <string name="thumb_down">Thumb down</string>
+    <string name="model_tag">Tags</string>
+    <string name="tag">Models</string>
 </resources>
