@@ -25,7 +25,7 @@
         android:layout_marginBottom="16dp"
         android:contentDescription="@string/image"
         android:src="@drawable/login_startimage"
-        app:layout_constraintBottom_toTopOf="@+id/modeldetails_training"
+        app:layout_constraintBottom_toTopOf="@+id/modeldetails_model"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -43,10 +43,10 @@
             android:layout_height="wrap_content">
 
             <TextView
-                android:id="@+id/modeldetails_training"
+                android:id="@+id/modeldetails_model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/training"
+                android:text="@string/model"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="24sp"
                 android:textStyle="bold"
@@ -62,7 +62,7 @@
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_training" />
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_model" />
 
             <TextView
                 android:id="@+id/modeldetails_name"
@@ -70,6 +70,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/name"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="?attr/colorOnBackground"
                 app:layout_constraintBottom_toBottomOf="@+id/modeldetails_modelname"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -92,134 +93,199 @@
                 android:layout_height="wrap_content"
                 android:text="@string/date"
                 android:textStyle="bold"
+                android:textSize="16sp"
                 android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/modeldetails_name"/>
 
             <TextView
-                android:id="@+id/modeldetails_modeldata"
+                android:id="@+id/modeldetails_modelcreator"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/itemHistory_data"
+                android:text="@string/model_creator"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeldate" />
 
+
             <TextView
-                android:id="@+id/modeldetails_data"
-                android:layout_width="wrap_content"
+                android:id="@+id/modeldetails_creator"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                tools:text="C:/Users/..."
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_date"/>
-
-
-            <TextView
-                android:id="@+id/modeldetails_result"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:text="@string/result"
+                android:gravity="end"
+                android:text="@string/creator"
+                android:textAlignment="gravity"
                 android:textColor="?attr/colorOnBackground"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeldata" />
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_date" />
 
             <TextView
-                android:id="@+id/modeldetails_modeltime"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/model_time"
+                android:text="@string/model_description"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_result" />
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_creator" />
 
             <TextView
-                android:id="@+id/modeldetails_time"
-                android:layout_width="wrap_content"
+                android:id="@+id/description"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                tools:text="11.114s"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="16dp"
+                android:gravity="end"
+                android:text="@string/description"
+                android:textAlignment="gravity"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_result"/>
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_creator" />
 
             <TextView
-                android:id="@+id/modeldetails_amountN"
+                android:id="@+id/modeldetails_modelsource"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/amount_n"
+                android:text="@string/model_source"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeltime" />
+                app:layout_constraintTop_toBottomOf="@+id/description" />
 
             <TextView
-                android:id="@+id/modeldetails_N"
-                android:layout_width="wrap_content"
+                android:id="@+id/modeldetails_source"
+                android:layout_width="220dp"
                 android:layout_height="wrap_content"
-                tools:text="0.123kg"
+                tools:text="https://..."
+                android:gravity="end"
+                android:textAlignment="gravity"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_time"/>
+                app:layout_constraintTop_toBottomOf="@+id/description"/>
 
             <TextView
-                android:id="@+id/modeldetails_amountP"
+                android:id="@+id/modeldetails_modelnumuse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/amount_p"
+                android:text="@string/model_numuse"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_amountN" />
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_source" />
 
             <TextView
-                android:id="@+id/modeldetails_P"
+                android:id="@+id/modeldetails_numuse"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="0.123kg"
+                tools:text="9630"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_N"/>
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_source"/>
 
             <TextView
-                android:id="@+id/modeldetails_amountK"
+                android:id="@+id/modeldetails_like"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/amount_k"
+                android:text="@string/like"
                 android:textColor="?attr/colorOnBackground"
                 android:textSize="16sp"
                 android:layout_marginTop="16dp"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_amountP" />
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_numuse" />
 
             <TextView
-                android:id="@+id/modeldetails_K"
+                android:id="@+id/modeldetails_numlike"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="0.123kg"
+                tools:text="1412"
                 android:textStyle="bold"
                 android:textColor="?attr/colorOnBackground"
                 android:layout_marginTop="16dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toStartOf="@id/modeldetails_thumbup"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_numuse"/>
+
+            <ImageView
+                android:id="@+id/modeldetails_thumbup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/thumb_up"
+                android:src="@drawable/baseline_thumb_up_16"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_numuse"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+
+            <TextView
+                android:id="@+id/modeldetails_dislike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/dislike"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_like" />
+
+            <TextView
+                android:id="@+id/modeldetails_numdislike"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="69"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintEnd_toStartOf="@id/modeldetails_thumbdown"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_like"/>
+
+            <ImageView
+                android:id="@+id/modeldetails_thumbdown"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:contentDescription="@string/thumb_down"
+                android:src="@drawable/baseline_thumb_down_16"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_like"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <TextView
+                android:id="@+id/modeldetails_modeltag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/model_tag"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_dislike" />
+
+            <TextView
+                android:id="@+id/modeldetails_tags"
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:gravity="end"
+                android:textAlignment="gravity"
+                android:text="@string/tag"
+                android:textColor="?attr/colorOnBackground"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_P"/>
+                app:layout_constraintTop_toBottomOf="@+id/modeldetails_dislike" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
