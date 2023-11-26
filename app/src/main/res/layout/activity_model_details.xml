@@ -113,7 +113,7 @@
 
             <TextView
                 android:id="@+id/modeldetails_creator"
-                android:layout_width="220dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="end"
@@ -137,7 +137,7 @@
 
             <TextView
                 android:id="@+id/description"
-                android:layout_width="220dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:gravity="end"
@@ -162,7 +162,7 @@
 
             <TextView
                 android:id="@+id/modeldetails_source"
-                android:layout_width="220dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 tools:text="https://..."
                 android:gravity="end"
@@ -275,7 +275,7 @@
 
             <TextView
                 android:id="@+id/modeldetails_tags"
-                android:layout_width="220dp"
+                android:layout_width="240dp"
                 android:layout_height="wrap_content"
                 android:gravity="end"
                 android:textAlignment="gravity"

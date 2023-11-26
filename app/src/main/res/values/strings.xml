@@ -75,4 +75,18 @@
     <string name="thumb_down">Thumb down</string>
     <string name="model_tag">Tags</string>
     <string name="tag">Models</string>
+<!--String of user profile-->
+    <string name="profile_image">Profile Image</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="profile_introduce">Introduce about myself</string>
+    <string name="role">Role</string>
+    <string name="profile_model">Uploaded Model</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_phonenum">Phone Number</string>
+    <string name="profile_username">Username</string>
+    <string name="profile_password">Password</string>
+    <string name="profile_location">Location</string>
+    <string name="profile_dob">Date of birth</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="change_pass">Change password</string>
 </resources>
