@@ -89,4 +89,9 @@
     <string name="profile_dob">Date of birth</string>
     <string name="edit_profile">Edit profile</string>
     <string name="change_pass">Change password</string>
+    <string name="Share">Share</string>
+    <string name="About_this_model">About this model</string>
+    <string name="Ratings_and_comments">Ratings and comments</string>
+    <string name="Most_used_models">Most used models</string>
+    <string name="Similar_models">Similar models</string>
 </resources>

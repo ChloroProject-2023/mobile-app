@@ -9,286 +9,183 @@
     android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
-        android:id="@+id/materialToolbar"
+        android:id="@+id/materialToolbar_modelDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:navigationIcon="@drawable/baseline_arrow_back_24"
         app:navigationIconTint="?attr/colorOnSurface"
-        app:title="Model Details"
+        app:menu="@menu/model_details_menu"
         app:titleTextColor="?attr/colorOnSurface" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_marginBottom="16dp"
-        android:contentDescription="@string/image"
-        android:src="@drawable/login_startimage"
-        app:layout_constraintBottom_toTopOf="@+id/modeldetails_model"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:animateLayoutChanges="true"
-        android:orientation="vertical"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp">
+        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp">
 
             <TextView
-                android:id="@+id/modeldetails_model"
+                android:id="@+id/textView_modelDetails_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/model"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toTopOf="@+id/modeldetails_modelname"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent" />
+                android:text="Model Name"
+                android:textSize="32sp" />
 
             <TextView
-                android:id="@+id/modeldetails_modelname"
+                android:id="@+id/textView_modelDetails_author"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/model_name"
-                android:textColor="?attr/colorOnBackground"
+                android:layout_marginTop="8dp"
+                android:text="Author Name"
+                android:textColor="?attr/colorPrimary"
+                android:textSize="14sp" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_modelDetails_use"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="24dp"
+                android:text="@string/Use" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout_modelDetails_aboutThisModel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/About_this_model"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/baseline_arrow_forward_24" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView_modelDetails_shortDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_model" />
+                tools:text="testtesttest" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout_modelDetails_ratingsAndComments"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Ratings_and_comments"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/baseline_arrow_forward_24" />
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/modeldetails_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/name"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="?attr/colorOnBackground"
-                app:layout_constraintBottom_toBottomOf="@+id/modeldetails_modelname"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/modeldetails_modelname" />
+                android:text="Ratings and reviews are verified and posted by users of the same device as yours"
+                android:textSize="12sp" />
 
-            <TextView
-                android:id="@+id/modeldetails_modeldate"
-                android:layout_width="wrap_content"
+            <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+                android:id="@+id/chartView_modelDetails_ratings"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout_modelDetails_mostUsedModels"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/model_date"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modelname" />
+                android:orientation="horizontal"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/modeldetails_date"
-                android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Most_used_models"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/baseline_arrow_forward_24" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_modelDetails_mostUsedModels"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout_modelDetails_similarModels"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/date"
-                android:textStyle="bold"
-                android:textSize="16sp"
-                android:textColor="?attr/colorOnBackground"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_name"/>
+                android:orientation="horizontal"
+                android:paddingTop="16dp"
+                android:paddingBottom="16dp">
 
-            <TextView
-                android:id="@+id/modeldetails_modelcreator"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/model_creator"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_modeldate" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/Similar_models"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:scaleType="fitEnd"
+                    android:src="@drawable/baseline_arrow_forward_24" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/modeldetails_creator"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="end"
-                android:text="@string/creator"
-                android:textAlignment="gravity"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_date" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_modelDetails_similarModels"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:orientation="horizontal" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/model_description"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_creator" />
-
-            <TextView
-                android:id="@+id/description"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:gravity="end"
-                android:text="@string/description"
-                android:textAlignment="gravity"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_creator" />
-
-            <TextView
-                android:id="@+id/modeldetails_modelsource"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/model_source"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description" />
-
-            <TextView
-                android:id="@+id/modeldetails_source"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                tools:text="https://..."
-                android:gravity="end"
-                android:textAlignment="gravity"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnBackground"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/description"/>
-
-            <TextView
-                android:id="@+id/modeldetails_modelnumuse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/model_numuse"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_source" />
-
-            <TextView
-                android:id="@+id/modeldetails_numuse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="9630"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnBackground"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_source"/>
-
-            <TextView
-                android:id="@+id/modeldetails_like"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/like"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_numuse" />
-
-            <TextView
-                android:id="@+id/modeldetails_numlike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="1412"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnBackground"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="5dp"
-                app:layout_constraintEnd_toStartOf="@id/modeldetails_thumbup"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_numuse"/>
-
-            <ImageView
-                android:id="@+id/modeldetails_thumbup"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:contentDescription="@string/thumb_up"
-                android:src="@drawable/baseline_thumb_up_16"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_numuse"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-
-            <TextView
-                android:id="@+id/modeldetails_dislike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/dislike"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_like" />
-
-            <TextView
-                android:id="@+id/modeldetails_numdislike"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                tools:text="69"
-                android:textStyle="bold"
-                android:textColor="?attr/colorOnBackground"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="5dp"
-                app:layout_constraintEnd_toStartOf="@id/modeldetails_thumbdown"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_like"/>
-
-            <ImageView
-                android:id="@+id/modeldetails_thumbdown"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:contentDescription="@string/thumb_down"
-                android:src="@drawable/baseline_thumb_down_16"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_like"
-                app:layout_constraintEnd_toEndOf="parent" />
-
-            <TextView
-                android:id="@+id/modeldetails_modeltag"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/model_tag"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_dislike" />
-
-            <TextView
-                android:id="@+id/modeldetails_tags"
-                android:layout_width="240dp"
-                android:layout_height="wrap_content"
-                android:gravity="end"
-                android:textAlignment="gravity"
-                android:text="@string/tag"
-                android:textColor="?attr/colorOnBackground"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/modeldetails_dislike" />
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
-
 </LinearLayout>
