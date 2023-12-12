@@ -11,9 +11,9 @@ class ExploreListRecyclerAdapter(
 ): RecyclerView.Adapter<ExploreListRecyclerAdapter.ViewHolder>() {
 
     class ViewHolder(binding: ItemListExploreBinding): RecyclerView.ViewHolder(binding.root){
-        var modelName = binding.textViewItemExploreModelName
-        var authorName = binding.textViewItemExploreAuthorName
-        var usage = binding.textViewItemExploreUsage
+        val modelName = binding.textViewItemExploreModelName
+        val authorName = binding.textViewItemExploreAuthorName
+        val usage = binding.textViewItemExploreUsage
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
