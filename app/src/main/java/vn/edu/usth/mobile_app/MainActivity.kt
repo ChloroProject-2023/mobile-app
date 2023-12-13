@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import vn.edu.usth.mobile_app.ui.AdminAnalyticsFragment
-import vn.edu.usth.mobile_app.ui.HistoryFragment
-import vn.edu.usth.mobile_app.ui.LoginActivity
-import vn.edu.usth.mobile_app.ui.ExploreFragment
+import vn.edu.usth.mobile_app.ui.admin.AdminAnalyticsFragment
+import vn.edu.usth.mobile_app.ui.history.HistoryFragment
+import vn.edu.usth.mobile_app.ui.login.LoginActivity
+import vn.edu.usth.mobile_app.ui.explore.ExploreFragment
 
 
 class MainActivity : AppCompatActivity() {
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
         bottomBar.menu.findItem(R.id.navAdmin).isVisible = isAdmin
         bottomBar.setOnItemSelectedListener { item ->
             when (item.itemId) {
-                R.id.navUpload -> {
+                R.id.navExplore -> {
                     replaceFragment(ExploreFragment())
                     true
                 }

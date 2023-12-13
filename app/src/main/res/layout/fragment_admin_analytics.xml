@@ -94,33 +94,32 @@
                 android:id="@+id/textView_adminAnalytics_last24hRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:text="@string/last_24h_request"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_adminAnalytics" />
+                app:layout_constraintBottom_toTopOf="@+id/textView_adminAnalytics_last24hRequestValue"
+                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hRequestValue"
+                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hRequestValue" />
 
             <TextView
                 android:id="@+id/textView_adminAnalytics_last24hRequestValue"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginTop="36dp"
                 android:gravity="center"
                 android:text="@string/all_0"
-                tools:text="230"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hRequest"
-                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hRequest"
-                app:layout_constraintTop_toBottomOf="@id/textView_adminAnalytics_last24hRequest" />
+                app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/divider_adminAnalytics"
+                tools:text="230" />
 
             <TextView
-                android:id="@+id/textView_adminAnalytics_last24hUsers"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/last_24h_users"
                 app:layout_constraintBottom_toBottomOf="@+id/textView_adminAnalytics_last24hRequest"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline_adminAnalytics_vertical1" />
+                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hUsersValue"
+                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hUsersValue" />
 
             <TextView
                 android:id="@+id/textView_adminAnalytics_last24hUsersValue"
@@ -128,12 +127,13 @@
                 android:layout_height="48dp"
                 android:gravity="center"
                 android:text="@string/all_0"
-                tools:text="20"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hUsers"
-                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hUsers"
-                app:layout_constraintTop_toBottomOf="@id/textView_adminAnalytics_last24hUsers" />
+                app:layout_constraintBottom_toBottomOf="@+id/textView_adminAnalytics_last24hRequestValue"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline_adminAnalytics_vertical1"
+                app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_last24hRequest"
+                tools:text="20" />
 
             <com.google.android.material.divider.MaterialDivider
                 android:id="@+id/divider_adminAnalytics_2"

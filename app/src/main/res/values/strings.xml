@@ -52,4 +52,46 @@
     <string name="all_0">0</string>
     <string name="adminAnalytics_modelList">Model List</string>
     <string name="adminAnalytics_userList">User List</string>
+    <string name="by">by</string>
+    <string name="inferences">inferences</string>
+    <string name="Use">Use</string>
+    <string name="Details">Details</string>
+    <string name="Explore">Explore</string>
+    <!--String of model details-->
+    <string name="model_name">Model Name</string>
+    <string name="name">Model 1</string>
+    <string name="model_date">Created Date</string>
+    <string name="date">XX/YY/ZZZZ</string>
+    <string name="model_creator">Creator</string>
+    <string name="creator">A, B, C, etc.</string>
+    <string name="model_description">Description</string>
+    <string name="description">This model use something to do something and something </string>
+    <string name="model_source">Source</string>
+    <string name="model_numuse">Number of using</string>
+    <string name="like">Like</string>
+    <string name="dislike">Dislike</string>
+    <string name="image">Image of the model</string>
+    <string name="thumb_up">Thumb up</string>
+    <string name="thumb_down">Thumb down</string>
+    <string name="model_tag">Tags</string>
+    <string name="tag">Models</string>
+<!--String of user profile-->
+    <string name="profile_image">Profile Image</string>
+    <string name="profile_name">Profile Name</string>
+    <string name="profile_introduce">Introduce about myself</string>
+    <string name="role">Role</string>
+    <string name="profile_model">Uploaded Model</string>
+    <string name="profile_email">Email</string>
+    <string name="profile_phonenum">Phone Number</string>
+    <string name="profile_username">Username</string>
+    <string name="profile_password">Password</string>
+    <string name="profile_location">Location</string>
+    <string name="profile_dob">Date of birth</string>
+    <string name="edit_profile">Edit profile</string>
+    <string name="change_pass">Change password</string>
+    <string name="Share">Share</string>
+    <string name="About_this_model">About this model</string>
+    <string name="Ratings_and_comments">Ratings and comments</string>
+    <string name="Most_used_models">Most used models</string>
+    <string name="Similar_models">Similar models</string>
 </resources>
