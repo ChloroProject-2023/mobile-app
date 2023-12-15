@@ -59,12 +59,12 @@ class ModelDetailsActivity : AppCompatActivity() {
             // Open comments
         }
 
-        val similarModels = binding.recyclerViewModelDetailsSimilarModels
+        val similarModels = binding.linearLayoutModelDetailsSimilarModels
         similarModels.setOnClickListener() {
             // Open similar models
         }
 
-        val mostUsedModels = binding.recyclerViewModelDetailsMostUsedModels
+        val mostUsedModels = binding.linearLayoutModelDetailsMostUsedModels
         mostUsedModels.setOnClickListener() {
             // Open most used models
         }
