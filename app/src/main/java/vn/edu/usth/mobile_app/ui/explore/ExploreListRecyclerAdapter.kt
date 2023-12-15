@@ -26,8 +26,8 @@ class ExploreListRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.modelName.text = modelList[position].getName()
-        holder.authorName.text = modelList[position].getCreatorName()
-        holder.usage.text = modelList[position].getUsage().toString()
+        holder.modelName.text = modelList[position].name
+        holder.authorName.text = modelList[position].creatorName
+        holder.usage.text = modelList[position].usage.toString()
     }
 }
