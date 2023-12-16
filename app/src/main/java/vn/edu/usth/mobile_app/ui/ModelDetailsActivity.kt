@@ -3,21 +3,30 @@ package vn.edu.usth.mobile_app.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
+import kotlin.properties.Delegates
 
 class ModelDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityModelDetailsBinding
     private val viewModel: ModelDetailsViewModel by viewModels()
+    private var modelID by Delegates.notNull<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityModelDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        if(intent.extras != null) {
+            modelID = intent.extras!!.getInt("modelID")
+        }
+        modelID = 1
+        viewModel.fetchModelDetails(modelID)
 
         val modelName = binding.textViewModelDetailsTitle
         modelName.text = viewModel.modelName
@@ -59,13 +68,24 @@ class ModelDetailsActivity : AppCompatActivity() {
             // Open comments
         }
 
-        val similarModels = binding.linearLayoutModelDetailsSimilarModels
-        similarModels.setOnClickListener() {
+        val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL)
+        val similarModelsList = binding.recyclerViewModelDetailsSimilarModels
+        similarModelsList.adapter = ModelRcmListAdapter(viewModel.similarModels)
+        similarModelsList.layoutManager = LinearLayoutManager(this)
+        similarModelsList.addItemDecoration(dividerItemDecoration)
+
+        val mostUsedModelsList = binding.recyclerViewModelDetailsMostUsedModels
+        mostUsedModelsList.adapter = ModelRcmListAdapter(viewModel.mostUsedModels)
+        mostUsedModelsList.layoutManager = LinearLayoutManager(this)
+        mostUsedModelsList.addItemDecoration(dividerItemDecoration)
+
+        val moreSimilarModels = binding.linearLayoutModelDetailsSimilarModels
+        moreSimilarModels.setOnClickListener() {
             // Open similar models
         }
 
-        val mostUsedModels = binding.linearLayoutModelDetailsMostUsedModels
-        mostUsedModels.setOnClickListener() {
+        val moreMostUsedModels = binding.linearLayoutModelDetailsMostUsedModels
+        moreMostUsedModels.setOnClickListener() {
             // Open most used models
         }
     }
