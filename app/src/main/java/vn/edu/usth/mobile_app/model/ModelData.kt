@@ -1,6 +1,7 @@
 package vn.edu.usth.mobile_app.model
 
 data class ModelData (
+    var id: Int = -1,
     var name: String = "",
     var description: String = "",
     var modelPath: String = "",
