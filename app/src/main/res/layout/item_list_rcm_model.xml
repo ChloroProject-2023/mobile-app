@@ -68,6 +68,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="12dp"
         android:baselineAlignBottom="true"
-        android:src="@drawable/baseline_auto_fix_high_24"/>
+        android:src="@drawable/baseline_auto_fix_high_24"
+        android:tint="?attr/colorOnSurface"/>
 
 </LinearLayout>

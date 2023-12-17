@@ -78,7 +78,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scaleType="fitEnd"
-                    android:src="@drawable/baseline_arrow_forward_24" />
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    app:tint="?attr/colorOnSurface" />
             </LinearLayout>
 
             <TextView
@@ -86,6 +87,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
+                android:layout_marginBottom="16dp"
                 tools:text="testtesttest" />
 
             <LinearLayout
@@ -109,7 +111,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scaleType="fitEnd"
-                    android:src="@drawable/baseline_arrow_forward_24" />
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    app:tint="?attr/colorOnSurface" />
             </LinearLayout>
 
             <TextView
@@ -122,7 +125,8 @@
                 android:id="@+id/chartView_modelDetails_ratings"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout_modelDetails_mostUsedModels"
@@ -145,14 +149,17 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scaleType="fitEnd"
-                    android:src="@drawable/baseline_arrow_forward_24" />
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    app:tint="?attr/colorOnSurface"/>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_modelDetails_mostUsedModels"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:orientation="vertical" />
+                android:layout_marginBottom="16dp"
+                android:orientation="vertical"
+                android:nestedScrollingEnabled="false"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout_modelDetails_similarModels"
@@ -175,14 +182,16 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:scaleType="fitEnd"
-                    android:src="@drawable/baseline_arrow_forward_24" />
+                    android:src="@drawable/baseline_arrow_forward_24"
+                    app:tint="?attr/colorOnSurface"/>
             </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView_modelDetails_similarModels"
                 android:layout_width="match_parent"
                 android:layout_height="400dp"
-                android:orientation="vertical" />
+                android:orientation="vertical"
+                android:nestedScrollingEnabled="false"/>
 
         </LinearLayout>
 </ScrollView>
