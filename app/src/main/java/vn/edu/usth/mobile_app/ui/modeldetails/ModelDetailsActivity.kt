@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui
+package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +27,9 @@ class ModelDetailsActivity : AppCompatActivity() {
         }
         modelID = 1
         viewModel.fetchModelDetails(modelID)
+
+        val toolBar = binding.materialToolbarModelDetails
+        toolBar.setNavigationOnClickListener { finish() }
 
         val modelName = binding.textViewModelDetailsTitle
         modelName.text = viewModel.modelName
@@ -73,11 +76,13 @@ class ModelDetailsActivity : AppCompatActivity() {
         similarModelsList.adapter = ModelRcmListAdapter(viewModel.similarModels)
         similarModelsList.layoutManager = LinearLayoutManager(this)
         similarModelsList.addItemDecoration(dividerItemDecoration)
+        similarModelsList.setHasFixedSize(true)
 
         val mostUsedModelsList = binding.recyclerViewModelDetailsMostUsedModels
         mostUsedModelsList.adapter = ModelRcmListAdapter(viewModel.mostUsedModels)
         mostUsedModelsList.layoutManager = LinearLayoutManager(this)
         mostUsedModelsList.addItemDecoration(dividerItemDecoration)
+        mostUsedModelsList.setHasFixedSize(true)
 
         val moreSimilarModels = binding.linearLayoutModelDetailsSimilarModels
         moreSimilarModels.setOnClickListener() {

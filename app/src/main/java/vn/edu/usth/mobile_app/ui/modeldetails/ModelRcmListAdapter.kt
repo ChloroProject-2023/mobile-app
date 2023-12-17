@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui
+package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.content.Intent
 import android.view.LayoutInflater
