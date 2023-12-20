@@ -30,6 +30,7 @@ class HistoryFragment : Fragment() {
         val recyclerView = binding.recyclerViewRecyclerView
         recyclerView.adapter = expandableCardRecyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.setHasFixedSize(true)
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(context, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)
         return binding.root

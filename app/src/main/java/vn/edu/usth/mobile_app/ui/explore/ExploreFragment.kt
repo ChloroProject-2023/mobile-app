@@ -27,6 +27,7 @@ class ExploreFragment : Fragment() {
         recyclerView.adapter = exploreListRecyclerAdapter
         recyclerView.layoutManager = androidx.recyclerview.widget.LinearLayoutManager(context)
         recyclerView.setItemViewCacheSize(10)
+        recyclerView.setHasFixedSize(true)
 
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(context, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)

@@ -31,8 +31,9 @@ class HistoryListRecyclerAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.modelName.text = historyList[position].getModelName()
-        val dateString = DateFormat.getDateInstance(DateFormat.SHORT).format(historyList[position].getDate())
+        holder.modelName.text = historyList[position].modelName
+        val dateFormat = DateFormat.getDateInstance(DateFormat.SHORT)
+        val dateString = dateFormat.format(historyList[position].date)
         holder.runDate.text = dateString
     }
 
