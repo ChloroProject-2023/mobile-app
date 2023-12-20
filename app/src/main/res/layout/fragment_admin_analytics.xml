@@ -1,178 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
 
-    <ScrollView
+    <LinearLayout
+        android:id="@+id/linearLayout_adminAnalytics"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/linearLayout_adminAnalytics"
+            android:id="@+id/gridLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp">
+            android:layout_height="wrap_content">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_adminAnalytics_userList"
-                style="@style/Widget.MaterialComponents.TimePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
                 android:backgroundTint="?attr/colorSecondaryContainer"
                 android:drawableTop="@drawable/baseline_groups_24"
                 android:drawableTint="?attr/colorOnSecondaryContainer"
                 android:text="@string/adminAnalytics_userList"
                 android:textColor="?attr/colorOnSecondaryContainer"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintBaseline_toBaselineOf="@+id/button_adminAnalytics_modelList"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_adminAnalytics_modelList"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondaryContainer"
                 android:drawableTop="@drawable/baseline_list_24"
                 android:drawableTint="?attr/colorOnSecondaryContainer"
-                style="@style/Widget.MaterialComponents.TimePicker"
-                android:backgroundTint="?attr/colorSecondaryContainer"
                 android:text="@string/adminAnalytics_modelList"
                 android:textColor="?attr/colorOnSecondaryContainer"
-                app:layout_constraintBottom_toBottomOf="@+id/button_adminAnalytics_userList"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline_adminAnalytics_vertical1"
-                app:layout_constraintTop_toTopOf="@+id/button_adminAnalytics_userList" />
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
 
-            <View
-                android:id="@+id/divider_adminAnalytics_3"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/button_adminAnalytics_userList" />
-
-            <TextView
-                android:id="@+id/textView_adminAnalytics_requestFrequency"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/request_frequency"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_adminAnalytics_3" />
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
 
-            <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-                android:id="@+id/chartView_adminAnalytics_requestFrequency"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_requestFrequency" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-            <View
-                android:id="@+id/divider_adminAnalytics"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="?android:attr/listDivider"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/chartView_adminAnalytics_requestFrequency" />
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/textView_adminAnalytics_requestFrequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/request_frequency"
+            android:textSize="20sp" />
+
+        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+            android:id="@+id/chartView_adminAnalytics_requestFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp" />
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:columnCount="2"
+            android:rowCount="2">
 
             <TextView
-                android:id="@+id/textView_adminAnalytics_last24hRequest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:gravity="center_horizontal"
+                android:layout_row="0"
                 android:text="@string/last_24h_request"
-                app:layout_constraintBottom_toTopOf="@+id/textView_adminAnalytics_last24hRequestValue"
-                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hRequestValue"
-                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hRequestValue" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/textView_adminAnalytics_last24hRequestValue"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginTop="36dp"
-                android:gravity="center"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:text="@string/all_0"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/guideline_adminAnalytics_vertical1"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/divider_adminAnalytics"
-                tools:text="230" />
+                tools:text="100"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:gravity="center_horizontal"
+                android:layout_row="0"
                 android:text="@string/last_24h_users"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_adminAnalytics_last24hRequest"
-                app:layout_constraintEnd_toEndOf="@+id/textView_adminAnalytics_last24hUsersValue"
-                app:layout_constraintStart_toStartOf="@+id/textView_adminAnalytics_last24hUsersValue" />
+                android:textSize="18sp"/>
 
             <TextView
                 android:id="@+id/textView_adminAnalytics_last24hUsersValue"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:gravity="center"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
                 android:text="@string/all_0"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@+id/textView_adminAnalytics_last24hRequestValue"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/guideline_adminAnalytics_vertical1"
-                app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_last24hRequest"
-                tools:text="20" />
+                tools:text="100"/>
+        </GridLayout>
 
-            <com.google.android.material.divider.MaterialDivider
-                android:id="@+id/divider_adminAnalytics_2"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginTop="16dp"
-                android:background="#3e3d42"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView_adminAnalytics_last24hRequestValue" />
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="#3e3d42" />
 
-            <TextView
-                android:id="@+id/textView_adminAnalytics_top5Models"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="@string/top_5_models"
-                android:textSize="20sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/divider_adminAnalytics_2" />
+        <TextView
+            android:id="@+id/textView_adminAnalytics_top5Models"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/top_5_models"
+            android:textSize="20sp" />
 
-            <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-                android:id="@+id/chartView_adminAnalytics_top5Models"
-                android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:layout_marginTop="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView_adminAnalytics_top5Models" />
+        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+            android:id="@+id/chartView_adminAnalytics_top5Models"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="16dp" />
 
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline_adminAnalytics_vertical1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_percent="0.50" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_adminAnalytics_vertical1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </ScrollView>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+</ScrollView>
