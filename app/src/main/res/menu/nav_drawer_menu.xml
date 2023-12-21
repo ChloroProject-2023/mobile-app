@@ -7,10 +7,10 @@
         android:icon="@drawable/baseline_explore_24"
         android:title="@string/Explore" />
     <item
-        android:id="@+id/navHistory"
+        android:id="@+id/navMenu"
         android:enabled="true"
-        android:icon="@drawable/baseline_history_24"
-        android:title="@string/history" />
+        android:icon="@drawable/baseline_menu_24"
+        android:title="@string/Menu" />
     <item
         android:id="@+id/navAdmin"
         android:enabled="true"
