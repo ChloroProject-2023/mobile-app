@@ -2,6 +2,7 @@ package vn.edu.usth.mobile_app
 
 import android.content.Intent
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
@@ -14,9 +15,8 @@ import vn.edu.usth.mobile_app.ui.usermenu.UserMenuFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
+    private val viewModel: MainViewModel by viewModels()
 
-    private var isLogin = false
-    private var isAdmin = false
     private val fragmentManager = supportFragmentManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,15 +25,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if (intent.extras != null) {
-            isLogin = intent.extras!!.getBoolean("isLogin")
-            isAdmin = intent.extras!!.getBoolean("isAdmin")
+            viewModel.setIsLogin(intent.extras!!.getBoolean("isLogin"))
+            viewModel.setIsAdmin(intent.extras!!.getBoolean("isAdmin"))
+            viewModel.setUserId(intent.extras!!.getInt("userId"))
         }
 
         val bottomBar = binding.bottomNavigationViewMain
-        bottomBar.menu.findItem(R.id.navAdmin).isVisible = isAdmin
+        bottomBar.menu.findItem(R.id.navAdmin).isVisible = viewModel.isAdmin
 
         // If not login, change menu icon and title to login
-        if(!isLogin) {
+        if(!viewModel.isLogin) {
             val menu = bottomBar.menu.findItem(R.id.navMenu)
             menu.title = "Login"
             menu.icon = AppCompatResources.getDrawable(this, R.drawable.baseline_login_24)
@@ -47,7 +48,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navMenu -> {
-                    if (!isLogin) {
+                    if (!viewModel.isLogin) {
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                     }
@@ -66,7 +67,7 @@ class MainActivity : AppCompatActivity() {
         }
         bottomBar.setOnItemReselectedListener { item ->
             if(item.itemId == R.id.navMenu) {
-                if(isLogin) { return@setOnItemReselectedListener }
+                if(viewModel.isLogin) { return@setOnItemReselectedListener }
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }

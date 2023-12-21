@@ -67,6 +67,7 @@ class LoginActivity : AppCompatActivity() {
                 Bundle().apply {
                     putBoolean("isLogin", true)
                     putBoolean("isAdmin", true)
+                    putInt("userId", 1)
                 }
             )
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
