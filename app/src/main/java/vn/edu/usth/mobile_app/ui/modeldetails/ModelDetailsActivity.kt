@@ -8,13 +8,11 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
-import kotlin.properties.Delegates
 
 class ModelDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityModelDetailsBinding
     private val viewModel: ModelDetailsViewModel by viewModels()
-    private var modelID by Delegates.notNull<Int>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +21,9 @@ class ModelDetailsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         if(intent.extras != null) {
-            modelID = intent.extras!!.getInt("modelID")
+            viewModel.setModelID(intent.extras!!.getInt("modelID"))
         }
-        modelID = 1
-        viewModel.fetchModelDetails(modelID)
+        viewModel.fetchModelDetails()
 
         val toolBar = binding.materialToolbarModelDetails
         toolBar.setNavigationOnClickListener { finish() }

@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import vn.edu.usth.mobile_app.model.ModelData
 
 class ModelDetailsViewModel: ViewModel() {
+    private var _modelID: Int = -1
     private var _modelName: String = ""
     private var _author: String = ""
     private var _description: String = ""
@@ -11,6 +12,7 @@ class ModelDetailsViewModel: ViewModel() {
     private var _mostUsedModels: List<ModelData> = emptyList()
     private var _similarModels: List<ModelData> = emptyList()
 
+    val modelId: Int get() = _modelID
     val modelName: String get() = _modelName
     val author: String get() = _author
     val description: String get() = _description
@@ -54,7 +56,11 @@ class ModelDetailsViewModel: ViewModel() {
         }
     }
 
-    fun fetchModelDetails(modelID: Int) {
+    fun setModelID(modelID: Int) {
+        _modelID = modelID
+    }
+
+    fun fetchModelDetails() {
         // Fetch model details from server
     }
 }
