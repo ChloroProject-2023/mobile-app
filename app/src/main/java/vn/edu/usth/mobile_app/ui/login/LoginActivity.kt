@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.MainActivity
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityLogInBinding
+import vn.edu.usth.mobile_app.ui.GlobalData
 import vn.edu.usth.mobile_app.ui.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -63,12 +64,6 @@ class LoginActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtras(
-                Bundle().apply {
-                    putBoolean("isLogin", true)
-                    putBoolean("isAdmin", true)
-                }
-            )
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
