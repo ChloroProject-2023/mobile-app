@@ -18,10 +18,6 @@ class HistoryActivity : AppCompatActivity() {
         binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (intent.extras != null) {
-            viewModel.setUserId(intent.extras!!.getInt("userId"))
-        }
-
         val toolbar = binding.materialToolbarHistory
         toolbar.setNavigationOnClickListener{
             finish()

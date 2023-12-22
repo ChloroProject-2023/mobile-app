@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.fragment.app.Fragment
 import vn.edu.usth.mobile_app.databinding.ActivityMainBinding
+import vn.edu.usth.mobile_app.ui.GlobalData
 import vn.edu.usth.mobile_app.ui.admin.AdminAnalyticsFragment
 import vn.edu.usth.mobile_app.ui.login.LoginActivity
 import vn.edu.usth.mobile_app.ui.explore.ExploreFragment
@@ -24,17 +25,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        if (intent.extras != null) {
-            viewModel.setIsLogin(intent.extras!!.getBoolean("isLogin"))
-            viewModel.setIsAdmin(intent.extras!!.getBoolean("isAdmin"))
-            viewModel.setUserId(intent.extras!!.getInt("userId"))
-        }
-
         val bottomBar = binding.bottomNavigationViewMain
-        bottomBar.menu.findItem(R.id.navAdmin).isVisible = viewModel.isAdmin
+        bottomBar.menu.findItem(R.id.navAdmin).isVisible = GlobalData.isAdmin
 
         // If not login, change menu icon and title to login
-        if(!viewModel.isLogin) {
+        if(!GlobalData.isLogin) {
             val menu = bottomBar.menu.findItem(R.id.navMenu)
             menu.title = "Login"
             menu.icon = AppCompatResources.getDrawable(this, R.drawable.baseline_login_24)
@@ -48,7 +43,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
                 R.id.navMenu -> {
-                    if (!viewModel.isLogin) {
+                    if (!GlobalData.isLogin) {
                         val intent = Intent(this, LoginActivity::class.java)
                         startActivity(intent)
                     }
@@ -67,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         }
         bottomBar.setOnItemReselectedListener { item ->
             if(item.itemId == R.id.navMenu) {
-                if(viewModel.isLogin) { return@setOnItemReselectedListener }
+                if(GlobalData.isLogin) { return@setOnItemReselectedListener }
                 val intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
             }

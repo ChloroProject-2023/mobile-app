@@ -99,12 +99,6 @@ class SignupActivity : AppCompatActivity() {
             }
 
             val intent = Intent(this, MainActivity::class.java)
-            intent.putExtras(
-                Bundle().apply {
-                    putBoolean("isLogin", true)
-                    putBoolean("isAdmin", true)
-                }
-            )
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }

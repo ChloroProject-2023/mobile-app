@@ -13,7 +13,6 @@ import vn.edu.usth.mobile_app.ui.history.HistoryActivity
 
 class UserMenuFragment: Fragment() {
     private var _binding: FragmentUserMenuBinding? = null
-    private val activityViewModel: MainViewModel by activityViewModels()
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -30,7 +29,6 @@ class UserMenuFragment: Fragment() {
 
         historyCard.setOnClickListener {
             val intent = Intent(requireContext(), HistoryActivity::class.java)
-            intent.putExtra("userId", activityViewModel.userId)
             startActivity(intent)
         }
         return binding.root
