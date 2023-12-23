@@ -16,6 +16,11 @@
         android:theme="@style/AppTheme"
         tools:targetApi="31">
         <activity
+            android:name=".ui.modeldetails.MoreSimilarModelsActivity"
+            android:exported="false"/>
+        <activity android:name=".ui.modeldetails.MorePopularModelsActivity"
+            android:exported="false"/>
+        <activity
             android:name=".ui.modeldetails.ModelDetailsActivity"
             android:exported="false"/>
         <activity

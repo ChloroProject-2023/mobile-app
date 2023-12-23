@@ -1,5 +1,6 @@
 package vn.edu.usth.mobile_app.ui.modeldetails
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
@@ -84,11 +85,15 @@ class ModelDetailsActivity : AppCompatActivity() {
         val moreSimilarModels = binding.linearLayoutModelDetailsSimilarModels
         moreSimilarModels.setOnClickListener() {
             // Open similar models
+            val intent = Intent(this, MoreSimilarModelsActivity::class.java)
+            startActivity(intent)
         }
 
         val moreMostUsedModels = binding.linearLayoutModelDetailsMostUsedModels
         moreMostUsedModels.setOnClickListener() {
             // Open most used models
+            val intent = Intent(this, MorePopularModelsActivity::class.java)
+            startActivity(intent)
         }
     }
 }
