@@ -66,7 +66,10 @@ class ModelDetailsActivity : AppCompatActivity() {
 
         val comments = binding.linearLayoutModelDetailsRatingsAndComments
         comments.setOnClickListener() {
-            // Open comments
+            // Open ratings and comments
+            val intent = Intent(this, ReviewActivity::class.java)
+            intent.putExtra("modelID", viewModel.modelId)
+            startActivity(intent)
         }
 
         val dividerItemDecoration = androidx.recyclerview.widget.DividerItemDecoration(this, androidx.recyclerview.widget.DividerItemDecoration.VERTICAL)

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:maxHeight="150dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/imageView_itemReview_avatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/user_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_itemReview_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/Username"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_itemReview_avatar"
+        app:layout_constraintStart_toEndOf="@+id/imageView_itemReview_avatar"
+        app:layout_constraintTop_toTopOf="@+id/imageView_itemReview_avatar" />
+
+    <RatingBar
+        android:id="@+id/ratingBar_itemReview"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:numStars="5"
+        android:rating="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView_itemReview_avatar"
+        tools:rating="3.5" />
+
+    <TextView
+        android:id="@+id/textView_itemReview_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="1/1/1970"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ratingBar_itemReview"
+        app:layout_constraintStart_toEndOf="@+id/ratingBar_itemReview"
+        app:layout_constraintTop_toTopOf="@+id/ratingBar_itemReview" />
+
+    <TextView
+        android:id="@+id/textView_itemReview_review"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ratingBar_itemReview"
+        tools:text="This is fire" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
