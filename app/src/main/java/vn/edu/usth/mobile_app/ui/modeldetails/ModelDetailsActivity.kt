@@ -2,13 +2,15 @@ package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
+import android.util.TypedValue
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
 import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
+
 
 class ModelDetailsActivity : AppCompatActivity() {
 
@@ -45,18 +47,28 @@ class ModelDetailsActivity : AppCompatActivity() {
 
         val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
         aboutModel.setOnClickListener() {
-            // Open about this model
+            val intent = Intent(this, AboutModelActivity::class.java)
+            intent.putExtra("modelId", viewModel.modelId)
+            startActivity(intent)
         }
 
         val description = binding.textViewModelDetailsShortDesc
         description.text = viewModel.description
 
         val ratings = binding.chartViewModelDetailsRatings
+
+        // Get primary color
+        val value = TypedValue()
+        theme.resolveAttribute(android.R.attr.colorPrimary, value, true)
+        val color = value.data
+        val primaryColor = String.format("#%06X", 0xFFFFFF and color)
+
         val ratingsModel = AAChartModel()
             .chartType(AAChartType.Bar)
             .legendEnabled(false)
+            .backgroundColor("#00000000")  // Transparent
+            .colorsTheme(arrayOf(primaryColor))
             .categories(viewModel.ratings.keys.toTypedArray())
-            .yAxisTitle("Ratings")
             .series(arrayOf(
                 AASeriesElement()
                     .data(viewModel.ratings.values.toTypedArray())
@@ -66,7 +78,6 @@ class ModelDetailsActivity : AppCompatActivity() {
 
         val comments = binding.linearLayoutModelDetailsRatingsAndComments
         comments.setOnClickListener() {
-            // Open ratings and comments
             val intent = Intent(this, ReviewActivity::class.java)
             intent.putExtra("modelID", viewModel.modelId)
             startActivity(intent)
@@ -87,14 +98,12 @@ class ModelDetailsActivity : AppCompatActivity() {
 
         val moreSimilarModels = binding.linearLayoutModelDetailsSimilarModels
         moreSimilarModels.setOnClickListener() {
-            // Open similar models
             val intent = Intent(this, MoreSimilarModelsActivity::class.java)
             startActivity(intent)
         }
 
         val moreMostUsedModels = binding.linearLayoutModelDetailsMostUsedModels
         moreMostUsedModels.setOnClickListener() {
-            // Open most used models
             val intent = Intent(this, MorePopularModelsActivity::class.java)
             startActivity(intent)
         }
