@@ -16,8 +16,7 @@ class ExploreFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val modelList = viewModel.modelList
-        exploreListRecyclerAdapter = ExploreListRecyclerAdapter(modelList)
+        exploreListRecyclerAdapter = ExploreListRecyclerAdapter(viewModel.modelList)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

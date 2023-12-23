@@ -106,4 +106,10 @@
     <string name="Account_information">Account information</string>
     <string name="Log_out">Log out</string>
     <string name="Anonymous">Anonymous</string>
+    <string name="Model_information">Model information</string>
+    <string name="About">About</string>
+    <string name="Created_at">Created at</string>
+    <string name="Total_ratings">Total ratings</string>
+    <string name="Parameters">Parameters</string>
+    <string name="Inferences">Inferences</string>
 </resources>
