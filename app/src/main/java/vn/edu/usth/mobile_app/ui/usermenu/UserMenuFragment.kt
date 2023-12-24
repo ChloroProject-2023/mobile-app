@@ -26,9 +26,20 @@ class UserMenuFragment: Fragment() {
         val uploadedModelsCard = binding.cardViewUserMenuUploadedModels
         val usedModelsCard = binding.cardViewUserMenuUsedModels
         val resourcesCard = binding.cardViewUserMenuResources
+        val logoutButton = binding.buttonUserMenuLogout
 
         historyCard.setOnClickListener {
             val intent = Intent(requireContext(), HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        logoutButton.setOnClickListener {
+            val viewModel: MainViewModel by activityViewModels()
+            viewModel.logout()
+
+            // Restart the activity
+            val intent = requireActivity().intent
+            requireActivity().finish()
             startActivity(intent)
         }
         return binding.root
