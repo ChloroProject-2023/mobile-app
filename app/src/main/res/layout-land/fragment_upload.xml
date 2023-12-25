@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintLayout_upload_fragmentUpload"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_upload_fileChoose"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toTopOf="@id/textInputLayout_upload_modelDropdown"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:startIconDrawable="@drawable/baseline_upload_file_24">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView_upload_filePath"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/file"
+            android:inputType="none"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:textColor="?attr/colorOnBackground"
+            android:text="@string/choose_your_file"
+            android:textSize="16sp"/>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_upload_modelDropdown"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/baseline_auto_fix_high_24">
+
+        <AutoCompleteTextView
+            android:id="@+id/autoCompleteTextView_upload_model"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:hint="@string/model"
+            android:inputType="none"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/choose_machine_learning_model"
+            android:textColor="?attr/colorOnBackground"
+            android:textSize="16sp"
+            app:hintTextAppearance="@style/TextHint" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/button_upload_upload"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="45dp"
+        android:text="@string/upload_CAP"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textInputLayout_upload_modelDropdown"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout_upload_modelDropdown"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_upload_modelDropdown" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
