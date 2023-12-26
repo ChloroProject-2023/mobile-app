@@ -25,7 +25,7 @@ class ReviewActivity: AppCompatActivity() {
         toolBar.setTitle("Reviews")
 
         val recyclerView = binding.recyclerViewRVActivity
-        recyclerView.adapter = ReviewListAdapter(viewModel.reviews)
+        recyclerView.adapter = ReviewAsyncAdapter(viewModel.reviews)
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
