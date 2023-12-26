@@ -14,6 +14,10 @@ import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
 import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
+import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
+import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
+import vn.edu.usth.mobile_app.ui.modeldetails.reviews.ReviewActivity
+import vn.edu.usth.mobile_app.ui.modeldetails.similarmodels.MoreSimilarModelsActivity
 
 
 class ModelDetailsActivity : AppCompatActivity() {

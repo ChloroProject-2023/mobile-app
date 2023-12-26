@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui.modeldetails
+package vn.edu.usth.mobile_app.ui.modeldetails.similarmodels
 
 import android.os.Bundle
 import androidx.activity.viewModels
