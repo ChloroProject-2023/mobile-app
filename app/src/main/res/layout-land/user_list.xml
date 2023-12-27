@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:maxHeight="150dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/imageView_userList_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@drawable/user_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/profile_image" />
+
+    <TextView
+        android:id="@+id/textView_userList_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:paddingTop="15dp"
+        android:text="@string/Username"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView_userList_avatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_userList_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textStyle="italic"
+        android:text="@string/profile_email"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_userList_role"
+        app:layout_constraintStart_toEndOf="@+id/imageView_userList_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_username" />
+
+    <TextView
+        android:id="@+id/textView_userList_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/role"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_userList_created"
+        app:layout_constraintStart_toEndOf="@+id/imageView_userList_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_email" />
+
+    <TextView
+        android:id="@+id/textView_userList_created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/created"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_userList_avatar"
+        app:layout_constraintStart_toEndOf="@+id/imageView_userList_avatar"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_role" />
+
+    <TextView
+        android:id="@+id/textView_userList_createdday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        tools:text="27/12/2023"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView_userList_avatar"
+        app:layout_constraintStart_toEndOf="@+id/textView_userList_created"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_role" />
+
+    <ImageView
+        android:id="@+id/imageView_userList_moreVert"
+        android:layout_width="30dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginEnd="12dp"
+        android:baselineAlignBottom="true"
+        android:src="@drawable/baseline_more_vert_24"
+        app:tint="?attr/colorOnSurface"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@string/more_vert" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
