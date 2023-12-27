@@ -116,4 +116,6 @@
     <string name="Usermenu_image">Usermenu Image</string>
     <string name="Rcm_model_image">RCM Model Drawable</string>
     <string name="List_review_image">List Review Drawable</string>
+    <string name="created">Created:</string>
+    <string name="more_vert">More Vert</string>
 </resources>
