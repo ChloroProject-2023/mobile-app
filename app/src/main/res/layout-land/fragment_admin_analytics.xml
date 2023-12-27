@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <LinearLayout
+        android:id="@+id/linearLayout_adminAnalytics"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingVertical="@dimen/activity_vertical_margin"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gridLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_adminAnalytics_userList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondaryContainer"
+                android:drawableTop="@drawable/baseline_groups_24"
+                android:drawableTint="?attr/colorOnSecondaryContainer"
+                android:text="@string/adminAnalytics_userList"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                app:layout_constraintBaseline_toBaselineOf="@+id/button_adminAnalytics_modelList"
+                app:layout_constraintEnd_toStartOf="@+id/guideline"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/button_adminAnalytics_modelList"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="?attr/colorSecondaryContainer"
+                android:drawableTop="@drawable/baseline_list_24"
+                android:drawableTint="?attr/colorOnSecondaryContainer"
+                android:text="@string/adminAnalytics_modelList"
+                android:textColor="?attr/colorOnSecondaryContainer"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/guideline"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <TextView
+            android:id="@+id/textView_adminAnalytics_requestFrequency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/request_frequency"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout_adminAnalytics_requestFrequency"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar_adminAnalytics_requestFrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true" />
+        </FrameLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?android:attr/listDivider" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:columnCount="2"
+            android:rowCount="2">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="0"
+                android:layout_columnWeight="1"
+                android:gravity="center_horizontal"
+                android:layout_row="0"
+                android:text="@string/last_24h_request"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView_adminAnalytics_last24hRequestValue"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_column="0"
+                android:layout_row="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/all_0"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="100"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_columnWeight="1"
+                android:gravity="center_horizontal"
+                android:layout_row="0"
+                android:text="@string/last_24h_users"
+                android:textSize="18sp"/>
+
+            <TextView
+                android:id="@+id/textView_adminAnalytics_last24hUsersValue"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_column="1"
+                android:layout_row="1"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:text="@string/all_0"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                tools:text="100"/>
+        </GridLayout>
+
+        <com.google.android.material.divider.MaterialDivider
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="#3e3d42" />
+
+        <TextView
+            android:id="@+id/textView_adminAnalytics_top5Models"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/top_5_models"
+            android:textSize="20sp" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout_adminAnalytics_top5Models"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar_adminAnalytics_top5Models"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true" />
+        </FrameLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_adminAnalytics_vertical1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>

@@ -60,13 +60,14 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_signup_fnField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="194dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:focusable="auto"
             app:errorEnabled="true"
             app:helperTextEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_usernameField"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout_signup_usernameField"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textInputLayout_signup_lnField"
             app:layout_constraintTop_toBottomOf="@+id/guideline_signup">
 
             <com.google.android.material.textfield.TextInputEditText
@@ -81,12 +82,13 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_signup_lnField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="138dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:focusable="auto"
             app:errorEnabled="true"
             app:layout_constraintBottom_toBottomOf="@+id/textInputLayout_signup_fnField"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_usernameField">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/textInputLayout_signup_fnField">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editText_signup_lastName"
@@ -101,12 +103,12 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_signup_usernameField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="350dp"
+            android:layout_width="583dp"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_pwField"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout_signup_pwField"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout_signup_pwField"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textInputLayout_signup_fnField"
             app:startIconDrawable="@drawable/baseline_person_24">
 
@@ -122,7 +124,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_signup_pwField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="350dp"
+            android:layout_width="583dp"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/textInputLayout_signup_cfField"
@@ -147,7 +149,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/textInputLayout_signup_cfField"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="350dp"
+            android:layout_width="583dp"
             android:layout_height="wrap_content"
             app:errorEnabled="true"
             app:layout_constraintBottom_toTopOf="@+id/button_signup"
