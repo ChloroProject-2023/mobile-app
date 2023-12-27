@@ -1,16 +1,16 @@
-package vn.edu.usth.mobile_app.ui.modeldetails
+package vn.edu.usth.mobile_app.ui.modeldetails.similarmodels
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.databinding.ActivityRecyclerViewBinding
-import vn.edu.usth.mobile_app.ui.explore.ExploreListRecyclerAdapter
+import vn.edu.usth.mobile_app.ui.explore.ExploreAsyncRecyclerAdapter
 
 class MoreSimilarModelsActivity: AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewBinding
     private val viewModel: MoreSimilarModelsViewModel by viewModels()
 
-    private lateinit var exploreListRecyclerAdapter: ExploreListRecyclerAdapter
+    private lateinit var exploreListRecyclerAdapter: ExploreAsyncRecyclerAdapter
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,7 +24,7 @@ class MoreSimilarModelsActivity: AppCompatActivity() {
         toolbar.setTitle("Similar Models")
 
         viewModel.getSimilarModels()
-        exploreListRecyclerAdapter = ExploreListRecyclerAdapter(viewModel.models)
+        exploreListRecyclerAdapter = ExploreAsyncRecyclerAdapter(viewModel.models)
         
         val recyclerView = binding.recyclerViewRVActivity
         recyclerView.adapter = exploreListRecyclerAdapter

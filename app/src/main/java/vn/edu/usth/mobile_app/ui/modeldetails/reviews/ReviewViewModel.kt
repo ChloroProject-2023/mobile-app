@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui.modeldetails
+package vn.edu.usth.mobile_app.ui.modeldetails.reviews
 
 import androidx.lifecycle.ViewModel
 import vn.edu.usth.mobile_app.model.ReviewData

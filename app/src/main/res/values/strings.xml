@@ -112,4 +112,8 @@
     <string name="Total_ratings">Total ratings</string>
     <string name="Parameters">Parameters</string>
     <string name="Inferences">Inferences</string>
+    <string name="loginLayout_landText">Welcome back, sign in to continue!</string>
+    <string name="Usermenu_image">Usermenu Image</string>
+    <string name="Rcm_model_image">RCM Model Drawable</string>
+    <string name="List_review_image">List Review Drawable</string>
 </resources>

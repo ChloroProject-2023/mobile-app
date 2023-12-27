@@ -1,2 +1,2 @@
 # mobile-app
-Mobile App
+Android app using Kotlin and XML

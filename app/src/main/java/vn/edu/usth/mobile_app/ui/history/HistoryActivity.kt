@@ -5,30 +5,29 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import vn.edu.usth.mobile_app.databinding.ActivityRecyclerViewBinding
-
+import vn.edu.usth.mobile_app.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
-    private lateinit var expandableCardRecyclerAdapter: HistoryListRecyclerAdapter
-    private lateinit var binding: ActivityRecyclerViewBinding
+    private lateinit var expandableCardRecyclerAdapter: HistoryAsyncRecyclerAdapter
+    private lateinit var binding: ActivityHistoryBinding
     private val viewModel: HistoryViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
+        binding = ActivityHistoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar = binding.materialToolbarRVActivity
+        val toolbar = binding.materialToolbarHistory
         toolbar.setNavigationOnClickListener{
             finish()
         }
-        toolbar.setTitle("History")
 
         viewModel.fetchHistoryList()
         val historyList = viewModel.historyList
-        expandableCardRecyclerAdapter = HistoryListRecyclerAdapter(historyList)
-        val recyclerView = binding.recyclerViewRVActivity
+        expandableCardRecyclerAdapter = HistoryAsyncRecyclerAdapter(historyList)
+        val recyclerView = binding.recyclerViewHistory
         recyclerView.adapter = expandableCardRecyclerAdapter
+        recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)
