@@ -2,6 +2,7 @@ package vn.edu.usth.mobile_app
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
@@ -22,6 +23,11 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (savedInstanceState == null) {
+            replaceFragment(ExploreFragment())
+        }
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -72,8 +78,6 @@ class MainActivity : AppCompatActivity() {
         toolbar.background = bottomBar.background
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-        replaceFragment(ExploreFragment())
     }
 
     private fun replaceFragment(fragment: Fragment) {
