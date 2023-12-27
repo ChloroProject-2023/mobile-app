@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui.modeldetails
+package vn.edu.usth.mobile_app.ui.modeldetails.reviews
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -15,15 +15,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-        <activity android:name=".ui.modeldetails.AboutModelActivity"
+        <activity android:name=".ui.modeldetails.aboutmodel.AboutModelActivity"
             android:exported="false"/>
         <activity
-            android:name=".ui.modeldetails.ReviewActivity"
+            android:name=".ui.modeldetails.reviews.ReviewActivity"
             android:exported="false"/>
         <activity
-            android:name=".ui.modeldetails.MoreSimilarModelsActivity"
+            android:name=".ui.modeldetails.similarmodels.MoreSimilarModelsActivity"
             android:exported="false"/>
-        <activity android:name=".ui.modeldetails.MorePopularModelsActivity"
+        <activity android:name=".ui.modeldetails.popularmodels.MorePopularModelsActivity"
             android:exported="false"/>
         <activity
             android:name=".ui.modeldetails.ModelDetailsActivity"

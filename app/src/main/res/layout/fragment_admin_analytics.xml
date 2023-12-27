@@ -70,11 +70,19 @@
             android:text="@string/request_frequency"
             android:textSize="20sp" />
 
-        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-            android:id="@+id/chartView_adminAnalytics_requestFrequency"
+        <FrameLayout
+            android:id="@+id/frameLayout_adminAnalytics_requestFrequency"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar_adminAnalytics_requestFrequency"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true" />
+        </FrameLayout>
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
@@ -150,11 +158,19 @@
             android:text="@string/top_5_models"
             android:textSize="20sp" />
 
-        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-            android:id="@+id/chartView_adminAnalytics_top5Models"
+        <FrameLayout
+            android:id="@+id/frameLayout_adminAnalytics_top5Models"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="@dimen/activity_vertical_margin">
+
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/progressBar_adminAnalytics_top5Models"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:indeterminate="true" />
+        </FrameLayout>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_adminAnalytics_vertical1"

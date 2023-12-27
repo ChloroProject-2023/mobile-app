@@ -7,9 +7,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import vn.edu.usth.mobile_app.databinding.ActivityHistoryBinding
 
-
 class HistoryActivity : AppCompatActivity() {
-    private lateinit var expandableCardRecyclerAdapter: HistoryListRecyclerAdapter
+    private lateinit var expandableCardRecyclerAdapter: HistoryAsyncRecyclerAdapter
     private lateinit var binding: ActivityHistoryBinding
     private val viewModel: HistoryViewModel by viewModels()
 
@@ -25,9 +24,10 @@ class HistoryActivity : AppCompatActivity() {
 
         viewModel.fetchHistoryList()
         val historyList = viewModel.historyList
-        expandableCardRecyclerAdapter = HistoryListRecyclerAdapter(historyList)
+        expandableCardRecyclerAdapter = HistoryAsyncRecyclerAdapter(historyList)
         val recyclerView = binding.recyclerViewHistory
         recyclerView.adapter = expandableCardRecyclerAdapter
+        recyclerView.setHasFixedSize(true)
         recyclerView.layoutManager = LinearLayoutManager(this)
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
         recyclerView.addItemDecoration(dividerItemDecoration)
