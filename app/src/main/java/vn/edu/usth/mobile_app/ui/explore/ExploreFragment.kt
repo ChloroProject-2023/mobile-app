@@ -9,14 +9,14 @@ import androidx.fragment.app.viewModels
 import vn.edu.usth.mobile_app.databinding.FragmentRecyclerViewBinding
 
 class ExploreFragment : Fragment() {
-    private lateinit var exploreListRecyclerAdapter: ExploreListRecyclerAdapter
+    private lateinit var exploreListRecyclerAdapter: ExploreAsyncRecyclerAdapter
     private var _binding: FragmentRecyclerViewBinding? = null
     private val binding get() = _binding!!
     private val viewModel: ExploreViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        exploreListRecyclerAdapter = ExploreListRecyclerAdapter(viewModel.modelList)
+        exploreListRecyclerAdapter = ExploreAsyncRecyclerAdapter(viewModel.modelList)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {

@@ -1,16 +1,16 @@
-package vn.edu.usth.mobile_app.ui.modeldetails
+package vn.edu.usth.mobile_app.ui.modeldetails.popularmodels
 
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.databinding.ActivityRecyclerViewBinding
-import vn.edu.usth.mobile_app.ui.explore.ExploreListRecyclerAdapter
+import vn.edu.usth.mobile_app.ui.explore.ExploreAsyncRecyclerAdapter
 
 class MorePopularModelsActivity: AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewBinding
     private val viewModel: MorePopularModelsViewModel by viewModels()
 
-    private lateinit var exploreListRecyclerAdapter: ExploreListRecyclerAdapter
+    private lateinit var exploreListRecyclerAdapter: ExploreAsyncRecyclerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,7 +23,7 @@ class MorePopularModelsActivity: AppCompatActivity() {
         toolbar.setTitle("Popular Models")
 
         viewModel.getPopularModels()
-        exploreListRecyclerAdapter = ExploreListRecyclerAdapter(viewModel.models)
+        exploreListRecyclerAdapter = ExploreAsyncRecyclerAdapter(viewModel.models)
 
         val recyclerView = binding.recyclerViewRVActivity
         recyclerView.adapter = exploreListRecyclerAdapter

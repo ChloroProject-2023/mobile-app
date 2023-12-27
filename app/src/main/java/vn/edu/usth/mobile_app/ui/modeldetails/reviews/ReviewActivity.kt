@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui.modeldetails
+package vn.edu.usth.mobile_app.ui.modeldetails.reviews
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -25,7 +25,7 @@ class ReviewActivity: AppCompatActivity() {
         toolBar.setTitle("Reviews")
 
         val recyclerView = binding.recyclerViewRVActivity
-        recyclerView.adapter = ReviewListAdapter(viewModel.reviews)
+        recyclerView.adapter = ReviewAsyncAdapter(viewModel.reviews)
         recyclerView.layoutManager = LinearLayoutManager(this)
     }
 }
