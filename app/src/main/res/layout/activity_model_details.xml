@@ -137,13 +137,6 @@
                     android:indeterminate="true" />
             </FrameLayout>
 
-<!--            <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView-->
-<!--                android:id="@+id/chartView_modelDetails_ratings"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="200dp"-->
-<!--                android:layout_marginTop="16dp"-->
-<!--                android:layout_marginBottom="16dp"/>-->
-
             <LinearLayout
                 android:id="@+id/linearLayout_modelDetails_mostUsedModels"
                 android:layout_width="match_parent"
