@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:paddingTop="16dp"
+    android:paddingBottom="16dp">
+
+    <ImageView
+        android:id="@+id/imageView_userList_avatar"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:contentDescription="@string/profile_image"
+        android:src="@drawable/baseline_person_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_userList_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="@string/Username"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/textView_userList_email"
+        app:layout_constraintStart_toEndOf="@+id/imageView_userList_avatar"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView_userList_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toTopOf="@+id/textView_userList_role"
+        app:layout_constraintStart_toStartOf="@+id/textView_userList_username"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_username"
+        tools:text="test123@gmail.com"/>
+
+    <TextView
+        android:id="@+id/textView_userList_role"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/Role_colon"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/textView_userList_created"
+        app:layout_constraintStart_toStartOf="@+id/textView_userList_email"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_email" />
+
+    <TextView
+        android:id="@+id/textView_userList_roleValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_userList_role"
+        app:layout_constraintStart_toEndOf="@+id/textView_userList_role"
+        app:layout_constraintTop_toTopOf="@+id/textView_userList_role"
+        tools:text="User" />
+
+    <TextView
+        android:id="@+id/textView_userList_created"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/created"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/textView_userList_role"
+        app:layout_constraintTop_toBottomOf="@+id/textView_userList_role" />
+
+    <TextView
+        android:id="@+id/textView_userList_createdday"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_userList_created"
+        app:layout_constraintStart_toEndOf="@+id/textView_userList_created"
+        app:layout_constraintTop_toTopOf="@+id/textView_userList_created"
+        tools:text="27/12/2023" />
+
+    <com.google.android.material.button.MaterialButton
+        style="?attr/materialIconButtonStyle"
+        android:id="@+id/imageView_userList_moreVert"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:icon="@drawable/baseline_more_vert_24"
+        android:contentDescription="@string/more_vert"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
