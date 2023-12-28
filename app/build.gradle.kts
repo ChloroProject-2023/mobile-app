@@ -52,7 +52,13 @@ dependencies {
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
 
-    implementation("com.github.AAChartModel:AAChartCore-Kotlin:7.2.1")
     implementation ("androidx.activity:activity-ktx:1.8.1")
     implementation ("androidx.fragment:fragment-ktx:1.6.2")
+
+    // https://mvnrepository.com/artifact/com.patrykandpatrick.vico/core
+    implementation("com.patrykandpatrick.vico:core:1.13.1")
+    // https://mvnrepository.com/artifact/com.patrykandpatrick.vico/views
+    implementation("com.patrykandpatrick.vico:views:1.13.1")
+
+
 }

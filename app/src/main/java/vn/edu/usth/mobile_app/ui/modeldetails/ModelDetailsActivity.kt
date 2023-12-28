@@ -2,17 +2,11 @@ package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.TypedValue
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.asynclayoutinflater.view.AsyncLayoutInflater
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartModel
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartType
-import com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
-import com.github.aachartmodel.aainfographics.aachartcreator.AASeriesElement
-import vn.edu.usth.mobile_app.R
+import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
+import com.patrykandpatrick.vico.core.entry.entryOf
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
 import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
@@ -63,15 +57,7 @@ class ModelDetailsActivity : AppCompatActivity() {
         val description = binding.textViewModelDetailsShortDesc
         description.text = viewModel.description
 
-        val ratingsFrame = binding.frameLayoutModelDetailsRatings
-        val progressBar = binding.linearProgressIndicatorModelDetailsRatings
-
-        val asyncLayoutInflater = AsyncLayoutInflater(this)
-        asyncLayoutInflater.inflate(R.layout.fragment_chart, ratingsFrame) { view, _, _ ->
-            drawRatingChart(view)
-            progressBar.visibility = View.GONE
-            ratingsFrame.addView(view)
-        }
+        drawRatingChart()
 
         val comments = binding.linearLayoutModelDetailsRatingsAndComments
         comments.setOnClickListener() {
@@ -106,25 +92,14 @@ class ModelDetailsActivity : AppCompatActivity() {
         }
     }
 
-    private fun drawRatingChart(view: View){
-        val ratings = view.findViewById<AAChartView>(R.id.aaChartView_chartFragment)
-
-        // Get primary color
-        val value = TypedValue()
-        theme.resolveAttribute(android.R.attr.colorPrimary, value, true)
-        val color = value.data
-        val primaryColor = String.format("#%06X", 0xFFFFFF and color)
-
-        val ratingsModel = AAChartModel()
-            .chartType(AAChartType.Bar)
-            .legendEnabled(false)
-            .backgroundColor("#00000000")  // Transparent
-            .colorsTheme(arrayOf(primaryColor))
-            .categories(viewModel.ratings.keys.toTypedArray())
-            .series(arrayOf(
-                AASeriesElement()
-                    .data(viewModel.ratings.values.toTypedArray())
-            ))
-        ratings.aa_drawChartWithChartModel(ratingsModel)
+    private fun drawRatingChart(){
+        val chart = binding.chartViewModelDetailsRatings
+        val entryList = viewModel.ratings.map { (key, value) ->
+            entryOf(
+                key.toFloat(),
+                value.toFloat()
+            )
+        }.toList()
+        chart.entryProducer = ChartEntryModelProducer(entryList)
     }
 }

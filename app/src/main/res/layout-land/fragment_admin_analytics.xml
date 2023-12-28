@@ -71,19 +71,14 @@
             android:text="@string/request_frequency"
             android:textSize="20sp" />
 
-        <FrameLayout
-            android:id="@+id/frameLayout_adminAnalytics_requestFrequency"
+        <com.patrykandpatrick.vico.views.chart.ChartView
+            android:id="@+id/chartView_adminAnalytics_requestFrequency"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginTop="@dimen/activity_vertical_margin">
-
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/progressBar_adminAnalytics_requestFrequency"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:indeterminate="true" />
-        </FrameLayout>
+            android:layout_marginVertical="16dp"
+            app:chart="line"
+            app:showStartAxis="true"
+            app:showBottomAxis="true"/>
 
         <com.google.android.material.divider.MaterialDivider
             android:layout_width="match_parent"
@@ -159,19 +154,14 @@
             android:text="@string/top_5_models"
             android:textSize="20sp" />
 
-        <FrameLayout
-            android:id="@+id/frameLayout_adminAnalytics_top5Models"
+        <com.patrykandpatrick.vico.views.chart.ChartView
+            android:id="@+id/chartView_adminAnalytics_top5Models"
             android:layout_width="match_parent"
             android:layout_height="250dp"
-            android:layout_marginTop="@dimen/activity_vertical_margin">
-
-            <com.google.android.material.progressindicator.LinearProgressIndicator
-                android:id="@+id/progressBar_adminAnalytics_top5Models"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:indeterminate="true" />
-        </FrameLayout>
+            android:layout_marginVertical="16dp"
+            app:chart="column"
+            app:showStartAxis="true"
+            app:showBottomAxis="true"/>
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_adminAnalytics_vertical1"
