@@ -1,2 +1,2 @@
 # mobile-app
-Android app using Kotlin and XML
+Kotlin Android app for manage and inference of machine learning models
