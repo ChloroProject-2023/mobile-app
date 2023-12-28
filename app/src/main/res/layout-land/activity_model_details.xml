@@ -120,21 +120,14 @@
                 android:text="Ratings and reviews are verified and posted by users of the same device as yours"
                 android:textSize="12sp" />
 
-            <FrameLayout
-                android:id="@+id/frameLayout_modelDetails_ratings"
+            <com.patrykandpatrick.vico.views.chart.ChartView
+                android:id="@+id/chartView_modelDetails_ratings"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp">
-
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/linearProgressIndicator_modelDetails_ratings"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
-                    android:indeterminate="true" />
-            </FrameLayout>
+                android:layout_marginVertical="16dp"
+                app:chart="column"
+                app:showStartAxis="true"
+                app:showBottomAxis="true"/>
 
             <LinearLayout
                 android:id="@+id/linearLayout_modelDetails_mostUsedModels"
