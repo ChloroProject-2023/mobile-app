@@ -1,17 +1,14 @@
 package vn.edu.usth.mobile_app.ui.login
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
-import android.window.OnBackInvokedDispatcher
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.MainActivity
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityLogInBinding
-import vn.edu.usth.mobile_app.ui.GlobalData
 import vn.edu.usth.mobile_app.ui.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
