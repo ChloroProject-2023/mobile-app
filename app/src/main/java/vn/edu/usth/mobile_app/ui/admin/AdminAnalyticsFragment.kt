@@ -1,5 +1,6 @@
 package vn.edu.usth.mobile_app.ui.admin
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -26,6 +27,11 @@ class AdminAnalyticsFragment : Fragment(R.layout.fragment_admin_analytics) {
     ): View {
         _binding = FragmentAdminAnalyticsBinding.inflate(inflater, container, false)
         val view = binding.root
+
+        binding.buttonAdminAnalyticsUserList.setOnClickListener{
+            val intent = Intent(requireContext(), UserListActivity::class.java)
+            startActivity(intent)
+        }
 
         drawRequestFreqChart()
         drawTop5ModelsChart()

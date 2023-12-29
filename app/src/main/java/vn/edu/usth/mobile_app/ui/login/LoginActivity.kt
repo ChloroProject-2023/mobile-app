@@ -3,12 +3,12 @@ package vn.edu.usth.mobile_app.ui.login
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.MainActivity
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityLogInBinding
-import vn.edu.usth.mobile_app.ui.GlobalData
 import vn.edu.usth.mobile_app.ui.signup.SignupActivity
 
 class LoginActivity : AppCompatActivity() {
@@ -67,6 +67,14 @@ class LoginActivity : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
+
+        this.onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                val intent = Intent(this@LoginActivity, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+            }
+        })
     }
 
     override fun dispatchTouchEvent(ev: MotionEvent?): Boolean {
