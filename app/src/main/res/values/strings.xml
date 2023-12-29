@@ -75,7 +75,7 @@
     <string name="thumb_down">Thumb down</string>
     <string name="model_tag">Tags</string>
     <string name="tag">Models</string>
-<!--String of user profile-->
+    <!--String of user profile-->
     <string name="profile_image">Profile Image</string>
     <string name="profile_name">Profile Name</string>
     <string name="profile_introduce">Introduce about myself</string>
@@ -119,4 +119,9 @@
     <string name="created">Created:</string>
     <string name="more_vert">More Vert</string>
     <string name="Role_colon">Role:</string>
+    <string name="MPAP">MPAP</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="info_fragment">Info fragment</string>
+    <string name="dataset_fragment">Dataset fragment</string>
+    <string name="model_fragment">Model fragment</string>
 </resources>
