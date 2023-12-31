@@ -44,7 +44,7 @@
     <string name="top_5_models">Top 5 Models</string>
     <string name="last_24h_users">Last 24h Users</string>
     <string name="last_24h_request">Last 24h Request</string>
-    <string name="profile">Profile</string>
+    <string name="Profile">Profile</string>
     <string name="admin">Admin</string>
     <string name="itemHistory_result">Result:</string>
     <string name="itemHistory_data">Data:</string>
@@ -215,4 +215,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="Joined_in">Joined in</string>
+    <string name="My_Information">My Information</string>
+    <string name="Models">Models</string>
 </resources>
