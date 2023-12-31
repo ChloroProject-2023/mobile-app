@@ -23,6 +23,7 @@
         tools:text="Image1.png" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton_itemResources_more"
         style="?attr/materialIconButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
