@@ -9,51 +9,52 @@
     tool:context=".ui.profile.ProfileActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/profile_appbar"
+        android:id="@+id/appBar_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <!-- Stupid hack but works for now -->
         <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/profile_collapse"
+            android:id="@+id/collapseToolbar_profile"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="260dp"
             app:titleEnabled="false"
             app:contentScrim="@color/md_theme_dark_onPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+
+            <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/materialToolbar_profile"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="@string/Profile"
+                app:layout_collapseMode="pin"
+                app:navigationIcon="@drawable/baseline_arrow_back_24"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+            <ImageView
+                android:id="@+id/imageView_profile_avatar"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:layout_centerHorizontal="true"
+                android:layout_gravity="center_horizontal"
+                android:scaleType="centerCrop"
+                android:src="@drawable/baseline_person_24" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <com.google.android.material.appbar.MaterialToolbar
-                    android:id="@+id/materialToolbar_profile"
-                    android:layout_width="match_parent"
-                    android:layout_height="?attr/actionBarSize"
-                    app:title="@string/Profile"
-                    app:navigationIcon="@drawable/baseline_arrow_back_24"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
-
-                <ImageView
-                    android:id="@+id/imageView_profile_avatar"
-                    android:layout_width="128dp"
-                    android:layout_height="128dp"
-                    android:layout_below="@id/materialToolbar_profile"
-                    android:layout_centerHorizontal="true"
-                    android:layout_gravity="center|bottom"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/baseline_person_24" />
-
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom">
                 <TextView
                     android:id="@+id/textView_profile_username"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@id/imageView_profile_avatar"
                     android:layout_centerHorizontal="true"
+                    android:text="@string/Username"
                     android:textSize="28sp"
                     tool:text="Username"/>
-
                 <TextView
-                    android:id="@+id/textView2"
+                    android:id="@+id/textView_profile_join"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
@@ -63,14 +64,12 @@
                     android:text="@string/Joined_in"
                     android:textSize="14sp" />
             </RelativeLayout>
-
         </com.google.android.material.appbar.CollapsingToolbarLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
 
         <LinearLayout
