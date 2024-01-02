@@ -1,6 +1,7 @@
 package vn.edu.usth.mobile_app.ui.usermenu.resourcelist
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -8,6 +9,8 @@ import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ItemListResourcesBinding
 import vn.edu.usth.mobile_app.model.ResourcesData
 import vn.edu.usth.mobile_app.util.AsyncCell
+import com.google.android.material.bottomsheet.BottomSheetDialog
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.DateFormat
 
 class ResourceAsyncRecyclerAdapter(
@@ -43,6 +46,31 @@ class ResourceAsyncRecyclerAdapter(
             val dateFormat = DateFormat.getDateInstance(DateFormat.SHORT)
             val dateString = dateFormat.format(resourceList[position].date)
             cell.binding.textViewItemResourcesDate.text = dateString
+
+            // Bind the click listener to binding.materialButtonItemResourcesMore
+            cell.binding.materialButtonItemResourcesMore?.setOnClickListener {
+                val bottomSheet = BottomSheetDialog(context)
+                val view = LayoutInflater.from(context).inflate(R.layout.bottom_sheet_dialog, this, false)
+                bottomSheet.setContentView(view)
+                bottomSheet.show()
+                // Set the click listener for the m3button_delete
+                view.findViewById<View>(R.id.m3button_delete).setOnClickListener {
+                    MaterialAlertDialogBuilder(context)
+                        .setTitle("Delete")
+                        .setMessage("Are you sure you want to delete this resource?")
+                        .setNegativeButton("Cancel") { dialog, _ ->
+                            dialog.dismiss()
+
+                        }
+                        .setPositiveButton("Delete") { _, _ ->
+                            resourceList.removeAt(position)
+                            notifyItemRemoved(position)
+                            notifyItemRangeChanged(position, resourceList.size)
+                            bottomSheet.dismiss()
+                        }
+                        .show()
+                }
+            }
         }
     }
 }
