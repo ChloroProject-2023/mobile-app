@@ -4,4 +4,5 @@ object GlobalData {
     var userId: Int = -1
     var isLogin: Boolean = false
     var isAdmin: Boolean = false
+    var token: String = ""
 }

@@ -1,7 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
-    kotlin("plugin.serialization") version "1.9.21"
+    kotlin("plugin.serialization")
 }
 
 android {
@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "vn.edu.usth.mobile_app"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 33
         versionCode = 1
         versionName = "1.0"
@@ -67,4 +67,7 @@ dependencies {
     implementation("io.ktor:ktor-client-content-negotiation:$ktorVersion")
     implementation("io.ktor:ktor-client-logging:$ktorVersion")
     implementation("io.ktor:ktor-serialization-kotlinx-json:$ktorVersion")
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.0")
+
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }

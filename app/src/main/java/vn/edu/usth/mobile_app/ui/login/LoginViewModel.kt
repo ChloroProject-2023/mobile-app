@@ -1,13 +1,20 @@
 package vn.edu.usth.mobile_app.ui.login
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import vn.edu.usth.mobile_app.ui.GlobalData
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
+import vn.edu.usth.mobile_app.network.KtorClient
 
 class LoginViewModel: ViewModel() {
-    fun submit(username: String, password: String): Boolean {
-        GlobalData.userId = 1
-        GlobalData.isLogin = true
-        GlobalData.isAdmin = true
-        return true
+    private val _isLogin = MutableLiveData<Boolean>()
+    val isLogin: LiveData<Boolean> = _isLogin
+
+    fun submit(username: String, password: String) {
+        viewModelScope.launch {
+            val response = KtorClient().login(username, password)
+            _isLogin.value = response
+        }
     }
 }

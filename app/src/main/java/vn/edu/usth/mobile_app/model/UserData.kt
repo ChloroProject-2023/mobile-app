@@ -1,5 +1,8 @@
 package vn.edu.usth.mobile_app.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class UserData (
     var id: Int = -1,
     var firstname: String = "",
