@@ -3,6 +3,7 @@ package vn.edu.usth.mobile_app.ui.signup
 import android.content.Intent
 import android.os.Bundle
 import android.view.MotionEvent
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import vn.edu.usth.mobile_app.MainActivity
@@ -88,19 +89,22 @@ class SignupActivity : AppCompatActivity() {
                 return@setOnClickListener
             }
 
-            val result = viewModel.submit(
+            viewModel.submit(
                 firstname.text.toString(),
                 lastname.text.toString(),
                 username.text.toString(),
                 password.text.toString()
             )
-            if (!result) {
-                return@setOnClickListener
-            }
+        }
 
-            val intent = Intent(this, MainActivity::class.java)
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
-            startActivity(intent)
+        viewModel.isLogin.observe(this) {
+            if (it) {
+                val intent = Intent(this, MainActivity::class.java)
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
+                startActivity(intent)
+            } else {
+                Toast.makeText(this, "Sign up failed. Please try again", Toast.LENGTH_SHORT).show()
+            }
         }
 
         val login = binding.buttonSignupLogin

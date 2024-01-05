@@ -15,6 +15,7 @@ import io.ktor.http.encodedPath
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import vn.edu.usth.mobile_app.model.*
+import vn.edu.usth.mobile_app.model.remote.RemoteUser
 import vn.edu.usth.mobile_app.ui.GlobalData
 import java.util.Base64
 
@@ -64,6 +65,31 @@ class KtorClient {
             GlobalData.userId = userdata.id
             GlobalData.isAdmin = userdata.role == UserRoles.ADMIN
             return true
+        }
+        return false
+    }
+
+    suspend fun signup(
+        username: String,
+        password: String,
+        firstname: String,
+        lastname: String,
+    ): Boolean {
+        val response = client.post {
+            url {
+                encodedPath = "users/signup"
+            }
+            setBody(
+                RemoteUser(
+                    username,
+                    password,
+                    RemoteUser.RemoteUserDetails(firstname, lastname, "")
+                )
+            )
+        }
+        val responseCode = response.status.value
+        if (responseCode == 200) {
+            return login(username, password)
         }
         return false
     }
