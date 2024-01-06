@@ -13,7 +13,7 @@ class LoginViewModel: ViewModel() {
 
     fun submit(username: String, password: String) {
         viewModelScope.launch {
-            val response = KtorClient().login(username, password)
+            val response = KtorClient.login(username, password)
             _isLogin.value = response
         }
     }

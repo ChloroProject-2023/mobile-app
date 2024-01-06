@@ -15,11 +15,13 @@ import io.ktor.http.encodedPath
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import vn.edu.usth.mobile_app.model.*
+import vn.edu.usth.mobile_app.model.remote.RemoteReview
 import vn.edu.usth.mobile_app.model.remote.RemoteUser
+import vn.edu.usth.mobile_app.model.remote.toReviewData
 import vn.edu.usth.mobile_app.ui.GlobalData
 import java.util.Base64
 
-class KtorClient {
+object KtorClient {
     private val client = HttpClient(OkHttp) {
         defaultRequest {
             url {
@@ -69,6 +71,10 @@ class KtorClient {
         return false
     }
 
+    /**
+     * Signup then login to the server
+     * @return true if response code = 200, false otherwise
+     */
     suspend fun signup(
         username: String,
         password: String,
@@ -106,5 +112,27 @@ class KtorClient {
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
         return response.body<UserData>()
+    }
+
+    suspend fun getUserReviews(userId: Int): List<ReviewData> {
+        val response = client.get {
+            url {
+                encodedPath = "users/ratings-by-user_id/$userId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteReviewList = response.body<List<RemoteReview>>()
+        return remoteReviewList.map { it.toReviewData() }
+    }
+
+    suspend fun getModelReviews(modelId: Int): List<ReviewData> {
+        val response = client.get {
+            url {
+                encodedPath = "models/ratings-by-model_id/$modelId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteReviewList = response.body<List<RemoteReview>>()
+        return remoteReviewList.map { it.toReviewData() }
     }
 }

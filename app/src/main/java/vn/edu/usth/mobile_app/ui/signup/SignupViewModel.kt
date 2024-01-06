@@ -19,7 +19,7 @@ class SignupViewModel: ViewModel() {
         password: String
     ) {
         viewModelScope.launch {
-            val response = KtorClient().signup(username, password, firstName, lastName)
+            val response = KtorClient.signup(username, password, firstName, lastName)
             _isLogin.value = response
         }
     }
