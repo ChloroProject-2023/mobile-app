@@ -2,12 +2,21 @@ package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
+import android.widget.Button
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.play.core.review.ReviewException
+import com.google.android.play.core.review.ReviewManager
+import com.google.android.play.core.review.ReviewManagerFactory
+import com.google.android.play.core.review.model.ReviewErrorCode
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.entry.entryOf
+import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
+import vn.edu.usth.mobile_app.ui.AddReview
+import vn.edu.usth.mobile_app.ui.PopupUpload
 import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.reviews.ReviewActivity
@@ -18,12 +27,30 @@ class ModelDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityModelDetailsBinding
     private val viewModel: ModelDetailsViewModel by viewModels()
+    private lateinit var AddReview: AddReview
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityModelDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        val useButton = binding.buttonModelDetailsUse
+        useButton.setOnClickListener() {
+            startActivity(Intent(this, PopupUpload::class.java))
+        }
+
+        val ratings = findViewById<ImageView>(R.id.ratings_arrow)
+        ratings.setOnClickListener {
+            val intent = Intent(this, AddReview::class.java)
+            startActivity(intent)
+        }
+
+        val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
+        aboutModel.setOnClickListener() {
+            val intent = Intent(this, AboutModelActivity::class.java)
+            intent.putExtra("modelId", viewModel.modelId)
+            startActivity(intent)
+        }
 
         if(intent.extras != null) {
             viewModel.setModelID(intent.extras!!.getInt("modelID"))
@@ -40,18 +67,6 @@ class ModelDetailsActivity : AppCompatActivity() {
         authorName.text = viewModel.author
         authorName.setOnClickListener() {
             // Open user profile
-        }
-
-        val useButton = binding.buttonModelDetailsUse
-        useButton.setOnClickListener() {
-            // Use model
-        }
-
-        val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
-        aboutModel.setOnClickListener() {
-            val intent = Intent(this, AboutModelActivity::class.java)
-            intent.putExtra("modelId", viewModel.modelId)
-            startActivity(intent)
         }
 
         val description = binding.textViewModelDetailsShortDesc

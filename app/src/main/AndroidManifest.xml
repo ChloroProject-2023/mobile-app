@@ -33,6 +33,10 @@
             android:name=".ui.modeldetails.ModelDetailsActivity"
             android:exported="false"/>
         <activity
+            android:name=".ui.PopupUpload"
+            android:theme="@style/Theme.MaterialComponents.Dialog"
+            android:exported="false"/>
+        <activity
             android:name=".ui.history.HistoryActivity"
             android:exported="false"/>
         <activity
