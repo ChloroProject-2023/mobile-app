@@ -15,11 +15,14 @@ import io.ktor.http.encodedPath
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import vn.edu.usth.mobile_app.model.*
+import vn.edu.usth.mobile_app.model.remote.RemoteModel
 import vn.edu.usth.mobile_app.model.remote.RemoteReview
 import vn.edu.usth.mobile_app.model.remote.RemoteUser
+import vn.edu.usth.mobile_app.model.remote.toModelData
 import vn.edu.usth.mobile_app.model.remote.toReviewData
 import vn.edu.usth.mobile_app.ui.GlobalData
 import java.util.Base64
+import java.util.concurrent.TimeUnit
 
 object KtorClient {
     private val client = HttpClient(OkHttp) {
@@ -29,6 +32,12 @@ object KtorClient {
                 port = 8081
             }
             header(HttpHeaders.ContentType, ContentType.Application.Json)
+        }
+
+        engine {
+            config {
+                connectTimeout(100, TimeUnit.SECONDS)
+            }
         }
 
         install(ContentNegotiation) {
@@ -112,6 +121,80 @@ object KtorClient {
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
         return response.body<UserData>()
+    }
+
+    suspend fun getModel(modelId: Int): ModelData {
+        val response = client.get {
+            url {
+                encodedPath = "models/$modelId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.body<RemoteModel>().toModelData()
+    }
+
+    suspend fun getModelsCount(): Int {
+        val response = client.get {
+            url {
+                encodedPath = "models/count"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.body<Int>()
+    }
+
+    suspend fun deleteModel(modelId: Int): Boolean {
+        val response = client.delete {
+            url {
+                encodedPath = "models/delete/$modelId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.status.value == 200
+    }
+
+    suspend fun getModelsByUser(userId: Int): List<ModelData> {
+        val response = client.get {
+            url {
+                encodedPath = "models/models-by-user/$userId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteModelList = response.body<List<RemoteModel>>()
+        return remoteModelList.map { it.toModelData() }
+    }
+
+    suspend fun searchModels(query: String): List<ModelData> {
+        val response = client.get {
+            url {
+                encodedPath = "models/search/$query"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteModelList = response.body<List<RemoteModel>>()
+        return remoteModelList.map { it.toModelData() }
+    }
+
+    suspend fun top10MostUsedModels(): List<ModelData> {
+        val response = client.get {
+            url {
+                encodedPath = "models/top10-most-used"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteModelList = response.body<List<RemoteModel>>()
+        return remoteModelList.map { it.toModelData() }
+    }
+
+    suspend fun top10RecentlyUsed(): List<ModelData> {
+        val response = client.get {
+            url {
+                encodedPath = "models/top10-recently-used"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteModelList = response.body<List<RemoteModel>>()
+        return remoteModelList.map { it.toModelData() }
     }
 
     suspend fun getUserReviews(userId: Int): List<ReviewData> {
