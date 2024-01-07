@@ -2,13 +2,18 @@ package vn.edu.usth.mobile_app.ui.profile
 
 import android.os.Bundle
 import android.util.Log
+import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.TypedValueCompat
+import androidx.core.view.marginEnd
+import androidx.core.view.marginRight
+import androidx.core.view.marginTop
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
+import java.lang.reflect.Type
 import kotlin.math.abs
 
 
@@ -25,8 +30,10 @@ class ProfileActivity : AppCompatActivity() {
     private val EXPAND_AVATAR_SIZE = 128
     private val COLLAPSED_AVATAR_SIZE = 48
 
+    private var avatarAnimateStartPointX: Float = 0F
     private var avatarAnimateStartPointY: Float = 0F
-    private var avatarSizeChangePercent = 0F
+
+    private var avatarSizeChangePercent = 0.25F
     private var lastSizeChangeValue = 0F
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -64,18 +71,39 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun updateAvatar() {
-        // Reposition
-        val deltaX = appBarLayout.width - (userAvatar.width + userAvatar.x)
-        val deltaY = userAvatar.y * -1
-        userAvatar.translationX = TypedValueCompat.dpToPx(deltaX * avatarSizeChangePercent, resources.displayMetrics)
-//        userAvatar.translationY = TypedValueCompat.dpToPx(deltaY * avatarSizeChangePercent, resources.displayMetrics)
-
-        // Resize
+        // Assuming avatarAnimateStartPointX/Y are properly initialized
+        avatarAnimateStartPointX = userAvatar.x
+        avatarAnimateStartPointY = userAvatar.y
+        // Calculate the new size
+        val newSize = EXPAND_AVATAR_SIZE + (COLLAPSED_AVATAR_SIZE - EXPAND_AVATAR_SIZE) * avatarSizeChangePercent - userAvatar.marginEnd
+        // Apply size change
+        val sizeInPixels = TypedValueCompat.dpToPx(newSize, resources.displayMetrics).toInt()
         userAvatar.layoutParams.apply {
-            val sizeChangeValue = EXPAND_AVATAR_SIZE * (1- avatarSizeChangePercent)
-            height = TypedValueCompat.dpToPx(sizeChangeValue, resources.displayMetrics).toInt()
-            width = TypedValueCompat.dpToPx(sizeChangeValue, resources.displayMetrics).toInt()
+            height = sizeInPixels
+            width = sizeInPixels
         }
+
+        // Calculate final positions for collapsed state
+        val finalX = (TypedValueCompat.dpToPx(collapseToolbar.width.toFloat(), resources.displayMetrics).toInt())/2 - TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()*2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()*2// Adjust for the margin of the avatar
+        val finalY = TypedValueCompat.dpToPx(collapseToolbar.height.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt() - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()
+
+        // Calculate deltas for animation
+        val deltaX = finalX - avatarAnimateStartPointX
+        val deltaY = finalY - avatarAnimateStartPointY
+
+        // Apply translation
+        userAvatar.translationX = (deltaX * avatarSizeChangePercent).toFloat()
+        userAvatar.translationY = deltaY * avatarSizeChangePercent
+
+        userAvatar.scaleX = 1 - avatarSizeChangePercent + 0.1F
+        userAvatar.scaleY = 1 - avatarSizeChangePercent + 0.1F
+
         userAvatar.requestLayout()
+
+        // Convert to dp for logging
+        Log.d("AvatarSize", TypedValueCompat.pxToDp(sizeInPixels.toFloat(), resources.displayMetrics).toString())
+
     }
+
+
 }
