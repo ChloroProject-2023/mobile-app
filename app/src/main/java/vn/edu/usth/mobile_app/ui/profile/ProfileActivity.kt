@@ -2,18 +2,15 @@ package vn.edu.usth.mobile_app.ui.profile
 
 import android.os.Bundle
 import android.util.Log
-import android.util.TypedValue
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.TypedValueCompat
 import androidx.core.view.marginEnd
-import androidx.core.view.marginRight
 import androidx.core.view.marginTop
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
-import java.lang.reflect.Type
 import kotlin.math.abs
 
 
@@ -71,9 +68,9 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     private fun updateAvatar() {
-        // Assuming avatarAnimateStartPointX/Y are properly initialized
         avatarAnimateStartPointX = userAvatar.x
         avatarAnimateStartPointY = userAvatar.y
+
         // Calculate the new size
         val newSize = EXPAND_AVATAR_SIZE + (COLLAPSED_AVATAR_SIZE - EXPAND_AVATAR_SIZE) * avatarSizeChangePercent - userAvatar.marginEnd
         // Apply size change
@@ -99,9 +96,6 @@ class ProfileActivity : AppCompatActivity() {
         userAvatar.scaleY = 1 - avatarSizeChangePercent + 0.1F
 
         userAvatar.requestLayout()
-
-        // Convert to dp for logging
-        Log.d("AvatarSize", TypedValueCompat.pxToDp(sizeInPixels.toFloat(), resources.displayMetrics).toString())
 
     }
 
