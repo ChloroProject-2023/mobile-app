@@ -24,7 +24,7 @@ class UserListViewModel: ViewModel() {
                     id = 1,
                     firstname = "Nguyen",
                     lastname = "Van A",
-                    username = "Test",
+                    username = "Test$i",
                     email = "test@abc.com",
                     avatarUrl = "",
                     role = UserRoles.USER,
