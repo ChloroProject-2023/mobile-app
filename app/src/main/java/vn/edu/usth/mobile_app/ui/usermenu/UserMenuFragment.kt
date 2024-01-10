@@ -11,6 +11,7 @@ import vn.edu.usth.mobile_app.MainViewModel
 import vn.edu.usth.mobile_app.databinding.FragmentUserMenuBinding
 import vn.edu.usth.mobile_app.ui.history.HistoryActivity
 import vn.edu.usth.mobile_app.ui.usermenu.resourcelist.ResourcesListActivity
+import vn.edu.usth.mobile_app.ui.usermenu.uploadedmodels.UploadedModelsActivity
 
 class UserMenuFragment: Fragment() {
     private var _binding: FragmentUserMenuBinding? = null
@@ -31,6 +32,11 @@ class UserMenuFragment: Fragment() {
 
         historyCard.setOnClickListener {
             val intent = Intent(requireContext(), HistoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        uploadedModelsCard.setOnClickListener {
+            val intent = Intent(requireContext(), UploadedModelsActivity::class.java)
             startActivity(intent)
         }
 
