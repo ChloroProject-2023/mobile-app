@@ -7,15 +7,12 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.play.core.review.ReviewException
-import com.google.android.play.core.review.ReviewManager
-import com.google.android.play.core.review.ReviewManagerFactory
-import com.google.android.play.core.review.model.ReviewErrorCode
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.entry.entryOf
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
-import vn.edu.usth.mobile_app.ui.AddReview
+import vn.edu.usth.mobile_app.ui.AddReviewActivity
+import vn.edu.usth.mobile_app.ui.ListReviewActivity
 import vn.edu.usth.mobile_app.ui.PopupUpload
 import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
@@ -27,7 +24,6 @@ class ModelDetailsActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityModelDetailsBinding
     private val viewModel: ModelDetailsViewModel by viewModels()
-    private lateinit var AddReview: AddReview
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,9 +35,15 @@ class ModelDetailsActivity : AppCompatActivity() {
             startActivity(Intent(this, PopupUpload::class.java))
         }
 
+        val comment = findViewById<ImageView>(R.id.comments_arrow)
+        comment.setOnClickListener {
+            val intent = Intent(this, AddReviewActivity::class.java)
+            startActivity(intent)
+        }
+
         val ratings = findViewById<ImageView>(R.id.ratings_arrow)
         ratings.setOnClickListener {
-            val intent = Intent(this, AddReview::class.java)
+            val intent = Intent(this, ListReviewActivity::class.java)
             startActivity(intent)
         }
 
@@ -51,6 +53,8 @@ class ModelDetailsActivity : AppCompatActivity() {
             intent.putExtra("modelId", viewModel.modelId)
             startActivity(intent)
         }
+
+
 
         if(intent.extras != null) {
             viewModel.setModelID(intent.extras!!.getInt("modelID"))
