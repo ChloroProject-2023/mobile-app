@@ -13,9 +13,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.DateFormat
 
-class ResourceAsyncRecyclerAdapter(
-    private val resourceList: ArrayList<ResourcesData>
-): RecyclerView.Adapter<ResourceAsyncRecyclerAdapter.ViewHolder>() {
+class ResourceAsyncRecyclerAdapter: RecyclerView.Adapter<ResourceAsyncRecyclerAdapter.ViewHolder>() {
+    private val resourceList: ArrayList<ResourcesData> = ArrayList()
+
 
     class ViewHolder(view: ViewGroup) : RecyclerView.ViewHolder(view){}
 
@@ -60,7 +60,6 @@ class ResourceAsyncRecyclerAdapter(
                         .setMessage("Are you sure you want to delete this resource?")
                         .setNegativeButton("Cancel") { dialog, _ ->
                             dialog.dismiss()
-
                         }
                         .setPositiveButton("Delete") { _, _ ->
                             resourceList.removeAt(position)
@@ -72,5 +71,11 @@ class ResourceAsyncRecyclerAdapter(
                 }
             }
         }
+    }
+
+    fun updateList(newList: ArrayList<ResourcesData>) {
+        resourceList.clear()
+        resourceList.addAll(newList)
+        notifyDataSetChanged()
     }
 }

@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import vn.edu.usth.mobile_app.databinding.ActivityRecyclerViewBinding
+import vn.edu.usth.mobile_app.model.ResourcesData
 
 class ResourcesListActivity: AppCompatActivity() {
     private lateinit var resourceAsyncRecyclerAdapter: ResourceAsyncRecyclerAdapter
@@ -22,9 +23,12 @@ class ResourcesListActivity: AppCompatActivity() {
         }
         toolbar.setTitle("Resources")
 
-        viewModel.fetchResourceList()
-        val resourceList = viewModel.resourceList
-        resourceAsyncRecyclerAdapter = ResourceAsyncRecyclerAdapter(resourceList)
+        resourceAsyncRecyclerAdapter = ResourceAsyncRecyclerAdapter()
+        val listObserver = androidx.lifecycle.Observer<ArrayList<ResourcesData>> {
+            resourceAsyncRecyclerAdapter.updateList(it)
+        }
+        viewModel.resourceList.observe(this, listObserver)
+
         val recyclerView = binding.recyclerViewRVActivity
         recyclerView.adapter = resourceAsyncRecyclerAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
