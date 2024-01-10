@@ -8,18 +8,8 @@
         <item name="cornerRadius">10dp</item>
     </style>
 
-    <style name="CustomActivityAnimation" parent="@android:style/Animation.Activity">
-        <item name="android:activityOpenEnterAnimation">@transition/fade_in</item>
-        <item name="android:activityOpenExitAnimation">@transition/fade_out</item>
-        <item name="android:activityCloseEnterAnimation">@transition/fade_in</item>
-        <item name="android:activityCloseExitAnimation">@transition/fade_out</item>
-        <item name="android:taskOpenEnterAnimation">@transition/slide_in_up</item>
-        <item name="android:taskOpenExitAnimation">@transition/slide_out_up</item>
-        <item name="android:taskCloseEnterAnimation">@transition/slide_in_up</item>
-        <item name="android:taskCloseExitAnimation">@transition/slide_out_up</item>
-        <item name="android:taskToFrontEnterAnimation">@transition/slide_in_up</item>
-        <item name="android:taskToFrontExitAnimation">@transition/slide_out_up</item>
-        <item name="android:taskToBackEnterAnimation">@transition/slide_in_up</item>
-        <item name="android:taskToBackExitAnimation">@transition/slide_out_up</item>
+    <style name="PopupUploadTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
 </resources>

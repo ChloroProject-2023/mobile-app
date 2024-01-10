@@ -15,36 +15,52 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:targetApi="31">
-        <activity android:name=".ui.admin.UserListActivity"
-            android:exported="false"/>
-        <activity android:name=".ui.usermenu.resourcelist.ResourcesListActivity"
-            android:exported="false"/>
-        <activity android:name=".ui.modeldetails.aboutmodel.AboutModelActivity"
-            android:exported="false"/>
+        <activity
+            android:name=".ui.AddReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.admin.UserListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.usermenu.resourcelist.ResourcesListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.modeldetails.aboutmodel.AboutModelActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.modeldetails.reviews.ReviewActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.modeldetails.similarmodels.MoreSimilarModelsActivity"
-            android:exported="false"/>
-        <activity android:name=".ui.modeldetails.popularmodels.MorePopularModelsActivity"
-            android:exported="false"/>
+            android:exported="false" />
+        <activity
+            android:name=".ui.modeldetails.popularmodels.MorePopularModelsActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.modeldetails.ModelDetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.PopupUpload"
-            android:theme="@style/Theme.MaterialComponents.Dialog"
-            android:exported="false"/>
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.Dialog" />
+        <activity
+            android:name=".ui.ListReviewActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.profile.ProfileActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.history.HistoryActivity"
-            android:exported="false"/>
+            android:exported="false" />
         <activity
             android:name=".ui.login.LoginActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".ui.signup.SignupActivity"
-            android:exported="true"/>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

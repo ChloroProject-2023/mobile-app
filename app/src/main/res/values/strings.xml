@@ -214,7 +214,18 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
     <string name="action_settings">Settings</string>
     <string name="cancel">Cancel</string>
     <string name="button_upload">Upload Button</string>
+    <string name="write_your_comment">Write your comment</string>
+    <string name="add_review_notice">This is your private review</string>
+    <string name="write_comment">Write your comment (Not forcing)</string>
+    <string name="add_review">Add new review</string>
+
+    <string name="born">Born</string>
+    <string name="sex">Sex</string>
+    <string name="phone_num">Phone Number</string>
+    <string name="address">Address</string>
+
 </resources>
