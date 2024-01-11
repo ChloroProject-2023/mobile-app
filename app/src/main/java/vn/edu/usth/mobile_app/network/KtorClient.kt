@@ -15,6 +15,7 @@ import io.ktor.http.encodedPath
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import vn.edu.usth.mobile_app.model.*
+import vn.edu.usth.mobile_app.model.remote.RemoteHistory
 import vn.edu.usth.mobile_app.model.remote.RemoteModel
 import vn.edu.usth.mobile_app.model.remote.RemoteReview
 import vn.edu.usth.mobile_app.model.remote.RemoteUser
@@ -121,6 +122,26 @@ object KtorClient {
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
         return response.body<UserData>()
+    }
+
+    suspend fun createInference(
+        userId: Int,
+        modelId: Int,
+        resourceId: Int): String {
+        val response = client.post {
+            url {
+                encodedPath = "inferences/create"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+            setBody(
+                RemoteHistory(
+                    userId = userId,
+                    modelId = modelId,
+                    resourceId = resourceId
+                )
+            )
+        }
+        return response.body<String>()
     }
 
     suspend fun getModel(modelId: Int): ModelData {

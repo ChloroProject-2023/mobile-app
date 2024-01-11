@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ItemListExploreBinding
 import vn.edu.usth.mobile_app.model.ModelData
+import vn.edu.usth.mobile_app.ui.ChooseResourceActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.ModelDetailsActivity
 import vn.edu.usth.mobile_app.util.AsyncCell
 
@@ -50,7 +51,10 @@ class ExploreAsyncRecyclerAdapter(
                  startActivity(it.context, intent, null)
             }
             cell.binding.materialButtonItemExploreUse.setOnClickListener {
-                // Use model
+                // Open choose resource activity
+                val intent = Intent(it.context, ChooseResourceActivity::class.java)
+                intent.putExtra("modelID", modelList[position].id)
+                startActivity(it.context, intent, null)
             }
         }
     }

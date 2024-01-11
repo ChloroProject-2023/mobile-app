@@ -1,4 +1,4 @@
-package vn.edu.usth.mobile_app.ui.usermenu.resourcelist
+package vn.edu.usth.mobile_app.ui
 
 import android.os.Bundle
 import androidx.activity.viewModels
@@ -8,13 +8,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import vn.edu.usth.mobile_app.databinding.ActivityRecyclerViewBinding
 import vn.edu.usth.mobile_app.model.ResourcesData
 
-class ResourcesListActivity: AppCompatActivity() {
-    private lateinit var resourceAsyncRecyclerAdapter: ResourceAsyncRecyclerAdapter
+class ChooseResourceActivity: AppCompatActivity() {
+    private lateinit var chooseResourceAsyncAdapter: ChooseResourceAsyncAdapter
     private lateinit var binding: ActivityRecyclerViewBinding
-    private val viewModel: ResourceViewModel by viewModels()
+    private val viewModel: ChooseResourceViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if (intent.hasExtra("modelID")) {
+            viewModel.modelId = intent.getIntExtra("modelID", -1)
+        }
+
         binding = ActivityRecyclerViewBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -22,16 +27,16 @@ class ResourcesListActivity: AppCompatActivity() {
         toolbar.setNavigationOnClickListener{
             finish()
         }
-        toolbar.setTitle("Resources")
+        toolbar.setTitle("Choose Resource")
 
-        resourceAsyncRecyclerAdapter = ResourceAsyncRecyclerAdapter()
+        chooseResourceAsyncAdapter = ChooseResourceAsyncAdapter()
         val listObserver = androidx.lifecycle.Observer<ArrayList<ResourcesData>> {
-            resourceAsyncRecyclerAdapter.updateList(it)
+            chooseResourceAsyncAdapter.updateList(it)
         }
         viewModel.resourceList.observe(this, listObserver)
 
         val recyclerView = binding.recyclerViewRVActivity
-        recyclerView.adapter = resourceAsyncRecyclerAdapter
+        recyclerView.adapter = chooseResourceAsyncAdapter
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.setHasFixedSize(true)
         val dividerItemDecoration = DividerItemDecoration(this, DividerItemDecoration.VERTICAL)
