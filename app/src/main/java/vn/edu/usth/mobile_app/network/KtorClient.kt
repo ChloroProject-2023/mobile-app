@@ -9,6 +9,7 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.client.request.*
+import io.ktor.client.statement.bodyAsText
 import io.ktor.http.ContentType
 import io.ktor.http.HttpHeaders
 import io.ktor.http.encodedPath
@@ -141,7 +142,7 @@ object KtorClient {
                 )
             )
         }
-        return response.body<String>()
+        return response.bodyAsText()
     }
 
     suspend fun getModel(modelId: Int): ModelData {

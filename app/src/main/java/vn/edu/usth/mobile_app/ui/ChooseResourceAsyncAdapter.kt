@@ -1,16 +1,24 @@
 package vn.edu.usth.mobile_app.ui
 
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
+import android.util.Log
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat.getSystemService
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ItemListChooseResourceBinding
 import vn.edu.usth.mobile_app.model.ResourcesData
 import vn.edu.usth.mobile_app.util.AsyncCell
 import java.text.DateFormat
 
-class ChooseResourceAsyncAdapter: RecyclerView.Adapter<ChooseResourceAsyncAdapter.ViewHolder>() {
+class ChooseResourceAsyncAdapter(
+    private val viewModel: ChooseResourceViewModel
+): RecyclerView.Adapter<ChooseResourceAsyncAdapter.ViewHolder>() {
     private val resourceList: ArrayList<ResourcesData> = ArrayList()
 
 
@@ -44,8 +52,16 @@ class ChooseResourceAsyncAdapter: RecyclerView.Adapter<ChooseResourceAsyncAdapte
             val dateString = dateFormat.format(resourceList[position].date)
             cell.binding.textViewItemChooseResourcesDate.text = dateString
 
-            cell.setOnClickListener {
-
+            cell.binding.root.setOnClickListener {
+//                Log.d("ChooseResource", "Clicked")
+//                val resultContent = viewModel.makeInference(resourceList[position].id)
+                MaterialAlertDialogBuilder(holder.itemView.context)
+                    .setTitle("Result")
+                    .setMessage("item $position clicked")
+                    .setNegativeButton("Close") { dialog, _ ->
+                        dialog.dismiss()
+                    }
+                    .show()
             }
         }
     }

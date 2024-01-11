@@ -29,7 +29,7 @@ class ChooseResourceActivity: AppCompatActivity() {
         }
         toolbar.setTitle("Choose Resource")
 
-        chooseResourceAsyncAdapter = ChooseResourceAsyncAdapter()
+        chooseResourceAsyncAdapter = ChooseResourceAsyncAdapter(viewModel)
         val listObserver = androidx.lifecycle.Observer<ArrayList<ResourcesData>> {
             chooseResourceAsyncAdapter.updateList(it)
         }

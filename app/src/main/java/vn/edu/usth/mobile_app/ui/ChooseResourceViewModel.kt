@@ -3,7 +3,10 @@ package vn.edu.usth.mobile_app.ui
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.launch
 import vn.edu.usth.mobile_app.model.ResourcesData
+import vn.edu.usth.mobile_app.network.KtorClient
 
 class ChooseResourceViewModel: ViewModel() {
     private var _resourceList = MutableLiveData<ArrayList<ResourcesData>>()
@@ -14,7 +17,7 @@ class ChooseResourceViewModel: ViewModel() {
         fetchResourceList()
     }
 
-    private fun fetchResourceList() {
+    fun fetchResourceList() {
         _resourceList.value = arrayListOf(
             ResourcesData(1,"data1.sed", "SedML", 1),
             ResourcesData(2,"data2.sed", "SedML", 1),
@@ -29,7 +32,12 @@ class ChooseResourceViewModel: ViewModel() {
         )
     }
 
-    private fun makeInference(resourceId: Int) {
-
+    fun makeInference(resourceId: Int): String {
+        var resultBody = ""
+        viewModelScope.launch {
+            val result = KtorClient.createInference(GlobalData.userId, modelId, resourceId)
+            resultBody = result
+        }
+        return resultBody
     }
 }
