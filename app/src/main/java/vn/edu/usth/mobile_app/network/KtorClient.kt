@@ -10,18 +10,11 @@ import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.client.request.*
 import io.ktor.client.statement.bodyAsText
-import io.ktor.http.ContentType
-import io.ktor.http.HttpHeaders
-import io.ktor.http.encodedPath
+import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import vn.edu.usth.mobile_app.model.*
-import vn.edu.usth.mobile_app.model.remote.RemoteHistory
-import vn.edu.usth.mobile_app.model.remote.RemoteModel
-import vn.edu.usth.mobile_app.model.remote.RemoteReview
-import vn.edu.usth.mobile_app.model.remote.RemoteUser
-import vn.edu.usth.mobile_app.model.remote.toModelData
-import vn.edu.usth.mobile_app.model.remote.toReviewData
+import vn.edu.usth.mobile_app.model.remote.*
 import vn.edu.usth.mobile_app.ui.GlobalData
 import java.util.Base64
 import java.util.concurrent.TimeUnit
@@ -145,6 +138,7 @@ object KtorClient {
         return response.bodyAsText()
     }
 
+    // Model
     suspend fun getModel(modelId: Int): ModelData {
         val response = client.get {
             url {
@@ -239,5 +233,80 @@ object KtorClient {
         }
         val remoteReviewList = response.body<List<RemoteReview>>()
         return remoteReviewList.map { it.toReviewData() }
+    }
+
+    // User
+    suspend fun getUserById(userId: Int): UserData {
+        val response = client.get {
+            url {
+                encodedPath = "users/$userId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.body<UserData>()
+    }
+
+    suspend fun getUserByUsername(username: String): UserData {
+        val response = client.get {
+            url {
+                encodedPath = "users/profile"
+                parameter("username", username)
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.body<UserData>()
+    }
+
+    suspend fun deleteUserById(userId: Int): Boolean {
+        val response = client.delete {
+            url {
+                encodedPath = "users/delete/$userId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.status.value == 200
+    }
+
+    suspend fun deleteUserByUsername(username: String): Boolean {
+        val response = client.delete {
+            url {
+                encodedPath = "users/delete"
+                parameter("username", username)
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.status.value == 200
+    }
+
+    suspend fun getUserCount(): Int {
+        val response = client.get {
+            url {
+                encodedPath = "users/count"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.body<Int>()
+    }
+
+    // Resource
+    suspend fun getUserResources(userId: Int): List<ResourcesData> {
+        val response = client.get {
+            url {
+                encodedPath = "resources/user_id/$userId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+
+        return response.body<List<RemoteResources>>().map { it.toResourceData() }
+    }
+
+    suspend fun getResourceById(resourceId: Int): ResourcesData {
+        val response = client.get {
+            url {
+                encodedPath = "resources/id/$resourceId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.body<RemoteResources>().toResourceData()
     }
 }
