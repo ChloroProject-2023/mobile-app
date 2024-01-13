@@ -38,7 +38,7 @@
     <string name="loginLayout_bottomText">Sign in to continue!</string>
     <string name="already_have_an_account_log_in">Already have an account? Log in</string>
     <string name="signuplayout_toptext">Let\'s Get Started!</string>
-    <string name="signuplayout_bottomtext">Create an account to get all latest\'s features</string>
+    <string name="signuplayout_bottomtext">Create an account for all latest\'s features</string>
     <string name="upload_CAP">UPLOAD</string>
     <string name="request_frequency">Request Frequency</string>
     <string name="top_5_models">Top 5 Models</string>
@@ -228,4 +228,8 @@
     <string name="phone_num">Phone Number</string>
     <string name="address">Address</string>
 
+    <string name="My_Information">Information</string>
+    <string name="Profile">Profile</string>
+    <string name="Models">Models</string>
+    <string name="Joined_in">Joined in</string>
 </resources>

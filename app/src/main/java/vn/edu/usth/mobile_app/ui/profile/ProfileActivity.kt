@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.TypedValueCompat
 import androidx.core.view.marginEnd
 import androidx.core.view.marginTop
+import androidx.fragment.app.FragmentStatePagerAdapter
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
@@ -44,6 +45,11 @@ class ProfileActivity : AppCompatActivity() {
         username = binding.textViewProfileUsername
         joinDate = binding.textViewProfileJoin
 
+        val toolbar = binding.materialToolbarProfile
+        toolbar.setNavigationOnClickListener{
+            finish()
+        }
+
         appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             Log.d("Offest", verticalOffset.toString())
             Log.d("ScrollRange", appBarLayout.totalScrollRange.toString())
@@ -65,6 +71,13 @@ class ProfileActivity : AppCompatActivity() {
             username.alpha = scrollRemainFraction
             joinDate.alpha = scrollRemainFraction
         }
+
+        val tabLayout = binding.tabLayoutProfile
+        val viewPager = binding.viewPagerProfile
+        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+
+        viewPager.adapter = viewPagerAdapter
+        tabLayout.setupWithViewPager(viewPager)
     }
 
     private fun updateAvatar() {
@@ -98,6 +111,4 @@ class ProfileActivity : AppCompatActivity() {
         userAvatar.requestLayout()
 
     }
-
-
 }

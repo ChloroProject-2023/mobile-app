@@ -9,6 +9,7 @@ import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.entry.entryOf
+import vn.edu.usth.mobile_app.MainActivity
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
 import vn.edu.usth.mobile_app.ui.AddReviewActivity
@@ -18,6 +19,7 @@ import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.reviews.ReviewActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.similarmodels.MoreSimilarModelsActivity
+import vn.edu.usth.mobile_app.ui.profile.ProfileActivity
 
 
 class ModelDetailsActivity : AppCompatActivity() {
@@ -62,7 +64,10 @@ class ModelDetailsActivity : AppCompatActivity() {
         viewModel.fetchModelDetails()
 
         val toolBar = binding.materialToolbarModelDetails
-        toolBar.setNavigationOnClickListener { finish() }
+        toolBar.setNavigationOnClickListener {
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+        }
 
         val modelName = binding.textViewModelDetailsTitle
         modelName.text = viewModel.modelName
@@ -71,6 +76,8 @@ class ModelDetailsActivity : AppCompatActivity() {
         authorName.text = viewModel.author
         authorName.setOnClickListener() {
             // Open user profile
+            val intent = Intent(this, ProfileActivity::class.java)
+            startActivity(intent)
         }
 
         val description = binding.textViewModelDetailsShortDesc

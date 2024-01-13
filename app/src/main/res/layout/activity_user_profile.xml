@@ -17,10 +17,10 @@
         <com.google.android.material.appbar.CollapsingToolbarLayout
             android:id="@+id/collapseToolbar_profile"
             android:layout_width="match_parent"
-            android:layout_height="260dp"
+            android:layout_height="250dp"
             app:titleEnabled="false"
             app:contentScrim="@color/md_theme_dark_onPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed|snap">
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/materialToolbar_profile"
@@ -83,19 +83,16 @@
                 android:layout_height="wrap_content">
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/My_Information"/>
+                    android:layout_height="wrap_content" />
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Resources"/>
+                    android:layout_height="wrap_content" />
                 <com.google.android.material.tabs.TabItem
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/Models"/>
+                    android:layout_height="wrap_content" />
             </com.google.android.material.tabs.TabLayout>
 
-            <androidx.viewpager2.widget.ViewPager2
+            <androidx.viewpager.widget.ViewPager
                 android:id="@+id/viewPager_profile"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"

@@ -5,10 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vn.edu.usth.mobile_app.databinding.FragmentRecyclerViewBinding
+import vn.edu.usth.mobile_app.databinding.FragmentModelBinding
 
 class ModelFragment: Fragment() {
-    private var _binding: FragmentRecyclerViewBinding? = null
+    private var _binding: FragmentModelBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -16,7 +16,7 @@ class ModelFragment: Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
+        _binding = FragmentModelBinding.inflate(inflater, container, false)
         return binding.root
     }
 }
