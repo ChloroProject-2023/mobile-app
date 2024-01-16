@@ -2,6 +2,8 @@ package vn.edu.usth.mobile_app.model.remote
 
 import kotlinx.serialization.Serializable
 import vn.edu.usth.mobile_app.model.ModelData
+import java.text.SimpleDateFormat
+import java.util.Locale
 
 @Serializable
 data class RemoteModel(
@@ -18,6 +20,9 @@ data class RemoteModel(
 )
 
 fun RemoteModel.toModelData(): ModelData {
+    val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.US)
+    val timestamp = format.parse(createTime)?.time
+
     return ModelData(
         id = id,
         name = name,
@@ -25,7 +30,7 @@ fun RemoteModel.toModelData(): ModelData {
         modelPath = filepath,
         type = type,
         creatorName = username!!,
-        createdAt = 0,
+        createdAt = timestamp?: 1,
         usage = usageCount,
     )
 }

@@ -3,6 +3,9 @@ package vn.edu.usth.mobile_app.model.remote
 import kotlinx.serialization.Serializable
 import vn.edu.usth.mobile_app.model.UserData
 import vn.edu.usth.mobile_app.model.UserRoles
+import java.text.SimpleDateFormat
+import java.util.Date
+import java.util.Locale
 
 @Serializable
 data class RemoteUser(
@@ -11,7 +14,7 @@ data class RemoteUser(
     val password: String? = null,
     val role: String? = null,
     val userDetail: RemoteUserDetails,
-    val createTime: Long? = null,
+    val createTime: String? = null,
 ) {
     @Serializable
     data class RemoteUserDetails(
@@ -28,7 +31,9 @@ fun RemoteUser.toUserData(): UserData {
         else -> UserRoles.GUEST
     }
     val id = id ?: -1
-    val createTime = createTime ?: 1
+    val format = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSXXX", Locale.US)
+    val date = format.parse(createTime!!)?: Date(1)
+    val timestamp = date.time
 
     return UserData(
         id = id,
@@ -37,6 +42,6 @@ fun RemoteUser.toUserData(): UserData {
         lastname = userDetail.lastname,
         email = userDetail.email,
         role = userRole,
-        createdAt = createTime,
+        createdAt = timestamp,
     )
 }
