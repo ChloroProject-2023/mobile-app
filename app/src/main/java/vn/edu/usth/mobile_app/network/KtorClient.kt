@@ -91,13 +91,16 @@ object KtorClient {
     ): Boolean {
         val response = client.post {
             url {
-                encodedPath = "users/signup"
+                encodedPath = "users/create"
             }
             setBody(
                 RemoteUser(
-                    username,
-                    password,
-                    RemoteUser.RemoteUserDetails(firstname, lastname, "")
+                    username = username,
+                    password = password,
+                    userDetail = RemoteUser.RemoteUserDetails(
+                        firstname = firstname,
+                        lastname = lastname,
+                        email = "test@gmail.com")
                 )
             )
         }
