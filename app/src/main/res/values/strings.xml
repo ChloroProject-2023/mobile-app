@@ -232,4 +232,6 @@
     <string name="Profile">Profile</string>
     <string name="Models">Models</string>
     <string name="Joined_in">Joined in</string>
+
+    <string name="version">Version</string>
 </resources>

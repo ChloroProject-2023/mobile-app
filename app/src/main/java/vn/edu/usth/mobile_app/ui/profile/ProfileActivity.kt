@@ -8,9 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.TypedValueCompat
 import androidx.core.view.marginEnd
 import androidx.core.view.marginTop
-import androidx.fragment.app.FragmentStatePagerAdapter
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
 import kotlin.math.abs
 
@@ -74,12 +74,17 @@ class ProfileActivity : AppCompatActivity() {
 
         val tabLayout = binding.tabLayoutProfile
         val viewPager = binding.viewPagerProfile
-        val viewPagerAdapter = ViewPagerAdapter(supportFragmentManager, FragmentStatePagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT)
+        val viewPagerAdapter = ViewPagerAdapter(this)
 
         viewPager.adapter = viewPagerAdapter
-        tabLayout.setupWithViewPager(viewPager)
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            when (position) {
+                0 -> tab.text = "Information"
+                1 -> tab.text = "Profile"
+                2 -> tab.text = "Models"
+            }
+        }.attach()
     }
-
     private fun updateAvatar() {
         avatarAnimateStartPointX = userAvatar.x
         avatarAnimateStartPointY = userAvatar.y

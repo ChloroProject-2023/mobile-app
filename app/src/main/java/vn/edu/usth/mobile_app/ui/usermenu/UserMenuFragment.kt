@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import vn.edu.usth.mobile_app.MainViewModel
 import vn.edu.usth.mobile_app.databinding.FragmentUserMenuBinding
+import vn.edu.usth.mobile_app.ui.AppVersionActivity
 import vn.edu.usth.mobile_app.ui.history.HistoryActivity
 import vn.edu.usth.mobile_app.ui.profile.ProfileActivity
 import vn.edu.usth.mobile_app.ui.usermenu.resourcelist.ResourcesListActivity
@@ -29,6 +30,7 @@ class UserMenuFragment: Fragment() {
         val uploadedModelsCard = binding.cardViewUserMenuUploadedModels
         val usedModelsCard = binding.cardViewUserMenuUsedModels
         val resourcesCard = binding.cardViewUserMenuResources
+        val appVersion = binding.textViewUserMenuAppVersion
         val logoutButton = binding.buttonUserMenuLogout
 
         user?.setOnClickListener {
@@ -46,6 +48,11 @@ class UserMenuFragment: Fragment() {
             startActivity(intent)
         }
 
+        appVersion.setOnClickListener {
+            val intent = Intent(requireContext(), AppVersionActivity::class.java)
+            startActivity(intent)
+        }
+
         logoutButton.setOnClickListener {
             val viewModel: MainViewModel by activityViewModels()
             viewModel.logout()
@@ -55,8 +62,6 @@ class UserMenuFragment: Fragment() {
             requireActivity().finish()
             startActivity(intent)
         }
-
-
 
         return binding.root
     }
