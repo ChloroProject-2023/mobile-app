@@ -119,4 +119,6 @@
     <string name="created">Created:</string>
     <string name="more_vert">More Vert</string>
     <string name="Role_colon">Role:</string>
+    <string name="Upload">Upload</string>
+    <string name="Uploaded_Models">Uploaded Models</string>
 </resources>

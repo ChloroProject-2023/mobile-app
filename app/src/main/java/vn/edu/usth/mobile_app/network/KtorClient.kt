@@ -1,5 +1,6 @@
 package vn.edu.usth.mobile_app.network
 
+import android.util.Log
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
@@ -150,6 +151,21 @@ object KtorClient {
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
         return response.body<RemoteModel>().toModelData()
+    }
+
+    suspend fun getModelPage(page: Int, pageSize: Int = 10): List<ModelData> {
+        val response = client.get {
+            url {
+                encodedPath = "models/paging"
+                parameter("pageNo", page.toString())
+                parameter("pageSize", pageSize.toString())
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        val remoteModelList = response.body<List<RemoteModel>>()
+        Log.d("KtorClient.getModelPage", page.toString())
+        Log.d("KtorClient.getModelPage", remoteModelList.toString())
+        return remoteModelList.map { it.toModelData() }
     }
 
     suspend fun getModelsCount(): Int {

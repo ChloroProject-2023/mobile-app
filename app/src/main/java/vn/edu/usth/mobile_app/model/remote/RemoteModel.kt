@@ -8,12 +8,13 @@ data class RemoteModel(
     val id: Int,
     val name: String,
     val type: String,
-    val filePath: String,
+    val filepath: String,
     val description: String,
     val stars: Float? = null,
-    val userId: Int,
+    val usageCount: Int,
+    val user_id: Int,
     val username: String? = null,
-    val createdTime: String,
+    val createTime: String,
 )
 
 fun RemoteModel.toModelData(): ModelData {
@@ -21,10 +22,10 @@ fun RemoteModel.toModelData(): ModelData {
         id = id,
         name = name,
         description = description,
-        modelPath = filePath,
+        modelPath = filepath,
         type = type,
         creatorName = username!!,
-        createdAt = createdTime.toLong(),
-        usage = 0
+        createdAt = 0,
+        usage = usageCount,
     )
 }
