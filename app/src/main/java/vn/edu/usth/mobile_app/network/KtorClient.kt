@@ -9,6 +9,8 @@ import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
 import io.ktor.client.request.*
+import io.ktor.client.request.forms.MultiPartFormDataContent
+import io.ktor.client.request.forms.formData
 import io.ktor.client.statement.bodyAsText
 import io.ktor.http.*
 import io.ktor.serialization.kotlinx.json.json
@@ -16,6 +18,7 @@ import kotlinx.serialization.json.Json
 import vn.edu.usth.mobile_app.model.*
 import vn.edu.usth.mobile_app.model.remote.*
 import vn.edu.usth.mobile_app.ui.GlobalData
+import java.io.File
 import java.util.Base64
 import java.util.concurrent.TimeUnit
 
@@ -308,5 +311,37 @@ object KtorClient {
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
         return response.body<RemoteResources>().toResourceData()
+    }
+
+    suspend fun uploadResource(userId: Int,  file: File): String {
+        val response = client.post {
+            url {
+                encodedPath = "resources/create"
+                parameter("user_id", userId)
+                parameter("type", "datafiles")
+            }
+            headers {
+                append(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+                append(HttpHeaders.ContentType, ContentType.MultiPart.FormData)
+            }
+            setBody(
+                MultiPartFormDataContent(formData {
+                    append("file", file.readBytes(), Headers.build {
+                        append(HttpHeaders.ContentDisposition, "filename=${file.name}")
+                    })
+                })
+            )
+        }
+        return response.bodyAsText()
+    }
+
+    suspend fun deleteResource(resourceId: Int): Boolean {
+        val response = client.delete {
+            url {
+                encodedPath = "resources/delete/$resourceId"
+            }
+            header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+        }
+        return response.status.value == 200
     }
 }

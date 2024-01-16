@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView.OnItemClickListener
+import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ItemListResourcesBinding
@@ -13,7 +15,9 @@ import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.DateFormat
 
-class ResourceAsyncRecyclerAdapter: RecyclerView.Adapter<ResourceAsyncRecyclerAdapter.ViewHolder>() {
+class ResourceAsyncRecyclerAdapter(
+    private val viewModel: ResourceViewModel
+): RecyclerView.Adapter<ResourceAsyncRecyclerAdapter.ViewHolder>() {
     private val resourceList: ArrayList<ResourcesData> = ArrayList()
 
 
@@ -62,6 +66,7 @@ class ResourceAsyncRecyclerAdapter: RecyclerView.Adapter<ResourceAsyncRecyclerAd
                             dialog.dismiss()
                         }
                         .setPositiveButton("Delete") { _, _ ->
+                            viewModel.deleteResource(resourceList[position].id)
                             resourceList.removeAt(position)
                             notifyItemRemoved(position)
                             notifyItemRangeChanged(position, resourceList.size)
