@@ -12,17 +12,20 @@
 
     <TextView
         android:id="@+id/textView_itemResources_name"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
         android:ellipsize="end"
         android:maxLines="1"
         android:textSize="22sp"
         app:layout_constraintBottom_toTopOf="@+id/textView_itemResources_type"
+        app:layout_constraintEnd_toStartOf="@+id/materialButton"
         app:layout_constraintStart_toStartOf="@+id/textView_itemResources_type"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="Image1.png" />
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/materialButton"
         style="?attr/materialIconButtonStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

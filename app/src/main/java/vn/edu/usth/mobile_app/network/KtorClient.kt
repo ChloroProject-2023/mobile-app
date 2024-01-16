@@ -345,7 +345,7 @@ object KtorClient {
             }
             setBody(
                 MultiPartFormDataContent(formData {
-                    append("file", file.readBytes(), Headers.build {
+                    append("resource", file.readBytes(), Headers.build {
                         append(HttpHeaders.ContentDisposition, "filename=${file.name}")
                     })
                 })

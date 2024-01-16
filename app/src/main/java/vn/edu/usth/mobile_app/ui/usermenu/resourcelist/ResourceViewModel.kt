@@ -5,6 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import vn.edu.usth.mobile_app.model.ResourcesData
 import vn.edu.usth.mobile_app.network.KtorClient
@@ -19,7 +20,7 @@ class ResourceViewModel: ViewModel() {
         fetchResourceList()
     }
 
-    private fun fetchResourceList() {
+    fun fetchResourceList() {
         viewModelScope.launch {
             val resourcesData = KtorClient.getUserResources(GlobalData.userId)
             if (resourcesData.isEmpty()) {
@@ -27,18 +28,6 @@ class ResourceViewModel: ViewModel() {
             }
             _resourceList.value = resourcesData as ArrayList<ResourcesData>
         }
-//        _resourceList.value = arrayListOf(
-//            ResourcesData(1,"data1.sed", "SedML", 1),
-//            ResourcesData(2,"data2.sed", "SedML", 1),
-//            ResourcesData(3,"data3.sed", "SedML", 1),
-//            ResourcesData(4,"data4.sed", "SedML", 1),
-//            ResourcesData(5,"data5.sed", "SedML", 1),
-//            ResourcesData(6,"data6.sed", "SedML", 1),
-//            ResourcesData(7,"data7.sed", "SedML", 1),
-//            ResourcesData(8,"data8.sed", "SedML", 1),
-//            ResourcesData(9,"data9.sed", "SedML", 1),
-//            ResourcesData(10,"data10.sed", "SedML", 1)
-//        )
     }
 
     fun uploadResource(file: File) {
