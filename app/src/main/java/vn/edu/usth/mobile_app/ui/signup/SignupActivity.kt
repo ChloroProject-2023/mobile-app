@@ -51,10 +51,8 @@ class SignupActivity : AppCompatActivity() {
             }
         }
 
-        val backButton = binding.buttonSignupBack
-        backButton.setOnClickListener {
-            finish()
-        }
+        val toolbar = binding.toolbarSignup
+        toolbar.setNavigationOnClickListener { finish() }
 
         val signup = binding.buttonSignup
         signup.setOnClickListener {
