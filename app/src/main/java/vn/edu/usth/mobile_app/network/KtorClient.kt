@@ -105,7 +105,7 @@ object KtorClient {
             )
         }
         val responseCode = response.status.value
-        if (responseCode == 200) {
+        if (responseCode == 201) {
             return login(username, password)
         }
         return false
