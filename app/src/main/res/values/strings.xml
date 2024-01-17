@@ -236,4 +236,5 @@
     <string name="version">Version</string>
     <string name="Add_Review">Add Review</string>
     <string name="Reviews">Reviews</string>
+    <string name="App_Version">App Version</string>
 </resources>

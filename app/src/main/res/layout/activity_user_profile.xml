@@ -29,6 +29,7 @@
                 app:title="@string/Profile"
                 app:layout_collapseMode="pin"
                 app:navigationIcon="@drawable/baseline_arrow_back_24"
+                app:navigationIconTint="?attr/colorOnSurface"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
             <ImageView

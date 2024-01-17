@@ -1,31 +1,20 @@
-package vn.edu.usth.mobile_app.ui;
+package vn.edu.usth.mobile_app.ui
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
+import android.content.Intent
+import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import vn.edu.usth.mobile_app.R
+import vn.edu.usth.mobile_app.databinding.ActivityAppVersionBinding
+import vn.edu.usth.mobile_app.ui.usermenu.UserMenuFragment
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-
-import vn.edu.usth.mobile_app.R;
-import vn.edu.usth.mobile_app.databinding.ActivityAppVersionBinding;
-import vn.edu.usth.mobile_app.ui.modeldetails.ModelDetailsActivity;
-import vn.edu.usth.mobile_app.ui.usermenu.UserMenuFragment;
-
-public class AppVersionActivity extends AppCompatActivity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_app_version);
-
-        Toolbar toolbar = findViewById(R.id.app_version_toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(), UserMenuFragment.class));
-            }
-        });
+class AppVersionActivity : AppCompatActivity() {
+    private lateinit var binding: ActivityAppVersionBinding
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        binding = ActivityAppVersionBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+        val toolbar = binding.materialToolbarAppVersion
+        toolbar.setNavigationOnClickListener {finish()}
     }
 }

@@ -21,26 +21,6 @@
         <activity
             android:name=".ui.AppVersionActivity"
             android:exported="false" />
-        <activity android:name=".ui.admin.UserListActivity"
-            android:exported="false"/>
-        <activity android:name=".ui.usermenu.resourcelist.ResourcesListActivity"
-            android:exported="false"/>
-        <activity android:name=".ui.modeldetails.aboutmodel.AboutModelActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".ui.modeldetails.aboutmodel.AboutModelActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.modeldetails.reviews.ReviewActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".ui.modeldetails.similarmodels.MoreSimilarModelsActivity"
-            android:exported="false"/>
-        <activity android:name=".ui.modeldetails.popularmodels.MorePopularModelsActivity"
-            android:exported="false"/>
-        <activity
-            android:name=".ui.modeldetails.ModelDetailsActivity"
-            android:exported="false"/>
         <activity
             android:name=".ui.PopupUpload"
             android:exported="false"
@@ -48,6 +28,26 @@
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
+        <activity android:name=".ui.admin.UserListActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.usermenu.resourcelist.ResourcesListActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.modeldetails.aboutmodel.AboutModelActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.modeldetails.reviews.ReviewActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.modeldetails.similarmodels.MoreSimilarModelsActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.modeldetails.popularmodels.MorePopularModelsActivity"
+            android:exported="false"/>
+        <activity
+            android:name=".ui.modeldetails.ModelDetailsActivity"
+            android:exported="false"/>
         <activity
             android:name=".ui.history.HistoryActivity"
             android:exported="false"/>
