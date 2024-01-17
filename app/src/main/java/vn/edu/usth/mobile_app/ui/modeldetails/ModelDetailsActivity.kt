@@ -2,18 +2,12 @@ package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.entry.entryOf
-import vn.edu.usth.mobile_app.MainActivity
-import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
-import vn.edu.usth.mobile_app.ui.AddReviewActivity
-import vn.edu.usth.mobile_app.ui.ListReviewActivity
 import vn.edu.usth.mobile_app.ui.PopupUpload
 import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
@@ -32,22 +26,10 @@ class ModelDetailsActivity : AppCompatActivity() {
         binding = ActivityModelDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val useButton = binding.buttonModelDetailsUse
-        useButton.setOnClickListener() {
-            startActivity(Intent(this, PopupUpload::class.java))
-        }
-
-        val comment = findViewById<ImageView>(R.id.comments_arrow)
-        comment.setOnClickListener {
-            val intent = Intent(this, AddReviewActivity::class.java)
-            startActivity(intent)
-        }
-
-        val ratings = findViewById<ImageView>(R.id.ratings_arrow)
-        ratings.setOnClickListener {
-            val intent = Intent(this, ListReviewActivity::class.java)
-            startActivity(intent)
-        }
+//        val useButton = binding.buttonModelDetailsUse
+//        useButton.setOnClickListener() {
+//            startActivity(Intent(this, PopupUpload::class.java))
+//        }
 
         val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
         aboutModel.setOnClickListener() {
@@ -56,18 +38,13 @@ class ModelDetailsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
-
         if(intent.extras != null) {
             viewModel.setModelID(intent.extras!!.getInt("modelID"))
         }
         viewModel.fetchModelDetails()
 
         val toolBar = binding.materialToolbarModelDetails
-        toolBar.setNavigationOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
-        }
+        toolBar.setNavigationOnClickListener { finish() }
 
         val modelName = binding.textViewModelDetailsTitle
         modelName.text = viewModel.modelName
