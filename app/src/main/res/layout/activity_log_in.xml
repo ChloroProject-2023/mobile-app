@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="256dp" />
+        app:layout_constraintGuide_begin="206dp" />
 
     <TextView
         android:id="@+id/textview_login_title"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:text="@string/loginLayout_topText"
         android:textColor="?attr/colorOnBackground"
-        android:textSize="35sp"
+        android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_login_username"
         app:layout_constraintTop_toTopOf="@+id/guideline_login" />
@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:text="@string/loginLayout_bottomText"
         android:textColor="?attr/colorOnBackground"
-        android:textSize="17sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toStartOf="@+id/textInputLayout_login_username"
         app:layout_constraintTop_toBottomOf="@+id/textview_login_title" />
 
@@ -123,8 +123,8 @@
     <TextView
         android:id="@+id/button_login_signup"
         android:layout_width="wrap_content"
-        android:layout_height="60dp"
-        android:layout_marginBottom="24dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="12dp"
         android:gravity="center_vertical"
         android:text="@string/do_not_have_an_account_sign_up"
         android:textColor="?attr/colorOnBackground"

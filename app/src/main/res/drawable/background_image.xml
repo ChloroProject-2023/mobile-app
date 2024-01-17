@@ -4,5 +4,5 @@
         android:startColor="@color/md_theme_dark_primaryContainer"
         android:endColor="@color/md_theme_dark_onPrimaryContainer"/>
 
-    <corners android:bottomLeftRadius="15dp" android:bottomRightRadius="15dp"/>
+    <corners android:radius="200dp"/>
 </shape>

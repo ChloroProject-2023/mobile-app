@@ -29,6 +29,5 @@
         <item name="colorPrimaryInverse">@color/md_theme_dark_inversePrimary</item>
 
         <item name="android:fontFamily">@font/roboto_medium</item>
-        <item name="android:windowAnimationStyle">@style/CustomActivityAnimation</item>
     </style>
 </resources>

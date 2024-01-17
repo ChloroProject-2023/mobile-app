@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    xmlns:tool="http://schemas.android.com/tools"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:padding="8dp"
+    tool:context=".ui.PopupUpload">
+
+    <TextView
+        android:id="@+id/popup_choose_file"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/choose_your_file"
+        android:paddingTop="8dp"
+        android:textColor="@color/md_theme_dark_scrim"
+        android:textSize="20sp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/button_upload"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:src="@drawable/baseline_upload_file_24"
+        android:backgroundTint="@color/md_theme_light_outlineVariant"
+        app:layout_constraintTop_toBottomOf="@id/popup_choose_file"
+        app:layout_constraintBottom_toTopOf="@id/button_cancel"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:contentDescription="@string/button_upload" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        android:textColor="@color/md_theme_light_onPrimary"
+        android:backgroundTint="@color/seed"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
