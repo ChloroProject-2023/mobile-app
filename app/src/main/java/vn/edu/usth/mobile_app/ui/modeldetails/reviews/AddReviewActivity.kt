@@ -1,20 +1,11 @@
-package vn.edu.usth.mobile_app.ui
+package vn.edu.usth.mobile_app.ui.modeldetails.reviews
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
-import android.widget.RatingBar
 import android.widget.RatingBar.OnRatingBarChangeListener
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.gms.tasks.Task
-import com.google.android.material.textfield.TextInputEditText
-import com.google.android.play.core.review.ReviewInfo
-import com.google.android.play.core.review.ReviewManager
-import com.google.android.play.core.review.ReviewManagerFactory
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityAddReviewBinding
-import vn.edu.usth.mobile_app.ui.modeldetails.ModelDetailsActivity
 
 class AddReviewActivity : AppCompatActivity() {
     private lateinit var binding: ActivityAddReviewBinding

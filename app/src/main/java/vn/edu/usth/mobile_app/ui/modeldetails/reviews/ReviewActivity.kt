@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityRecyclerViewBinding
-import vn.edu.usth.mobile_app.ui.AddReviewActivity
 
 class ReviewActivity: AppCompatActivity() {
     private lateinit var binding: ActivityRecyclerViewBinding
