@@ -58,32 +58,6 @@
                 android:layout_height="1dp" />
 
             <LinearLayout
-                android:id="@+id/linearLayout_modelDetails_writeYourComment"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="16dp"
-                android:paddingBottom="16dp">
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="@string/write_your_comment"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <ImageView
-                    android:id="@+id/comments_arrow"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:scaleType="fitEnd"
-                    android:src="@drawable/baseline_arrow_forward_24"
-                    app:tint="?attr/colorOnSurface" />
-            </LinearLayout>
-
-            <LinearLayout
                 android:id="@+id/linearLayout_modelDetails_aboutThisModel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -133,7 +107,6 @@
                     android:textStyle="bold" />
 
                 <ImageView
-                    android:id="@+id/ratings_arrow"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

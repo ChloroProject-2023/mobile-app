@@ -19,9 +19,6 @@
             android:name=".ui.AddReviewActivity"
             android:exported="false" />
         <activity
-            android:name=".ReviewActivity"
-            android:exported="false" />
-        <activity
             android:name=".ui.admin.UserListActivity"
             android:exported="false" />
         <activity
@@ -46,9 +43,6 @@
             android:name=".ui.PopupUpload"
             android:exported="false"
             android:theme="@style/Theme.MaterialComponents.Dialog" />
-        <activity
-            android:name=".ui.ListReviewActivity"
-            android:exported="false" />
         <activity
             android:name=".ui.profile.ProfileActivity"
             android:exported="false" />
