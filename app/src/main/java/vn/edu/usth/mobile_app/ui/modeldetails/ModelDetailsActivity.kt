@@ -2,16 +2,18 @@ package vn.edu.usth.mobile_app.ui.modeldetails
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.patrykandpatrick.vico.core.entry.ChartEntryModelProducer
 import com.patrykandpatrick.vico.core.entry.entryOf
 import vn.edu.usth.mobile_app.databinding.ActivityModelDetailsBinding
+import vn.edu.usth.mobile_app.ui.PopupUpload
 import vn.edu.usth.mobile_app.ui.modeldetails.aboutmodel.AboutModelActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.popularmodels.MorePopularModelsActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.reviews.ReviewActivity
 import vn.edu.usth.mobile_app.ui.modeldetails.similarmodels.MoreSimilarModelsActivity
+import vn.edu.usth.mobile_app.ui.profile.ProfileActivity
 
 
 class ModelDetailsActivity : AppCompatActivity() {
@@ -21,9 +23,20 @@ class ModelDetailsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivityModelDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+//        val useButton = binding.buttonModelDetailsUse
+//        useButton.setOnClickListener() {
+//            startActivity(Intent(this, PopupUpload::class.java))
+//        }
+
+        val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
+        aboutModel.setOnClickListener() {
+            val intent = Intent(this, AboutModelActivity::class.java)
+            intent.putExtra("modelId", viewModel.modelId)
+            startActivity(intent)
+        }
 
         if(intent.extras != null) {
             viewModel.setModelID(intent.extras!!.getInt("modelID"))
@@ -40,17 +53,7 @@ class ModelDetailsActivity : AppCompatActivity() {
         authorName.text = viewModel.author
         authorName.setOnClickListener() {
             // Open user profile
-        }
-
-        val useButton = binding.buttonModelDetailsUse
-        useButton.setOnClickListener() {
-            // Use model
-        }
-
-        val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
-        aboutModel.setOnClickListener() {
-            val intent = Intent(this, AboutModelActivity::class.java)
-            intent.putExtra("modelId", viewModel.modelId)
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
 

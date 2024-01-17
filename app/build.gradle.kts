@@ -41,6 +41,14 @@ android {
 
 dependencies {
 
+    // https://developer.android.com/jetpack/androidx/releases/coordinatorlayout?hl=vi#1.2.0
+    implementation("com.android.billingclient:billing-ktx:6.1.0")
+    implementation("com.google.android.play:review:2.0.1")
+    implementation("com.google.android.play:review-ktx:2.0.1")
+
+    implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
+    implementation("androidx.palette:palette:1.0.0")
+    implementation("de.hdodenhof:circleimageview:3.1.0")
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.11.0")

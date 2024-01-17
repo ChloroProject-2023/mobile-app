@@ -7,4 +7,9 @@
     <style name="RoundedCornerButton10" parent="Widget.MaterialComponents.CardView">
         <item name="cornerRadius">10dp</item>
     </style>
+
+    <style name="PopupUploadTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowCloseOnTouchOutside">true</item>
+    </style>
 </resources>
