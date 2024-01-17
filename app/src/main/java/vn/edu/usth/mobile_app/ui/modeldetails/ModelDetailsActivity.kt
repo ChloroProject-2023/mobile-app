@@ -25,10 +25,10 @@ class ModelDetailsActivity : AppCompatActivity() {
         binding = ActivityModelDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val useButton = binding.buttonModelDetailsUse
-        useButton.setOnClickListener() {
-            startActivity(Intent(this, PopupUpload::class.java))
-        }
+//        val useButton = binding.buttonModelDetailsUse
+//        useButton.setOnClickListener() {
+//            startActivity(Intent(this, PopupUpload::class.java))
+//        }
 
         val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
         aboutModel.setOnClickListener() {

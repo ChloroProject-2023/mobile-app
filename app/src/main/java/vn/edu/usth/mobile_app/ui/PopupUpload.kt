@@ -1,26 +1,19 @@
-package vn.edu.usth.mobile_app.ui;
+package vn.edu.usth.mobile_app.ui
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.widget.PopupWindow;
+import android.app.Activity
+import android.os.Bundle
+import android.util.DisplayMetrics
+import androidx.appcompat.app.AppCompatActivity
+import vn.edu.usth.mobile_app.R
 
-import vn.edu.usth.mobile_app.R;
-
-public class PopupUpload extends Activity {
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        setContentView(R.layout.popup_upload_file);
-
-        DisplayMetrics dm = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(dm);
-
-        int width = dm.widthPixels;
-        int height = dm.heightPixels;
-
-        getWindow().setLayout((int)(width*.9), (int)(height*.4));
+class PopupUpload : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.popup_upload_file)
+        val dm = DisplayMetrics()
+        windowManager.defaultDisplay.getMetrics(dm)
+        val width = dm.widthPixels
+        val height = dm.heightPixels
+        window.setLayout((width * .9).toInt(), (height * .4).toInt())
     }
 }
