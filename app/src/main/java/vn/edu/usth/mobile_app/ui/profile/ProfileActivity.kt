@@ -51,26 +51,7 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            Log.d("Offest", verticalOffset.toString())
-            Log.d("ScrollRange", appBarLayout.totalScrollRange.toString())
-
-            val scrollRemainFraction = 1 - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
-            avatarAnimateStartPointY = userAvatar.y
-            avatarSizeChangePercent = (1 - (COLLAPSED_AVATAR_SIZE.toFloat() / EXPAND_AVATAR_SIZE)) * (1 - scrollRemainFraction)
-            Log.d("ScrollRemain", scrollRemainFraction.toString())
-            Log.d("AvatarSizeChange", avatarSizeChangePercent.toString())
-
-            // Only update avatar when percent change. Else this will cause a calculation loop
-            // Because updateAvatar() causes a layout change, which triggers this listener again
-            if (lastSizeChangeValue != avatarSizeChangePercent) {
-                lastSizeChangeValue = avatarSizeChangePercent
-                updateAvatar()
-            }
-
-            // Fading effect
-            username.alpha = scrollRemainFraction
-            joinDate.alpha = scrollRemainFraction
-        }
+            appBarOffsetChangedListener(appBarLayout, verticalOffset)}
 
         val tabLayout = binding.tabLayoutProfile
         val viewPager = binding.viewPagerProfile
@@ -79,11 +60,33 @@ class ProfileActivity : AppCompatActivity() {
         viewPager.adapter = viewPagerAdapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = "Information"
-                1 -> tab.text = "Profile"
-                2 -> tab.text = "Models"
+                0 -> tab.text = getString(R.string.My_Information)
+                1 -> tab.text = getString(R.string.Resources)
+                2 -> tab.text = getString(R.string.Models)
             }
         }.attach()
+    }
+
+    private fun appBarOffsetChangedListener(appBarLayout: AppBarLayout, verticalOffset: Int) {
+        Log.d("Offest", verticalOffset.toString())
+        Log.d("ScrollRange", appBarLayout.totalScrollRange.toString())
+
+        val scrollRemainFraction = 1 - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
+        avatarAnimateStartPointY = userAvatar.y
+        avatarSizeChangePercent = (1 - (COLLAPSED_AVATAR_SIZE.toFloat() / EXPAND_AVATAR_SIZE)) * (1 - scrollRemainFraction)
+        Log.d("ScrollRemain", scrollRemainFraction.toString())
+        Log.d("AvatarSizeChange", avatarSizeChangePercent.toString())
+
+        // Only update avatar when percent change. Else this will cause a calculation loop
+        // Because updateAvatar() causes a layout change, which triggers this listener again
+        if (lastSizeChangeValue != avatarSizeChangePercent) {
+            lastSizeChangeValue = avatarSizeChangePercent
+            updateAvatar()
+        }
+
+        // Fading effect
+        username.alpha = scrollRemainFraction
+        joinDate.alpha = scrollRemainFraction
     }
     private fun updateAvatar() {
         avatarAnimateStartPointX = userAvatar.x
