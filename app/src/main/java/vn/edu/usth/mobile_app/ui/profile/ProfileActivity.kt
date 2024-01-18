@@ -16,6 +16,9 @@ import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
 import java.text.DateFormat
 import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.tan
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -111,12 +114,21 @@ class ProfileActivity : AppCompatActivity() {
             width = sizeInPixels
         }
 
-        // Calculate final positions for collapsed state
-        val finalX = (TypedValueCompat.dpToPx(collapseToolbar.width.toFloat(), resources.displayMetrics).toInt())/2 - TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()*2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()*2// Adjust for the margin of the avatar
-        val finalY = TypedValueCompat.dpToPx(collapseToolbar.height.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt() - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()
-        // Calculate deltas for animation
-        val deltaX = finalX - avatarAnimateStartPointX
-        val deltaY = finalY - avatarAnimateStartPointY
+        val screenWidth = resources.displayMetrics.widthPixels
+        val screenHeight = resources.displayMetrics.heightPixels
+
+        val finalX = screenWidth/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 -TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()
+        val finalY = screenHeight/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt()
+
+        val deltaX = finalX * tan(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
+        var deltaY = finalY * cos(avatarSizeChangePercent *90 *Math.PI/180).toFloat() * sin(avatarSizeChangePercent *90 *Math.PI/180).toFloat()
+        // Correction screen height
+        deltaY -= deltaY * (screenHeight - 2550) / 3000 * avatarSizeChangePercent * 0.5F
+
+//        Log.d("ScreenHeight", screenHeight.toString())
+//        if (screenHeight > 3000) {
+//            deltaY *= sin(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
+//        }
 
         // Apply translation
         userAvatar.translationX = (deltaX * avatarSizeChangePercent).toFloat()
