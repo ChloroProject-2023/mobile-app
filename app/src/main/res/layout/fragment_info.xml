@@ -3,89 +3,86 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.profile.InfoFragment">
 
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="@dimen/activity_horizontal_margin"
+        app:layout_constraintTop_toTopOf="parent"
         android:stretchColumns="1">
 
         <TableRow>
             <TextView
                 android:text="@string/first_name"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
             <TextView
+                android:id="@+id/textView_userInfo_firstName"
                 tools:text="A"
                 android:gravity="end"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textSize="18sp"/>
         </TableRow>
 
         <TableRow>
             <TextView
                 android:text="@string/last_name"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
             <TextView
+                android:id="@+id/textView_userInfo_lastName"
                 tools:text="Nguyen Van"
                 android:gravity="end"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textSize="18sp"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="@string/born"
-                android:padding="8dp"
+                android:text="@string/Email"
+                android:paddingVertical="8dp"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
             <TextView
-                tools:text="02/09/1945"
-                android:gravity="end"
-                android:padding="8dp"
-                android:textSize="18sp"/>
-        </TableRow>
-
-        <TableRow>
-            <TextView
-                android:text="@string/sex"
-                android:padding="8dp"
-                android:textStyle="bold"
-                android:textSize="18sp"/>
-            <TextView
+                android:id="@+id/textView_userInfo_email"
                 tools:text="Hidden"
                 android:gravity="end"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textSize="18sp"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="@string/phone_num"
-                android:padding="8dp"
+                android:text="@string/Created_at"
+                android:paddingVertical="8dp"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
             <TextView
-                tools:text="0912345678"
+                android:id="@+id/textView_userInfo_createAt"
+                tools:text="1/1/1970"
                 android:gravity="end"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textSize="18sp"/>
         </TableRow>
 
         <TableRow>
             <TextView
-                android:text="@string/address"
-                android:padding="8dp"
+                android:text="@string/Role"
+                android:paddingVertical="8dp"
                 android:textStyle="bold"
                 android:textSize="18sp"/>
             <TextView
-                tools:text="18 Hoang Quoc Viet, Ha Noi"
+                android:id="@+id/textView_userInfo_role"
+                tools:text="User"
                 android:gravity="end"
-                android:padding="8dp"
+                android:paddingVertical="8dp"
                 android:textSize="18sp"/>
         </TableRow>
+
+
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

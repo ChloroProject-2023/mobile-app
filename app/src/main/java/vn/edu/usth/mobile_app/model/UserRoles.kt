@@ -10,5 +10,13 @@ enum class UserRoles {
     @SerialName("user")
     USER,
     @SerialName("guest")
-    GUEST
+    GUEST;
+
+    override fun toString(): String {
+        return when (this) {
+            ADMIN -> "Admin"
+            USER -> "User"
+            GUEST -> "Guest"
+        }
+    }
 }

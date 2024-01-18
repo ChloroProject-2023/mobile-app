@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.TypedValueCompat
 import androidx.core.view.marginEnd
@@ -11,13 +12,16 @@ import androidx.core.view.marginTop
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.tabs.TabLayoutMediator
+import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
+import java.text.DateFormat
 import kotlin.math.abs
 
 
 class ProfileActivity : AppCompatActivity() {
     private var _binding: ActivityUserProfileBinding? = null
     private val binding get() = _binding!!
+    private val viewModel: ProfileViewModel by viewModels()
 
     private lateinit var collapseToolbar: CollapsingToolbarLayout
     private lateinit var appBarLayout: AppBarLayout
@@ -65,6 +69,12 @@ class ProfileActivity : AppCompatActivity() {
                 2 -> tab.text = getString(R.string.Models)
             }
         }.attach()
+
+        viewModel.userData.observe(this) {
+            var temp = binding.textViewProfileJoin.text.toString()
+            temp = temp + " " + DateFormat.getDateTimeInstance().format(it.createdAt)
+            binding.textViewProfileJoin.text = temp
+        }
     }
 
     private fun appBarOffsetChangedListener(appBarLayout: AppBarLayout, verticalOffset: Int) {
@@ -104,7 +114,6 @@ class ProfileActivity : AppCompatActivity() {
         // Calculate final positions for collapsed state
         val finalX = (TypedValueCompat.dpToPx(collapseToolbar.width.toFloat(), resources.displayMetrics).toInt())/2 - TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()*2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()*2// Adjust for the margin of the avatar
         val finalY = TypedValueCompat.dpToPx(collapseToolbar.height.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt() - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()
-
         // Calculate deltas for animation
         val deltaX = finalX - avatarAnimateStartPointX
         val deltaY = finalY - avatarAnimateStartPointY

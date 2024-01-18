@@ -5,18 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import vn.edu.usth.mobile_app.databinding.FragmentModelBinding
+import androidx.lifecycle.ViewModelProvider
+import vn.edu.usth.mobile_app.databinding.FragmentRecyclerViewBinding
 
 class ModelFragment: Fragment() {
-    private var _binding: FragmentModelBinding? = null
-    private val binding get() = _binding!!
+    private lateinit var _binding: FragmentRecyclerViewBinding
+    private val binding get() = _binding
+    private lateinit var viewModel: ProfileViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentModelBinding.inflate(inflater, container, false)
+        _binding = FragmentRecyclerViewBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(requireActivity())[ProfileViewModel::class.java]
+
         return binding.root
     }
 }

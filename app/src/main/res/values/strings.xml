@@ -239,4 +239,6 @@
     <string name="Add_Review">Add Review</string>
     <string name="Reviews">Reviews</string>
     <string name="App_Version">App Version</string>
+    <string name="Email">Email</string>
+    <string name="Role">Role</string>
 </resources>
