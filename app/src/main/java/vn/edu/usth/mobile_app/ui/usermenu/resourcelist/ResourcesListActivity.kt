@@ -47,7 +47,7 @@ class ResourcesListActivity: AppCompatActivity() {
         fab.text = getString(R.string.Upload)
         fab.icon = AppCompatResources.getDrawable(this, R.drawable.baseline_add_24)
         fab.setOnClickListener {
-            getFileLauncher.launch("*/*")
+            getFileLauncher.launch("text/csv")
         }
 
         val params = CoordinatorLayout.LayoutParams(
@@ -64,9 +64,9 @@ class ResourcesListActivity: AppCompatActivity() {
         toolbar.setNavigationOnClickListener{
             finish()
         }
-        toolbar.setTitle("Resources")
+        toolbar.title = getString(R.string.Resources)
 
-        resourceAsyncRecyclerAdapter = ResourceAsyncRecyclerAdapter(viewModel)
+        resourceAsyncRecyclerAdapter = ResourceAsyncRecyclerAdapter(viewModel::deleteResource)
         val listObserver = androidx.lifecycle.Observer<ArrayList<ResourcesData>> {
             resourceAsyncRecyclerAdapter.updateList(it)
         }

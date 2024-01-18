@@ -16,7 +16,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import java.text.DateFormat
 
 class ResourceAsyncRecyclerAdapter(
-    private val viewModel: ResourceViewModel
+    private val deleteResource: (Int) -> Boolean
 ): RecyclerView.Adapter<ResourceAsyncRecyclerAdapter.ViewHolder>() {
     private val resourceList: ArrayList<ResourcesData> = ArrayList()
 
@@ -66,7 +66,7 @@ class ResourceAsyncRecyclerAdapter(
                             dialog.dismiss()
                         }
                         .setPositiveButton("Delete") { _, _ ->
-                            viewModel.deleteResource(resourceList[position].id)
+                            deleteResource(resourceList[position].id)
                             resourceList.removeAt(position)
                             notifyItemRemoved(position)
                             notifyItemRangeChanged(position, resourceList.size)
