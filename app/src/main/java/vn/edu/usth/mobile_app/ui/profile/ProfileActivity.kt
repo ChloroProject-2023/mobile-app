@@ -13,6 +13,9 @@ import com.google.android.material.appbar.CollapsingToolbarLayout
 import com.google.android.material.tabs.TabLayoutMediator
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
 import kotlin.math.abs
+import kotlin.math.cos
+import kotlin.math.sin
+import kotlin.math.tan
 
 
 class ProfileActivity : AppCompatActivity() {
@@ -51,7 +54,26 @@ class ProfileActivity : AppCompatActivity() {
         }
 
         appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            appBarOffsetChangedListener(appBarLayout, verticalOffset)}
+//            Log.d("Offest", verticalOffset.toString())
+//            Log.d("ScrollRange", appBarLayout.totalScrollRange.toString())
+
+            val scrollRemainFraction = 1 - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
+            avatarAnimateStartPointY = userAvatar.y
+            avatarSizeChangePercent = (1 - (COLLAPSED_AVATAR_SIZE.toFloat() / EXPAND_AVATAR_SIZE)) * (1 - scrollRemainFraction)
+            Log.d("ScrollRemain", scrollRemainFraction.toString())
+            Log.d("AvatarSizeChange", avatarSizeChangePercent.toString())
+
+            // Only update avatar when percent change. Else this will cause a calculation loop
+            // Because updateAvatar() causes a layout change, which triggers this listener again
+            if (lastSizeChangeValue != avatarSizeChangePercent) {
+                lastSizeChangeValue = avatarSizeChangePercent
+                updateAvatar()
+            }
+
+            // Fading effect
+            username.alpha = scrollRemainFraction
+            joinDate.alpha = scrollRemainFraction
+        }
 
         val tabLayout = binding.tabLayoutProfile
         val viewPager = binding.viewPagerProfile
@@ -60,33 +82,11 @@ class ProfileActivity : AppCompatActivity() {
         viewPager.adapter = viewPagerAdapter
         TabLayoutMediator(tabLayout, viewPager) { tab, position ->
             when (position) {
-                0 -> tab.text = getString(R.string.My_Information)
-                1 -> tab.text = getString(R.string.Resources)
-                2 -> tab.text = getString(R.string.Models)
+                0 -> tab.text = "Information"
+                1 -> tab.text = "Profile"
+                2 -> tab.text = "Models"
             }
         }.attach()
-    }
-
-    private fun appBarOffsetChangedListener(appBarLayout: AppBarLayout, verticalOffset: Int) {
-        Log.d("Offest", verticalOffset.toString())
-        Log.d("ScrollRange", appBarLayout.totalScrollRange.toString())
-
-        val scrollRemainFraction = 1 - abs(verticalOffset / appBarLayout.totalScrollRange.toFloat())
-        avatarAnimateStartPointY = userAvatar.y
-        avatarSizeChangePercent = (1 - (COLLAPSED_AVATAR_SIZE.toFloat() / EXPAND_AVATAR_SIZE)) * (1 - scrollRemainFraction)
-        Log.d("ScrollRemain", scrollRemainFraction.toString())
-        Log.d("AvatarSizeChange", avatarSizeChangePercent.toString())
-
-        // Only update avatar when percent change. Else this will cause a calculation loop
-        // Because updateAvatar() causes a layout change, which triggers this listener again
-        if (lastSizeChangeValue != avatarSizeChangePercent) {
-            lastSizeChangeValue = avatarSizeChangePercent
-            updateAvatar()
-        }
-
-        // Fading effect
-        username.alpha = scrollRemainFraction
-        joinDate.alpha = scrollRemainFraction
     }
     private fun updateAvatar() {
         avatarAnimateStartPointX = userAvatar.x
@@ -101,13 +101,18 @@ class ProfileActivity : AppCompatActivity() {
             width = sizeInPixels
         }
 
-        // Calculate final positions for collapsed state
-        val finalX = (TypedValueCompat.dpToPx(collapseToolbar.width.toFloat(), resources.displayMetrics).toInt())/2 - TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()*2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()*2// Adjust for the margin of the avatar
-        val finalY = TypedValueCompat.dpToPx(collapseToolbar.height.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt() - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()
+        val screenWidth = resources.displayMetrics.widthPixels
+        val screenHeight = resources.displayMetrics.heightPixels
 
-        // Calculate deltas for animation
-        val deltaX = finalX - avatarAnimateStartPointX
-        val deltaY = finalY - avatarAnimateStartPointY
+        val finalX = screenWidth/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 -TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()
+        val finalY = TypedValueCompat.dpToPx(collapseToolbar.height.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt()
+
+        val deltaX = finalX * tan(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
+        var deltaY = finalY * cos(avatarSizeChangePercent *90 *Math.PI/180).toFloat()
+        Log.d("ScreenHeight", screenHeight.toString())
+        if (screenHeight > 3000) {
+            deltaY *= sin(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
+        }
 
         // Apply translation
         userAvatar.translationX = (deltaX * avatarSizeChangePercent).toFloat()
