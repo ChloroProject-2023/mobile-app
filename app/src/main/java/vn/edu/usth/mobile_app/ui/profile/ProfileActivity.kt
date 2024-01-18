@@ -105,14 +105,17 @@ class ProfileActivity : AppCompatActivity() {
         val screenHeight = resources.displayMetrics.heightPixels
 
         val finalX = screenWidth/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 -TypedValueCompat.dpToPx(collapseToolbar.marginEnd.toFloat(), resources.displayMetrics).toInt()
-        val finalY = TypedValueCompat.dpToPx(collapseToolbar.height.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt()
+        val finalY = screenHeight/2 - TypedValueCompat.dpToPx(COLLAPSED_AVATAR_SIZE.toFloat(), resources.displayMetrics).toInt()/2 - TypedValueCompat.dpToPx(collapseToolbar.marginTop.toFloat(), resources.displayMetrics).toInt()
 
         val deltaX = finalX * tan(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
-        var deltaY = finalY * cos(avatarSizeChangePercent *90 *Math.PI/180).toFloat()
-        Log.d("ScreenHeight", screenHeight.toString())
-        if (screenHeight > 3000) {
-            deltaY *= sin(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
-        }
+        var deltaY = finalY * cos(avatarSizeChangePercent *90 *Math.PI/180).toFloat() * sin(avatarSizeChangePercent *90 *Math.PI/180).toFloat()
+        // Correction screen height
+        deltaY -= deltaY * (screenHeight - 2550) / 3000 * avatarSizeChangePercent * 0.5F
+
+//        Log.d("ScreenHeight", screenHeight.toString())
+//        if (screenHeight > 3000) {
+//            deltaY *= sin(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
+//        }
 
         // Apply translation
         userAvatar.translationX = (deltaX * avatarSizeChangePercent).toFloat()

@@ -20,7 +20,7 @@
             android:layout_height="250dp"
             app:titleEnabled="false"
             app:contentScrim="@color/md_theme_dark_onPrimary"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
 
             <com.google.android.material.appbar.MaterialToolbar
                 android:id="@+id/materialToolbar_profile"
