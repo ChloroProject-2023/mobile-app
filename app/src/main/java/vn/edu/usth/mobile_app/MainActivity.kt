@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar = binding.materialToolbarMain
         toolbar.background = bottomBar.background
         setSupportActionBar(toolbar)
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.setDisplayHomeAsUpEnabled(false)
     }
 
     private fun replaceFragment(fragment: Fragment) {

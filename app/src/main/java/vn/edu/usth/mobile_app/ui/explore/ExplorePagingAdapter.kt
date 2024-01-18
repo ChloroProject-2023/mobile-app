@@ -44,6 +44,7 @@ class ExplorePagingAdapter:
             cell.binding.textViewItemExploreAuthorName.text = getItem(position)!!.creatorName
             cell.binding.textViewItemExploreModelName.text = getItem(position)!!.name
             cell.binding.textViewItemExploreUsage.text = getItem(position)!!.usage.toString()
+            cell.binding.textViewItemExploreTags!!.text = getItem(position)!!.type
             cell.binding.materialButtonItemExploreDetails.setOnClickListener {
                 if (!GlobalData.isLogin) {
                     val intent = Intent(it.context, LoginActivity::class.java)
