@@ -37,7 +37,6 @@ class AdminAnalyticsFragment : Fragment(R.layout.fragment_admin_analytics) {
         drawTop5ModelsChart()
 
         binding.textViewAdminAnalyticsLast24hRequestValue.text = viewModel.last24hRequest.toString()
-        binding.textViewAdminAnalyticsLast24hUsersValue.text = viewModel.last24hUsers.toString()
 
         return view
     }

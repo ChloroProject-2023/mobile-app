@@ -27,7 +27,7 @@ class ChooseResourceActivity: AppCompatActivity() {
         toolbar.setNavigationOnClickListener{
             finish()
         }
-        toolbar.setTitle("Choose Resource")
+        toolbar.setTitle("Choose Parameters")
 
         chooseResourceAsyncAdapter = ChooseResourceAsyncAdapter(viewModel)
         val listObserver = androidx.lifecycle.Observer<ArrayList<ResourcesData>> {

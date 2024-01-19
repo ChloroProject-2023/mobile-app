@@ -30,11 +30,8 @@ class ResourceViewModel: ViewModel() {
         }
     }
 
-    fun uploadResource(file: File) {
-        viewModelScope.launch {
-            val response = KtorClient.uploadResource(GlobalData.userId, file)
-            Log.d("UPLOAD", response)
-        }
+    suspend fun uploadResource(file: File): Int {
+        return KtorClient.uploadResource(GlobalData.userId, file)
     }
 
     fun deleteResource(resourceId: Int): Boolean {

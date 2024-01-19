@@ -1,45 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="200dp"
     xmlns:tool="http://schemas.android.com/tools"
-    android:fitsSystemWindows="true"
-    android:orientation="vertical"
-    android:padding="8dp"
-    tool:context=".ui.PopupUpload">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/popup_choose_file"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/choose_your_file"
-        android:paddingTop="8dp"
-        android:textColor="@color/md_theme_dark_scrim"
-        android:textSize="20sp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:fitsSystemWindows="true"
+        android:orientation="vertical"
+        android:padding="8dp">
 
-    <ImageButton
-        android:id="@+id/button_upload"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:src="@drawable/baseline_upload_file_24"
-        android:backgroundTint="@color/md_theme_light_outlineVariant"
-        app:layout_constraintTop_toBottomOf="@id/popup_choose_file"
-        app:layout_constraintBottom_toTopOf="@id/button_cancel"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:contentDescription="@string/button_upload" />
+        <TextView
+            android:id="@+id/textView_popupUpload_guidelineTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/Model_Guidelines"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/button_cancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/cancel"
-        android:textColor="@color/md_theme_light_onPrimary"
-        android:backgroundTint="@color/seed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"/>
+        <TextView
+            android:id="@+id/textView_popupUpload_guidelineContent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="16dp"
+            android:maxLines="50"
+            android:scrollbars="vertical"
+            tool:text="@string/python_guidelines"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_popupUpload_guidelineTitle" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textView_popupUpload_uploadTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/upload"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_popupUpload_guidelineContent" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_popupUpload_modelName"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_popupUpload_uploadTitle">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_popupUpload_name"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="@string/Model_name" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_popupUpload_modelType"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_popupUpload_modelDescription">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_popupUpload_type"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="@string/Model_type"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/textInputLayout_popupUpload_modelDescription"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            app:errorEnabled="true"
+            app:helperTextEnabled="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textInputLayout_popupUpload_modelName">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editText_popupUpload_description"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:hint="@string/Description" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <ImageButton
+            android:id="@+id/button_upload"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_marginVertical="16dp"
+            android:backgroundTint="@color/md_theme_light_outlineVariant"
+            android:contentDescription="@string/button_upload"
+            android:src="@drawable/baseline_upload_file_24"
+            app:layout_constraintBottom_toTopOf="@+id/button_cancel"
+            app:layout_constraintTop_toBottomOf="@+id/textInputLayout_popupUpload_modelType"
+            tool:layout_editor_absoluteX="8dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:textColor="@color/md_theme_light_onPrimary"
+            android:backgroundTint="@color/seed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

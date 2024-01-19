@@ -1,35 +1,24 @@
 package vn.edu.usth.mobile_app.ui.modeldetails
 
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import vn.edu.usth.mobile_app.model.ModelData
+import vn.edu.usth.mobile_app.network.KtorClient
 
 class ModelDetailsViewModel: ViewModel() {
     private var _modelID: Int = -1
-    private var _modelName: String = ""
-    private var _author: String = ""
-    private var _description: String = ""
+    private val _model = MutableLiveData<ModelData>()
     val ratings = mutableMapOf<Int, Int>()
     val mostUsedModels = mutableListOf<ModelData>()
     val similarModels = mutableListOf<ModelData>()
 
     val modelId: Int get() = _modelID
-    val modelName: String get() = _modelName
-    val author: String get() = _author
-    val description: String get() = _description
+    val model: LiveData<ModelData> get() = _model
 
     init {
-        viewModelScope.launch {
-            // Fetch model details from server
-            fetchModelDetails()
-        }
-
-        // Mock data
-        _modelName = "NPK AI"
-        _author = "USTH"
-        _description = "This model is used to predict the NPK content of soil"
-
         ratings.putAll(mapOf(
             1 to 12,
             2 to 2,
@@ -72,6 +61,9 @@ class ModelDetailsViewModel: ViewModel() {
     }
 
     fun fetchModelDetails() {
-        // Fetch model details from server
+        viewModelScope.launch {
+            val model = KtorClient.getModel(modelId)
+            _model.value = model
+        }
     }
 }

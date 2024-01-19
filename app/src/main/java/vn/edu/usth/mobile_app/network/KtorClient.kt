@@ -73,6 +73,7 @@ object KtorClient {
             val userdata = getProfile(username)
             GlobalData.isLogin = true
             GlobalData.userId = userdata.id
+            GlobalData.username = userdata.username
             GlobalData.isAdmin = userdata.role == UserRoles.ADMIN
             return true
         }
@@ -332,12 +333,12 @@ object KtorClient {
         return response.body<RemoteResources>().toResourceData()
     }
 
-    suspend fun uploadResource(userId: Int,  file: File): String {
+    suspend fun uploadResource(userId: Int,  file: File): Int {
         val response = client.post {
             url {
                 encodedPath = "resources/create"
                 parameter("user_id", userId)
-                parameter("type", "datafiles")
+                parameter("type", "DataFiles")
             }
             headers {
                 append(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
@@ -351,7 +352,7 @@ object KtorClient {
                 })
             )
         }
-        return response.bodyAsText()
+        return response.status.value
     }
 
     suspend fun deleteResource(resourceId: Int): Boolean {

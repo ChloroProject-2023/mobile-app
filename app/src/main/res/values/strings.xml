@@ -241,4 +241,39 @@
     <string name="App_Version">App Version</string>
     <string name="Email">Email</string>
     <string name="Role">Role</string>
+    <string name="dot_json">.json</string>
+    <string name="dot_py">.py</string>
+    <string name="Model_Guidelines">Model Guidelines</string>
+    <string name="python_guidelines">
+        When creating a raw model in accordance with these guidelines, it\'s essential to adhere to Object-Oriented programming principles. The main class of the model, which should share its name with the file it\'s contained in, must include specific attributes and methods as below: \n\n
+        Attributes:\n
+        \t\t- name (str): The name of the model.\n
+        \t\t- description (str): A brief description of the model\'s purpose and function.\n
+        \t\t- model_N, model_P, model_K : Separate models for predicting Nitrogen (N), Phosphorus (P), and Potassium (K) concentrations.\n
+        \t\t- params (Dict[str, np.ndarray]): A dictionary holding the parameters for each nutrient model.\n
+        \t\t- met (Dict[str, float]): Metrics for evaluating the model\'s performance.\n
+        \t\t- train_set (str): Name of the csv used for training.\n
+        \t\t- split_ratio (float): The ratio for splitting the dataset into training and testing sets.\n\n
+
+        Methods:\n
+        \t\t- run(\n
+        \t\t\t\tX_train: np.ndarray,\n
+        \t\t\t\ty_train: Dict[str, np.ndarray],\n
+        \t\t\t\tX_test: np.ndarray,\n
+        \t\t\t\ty_test: Dict[str, np.ndarray],\n
+        \t\t\t\tdimension: int):\n
+        \t\tThis method manages the complete workflow of the model, from training on the training dataset (X_train, y_train), testing on the test dataset (X_test, y_test), and considering the dimensionality for PCA transformation (dimension).
+    </string>
+    <string name="Description">Description</string>
+    <string name="Model_name">Model name</string>
+    <string name="Model_type">Model type</string>
+    <string name="Uploading">Uploading</string>
+    <string name="UploadSuccessful">Upload Successful</string>
+    <string name="OK">OK</string>
+    <string name="UploadFailed">Upload Failed</string>
+    <string name="Upload_a_file">Upload a file</string>
+    <string name="Choose_the_file_to_run_inference_on">Choose the file to run inference on</string>
+    <string name="Cancel">Cancel</string>
+    <string name="Run">Run</string>
+    <string name="Close">Close</string>
 </resources>

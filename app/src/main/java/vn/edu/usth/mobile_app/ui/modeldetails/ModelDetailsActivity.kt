@@ -26,9 +26,14 @@ class ModelDetailsActivity : AppCompatActivity() {
         binding = ActivityModelDetailsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-//        val useButton = binding.buttonModelDetailsUse
+        if(intent.extras != null) {
+            viewModel.setModelID(intent.extras!!.getInt("modelID"))
+            viewModel.fetchModelDetails()
+        }
+
+        val useButton = binding.buttonModelDetailsUse
 //        useButton.setOnClickListener() {
-//            startActivity(Intent(this, PopupUpload::class.java))
+//            startActivity(Intent(this, Po pupUpload::class.java))
 //        }
 
         val aboutModel = binding.linearLayoutModelDetailsAboutThisModel
@@ -38,27 +43,20 @@ class ModelDetailsActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-        if(intent.extras != null) {
-            viewModel.setModelID(intent.extras!!.getInt("modelID"))
-        }
-        viewModel.fetchModelDetails()
-
         val toolBar = binding.materialToolbarModelDetails
         toolBar.setNavigationOnClickListener { finish() }
 
-        val modelName = binding.textViewModelDetailsTitle
-        modelName.text = viewModel.modelName
+        viewModel.model.observe(this) {
+            binding.textViewModelDetailsTitle.text = it.name
+            binding.textViewModelDetailsAuthor.text = it.creatorName
+            binding.textViewModelDetailsShortDesc.text = it.description
+        }
 
-        val authorName = binding.textViewModelDetailsAuthor
-        authorName.text = viewModel.author
-        authorName.setOnClickListener() {
+        binding.textViewModelDetailsAuthor.setOnClickListener() {
             // Open user profile
             val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
-
-        val description = binding.textViewModelDetailsShortDesc
-        description.text = viewModel.description
 
         drawRatingChart()
 
