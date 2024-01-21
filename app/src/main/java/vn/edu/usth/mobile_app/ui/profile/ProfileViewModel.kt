@@ -38,7 +38,7 @@ class ProfileViewModel: ViewModel() {
             if (resourcesData.isEmpty()) {
                 return@launch
             }
-            _resourceList.value = resourcesData as ArrayList<ResourcesData>
+            _resourceList.value = ArrayList(resourcesData)
         }
     }
     private fun fetchModelList() {
@@ -47,7 +47,7 @@ class ProfileViewModel: ViewModel() {
             if (modelData.isEmpty()) {
                 return@launch
             }
-            _modelList.value = modelData as ArrayList<ModelData>
+            _modelList.value = ArrayList(modelData)
         }
     }
     fun deleteResource(resourceId: Int): Boolean {

@@ -3,6 +3,7 @@ package vn.edu.usth.mobile_app.ui.profile
 import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
+import android.widget.PopupMenu
 import android.widget.TextView
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -52,10 +53,20 @@ class ProfileActivity : AppCompatActivity() {
         username = binding.textViewProfileUsername
         joinDate = binding.textViewProfileJoin
 
-        val toolbar = binding.materialToolbarProfile
-        toolbar.setNavigationOnClickListener{
-            finish()
+        binding.materialToolbarProfile.setNavigationOnClickListener{ finish() }
+
+        val popupMenu = PopupMenu(this, userAvatar)
+        popupMenu.menuInflater.inflate(R.menu.avatar_options_menu, popupMenu.menu)
+        popupMenu.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_upload_avatar -> {
+                    Log.d("Avatar", "Upload")
+                    true
+                }
+                else -> false
+            }
         }
+        userAvatar.setOnClickListener { popupMenu.show() }
 
         appBarLayout.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             appBarOffsetChangedListener(appBarLayout, verticalOffset)}
@@ -124,11 +135,6 @@ class ProfileActivity : AppCompatActivity() {
         var deltaY = finalY * cos(avatarSizeChangePercent *90 *Math.PI/180).toFloat() * sin(avatarSizeChangePercent *90 *Math.PI/180).toFloat()
         // Correction screen height
         deltaY -= deltaY * (screenHeight - 2550) / 3000 * avatarSizeChangePercent * 0.5F
-
-//        Log.d("ScreenHeight", screenHeight.toString())
-//        if (screenHeight > 3000) {
-//            deltaY *= sin(avatarSizeChangePercent * 90 * Math.PI / 180).toFloat()
-//        }
 
         // Apply translation
         userAvatar.translationX = (deltaX * avatarSizeChangePercent).toFloat()

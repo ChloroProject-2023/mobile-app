@@ -6,6 +6,7 @@ import io.ktor.client.call.body
 import io.ktor.client.engine.okhttp.OkHttp
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.client.plugins.defaultRequest
+import io.ktor.client.plugins.logging.LogLevel
 import io.ktor.client.plugins.logging.Logger
 import io.ktor.client.plugins.logging.Logging
 import io.ktor.client.plugins.logging.SIMPLE
@@ -47,6 +48,7 @@ object KtorClient {
 
         install(Logging) {
             logger = Logger.SIMPLE
+            level = LogLevel.ALL
         }
     }
 
@@ -167,8 +169,6 @@ object KtorClient {
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
         val remoteModelList = response.body<List<RemoteModel>>()
-        Log.d("KtorClient.getModelPage", page.toString())
-        Log.d("KtorClient.getModelPage", remoteModelList.toString())
         return remoteModelList.map { it.toModelData() }
     }
 
@@ -195,7 +195,8 @@ object KtorClient {
     suspend fun getModelsByUser(userId: Int): List<ModelData> {
         val response = client.get {
             url {
-                encodedPath = "models/models-by-user/$userId"
+                encodedPath = "models/models-by-user/"
+                parameter("user_id", userId)
             }
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
@@ -258,6 +259,36 @@ object KtorClient {
         return remoteReviewList.map { it.toReviewData() }
     }
 
+    suspend fun uploadModel(
+        userId: Int,
+        modelName: String,
+        description: String,
+        type: String,
+        file: File,
+    ) {
+        val response = client.post {
+            url {
+                encodedPath = "models/create"
+                parameter("user_id", userId)
+                parameter("name", modelName)
+                parameter("description", description)
+                parameter("type", type)
+            }
+            headers {
+                append(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+                append(HttpHeaders.ContentType, ContentType.MultiPart.FormData)
+            }
+            setBody(
+                MultiPartFormDataContent(formData {
+                    append("model", file.readBytes(), Headers.build {
+                        append(HttpHeaders.ContentDisposition, "filename=${file.name}")
+                    })
+                })
+            )
+        }
+        Log.d("UPLOAD", response.bodyAsText())
+    }
+
     // User
     suspend fun getUserById(userId: Int): UserData {
         val response = client.get {
@@ -315,7 +346,8 @@ object KtorClient {
     suspend fun getUserResources(userId: Int): List<ResourcesData> {
         val response = client.get {
             url {
-                encodedPath = "resources/user_id/$userId"
+                encodedPath = "resources/user_id/"
+                parameter("user_id", userId)
             }
             header(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
         }
