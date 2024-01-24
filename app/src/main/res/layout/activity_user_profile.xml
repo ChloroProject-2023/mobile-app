@@ -32,7 +32,7 @@
                 app:navigationIconTint="?attr/colorOnSurface"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/imageView_profile_avatar"
                 android:layout_width="128dp"
                 android:layout_height="128dp"
@@ -53,6 +53,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerHorizontal="true"
+                    android:paddingTop="16dp"
                     android:text="@string/Username"
                     android:textSize="28sp"
                     tool:text="Username"/>

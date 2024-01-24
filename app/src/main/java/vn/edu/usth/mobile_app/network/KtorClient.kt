@@ -28,7 +28,7 @@ object KtorClient {
     private val client = HttpClient(OkHttp) {
         defaultRequest {
             url {
-                host = "146.190.100.81"
+                host = "192.168.1.5"
                 port = 8081
             }
             header(HttpHeaders.ContentType, ContentType.Application.Json)
@@ -36,7 +36,7 @@ object KtorClient {
 
         engine {
             config {
-                connectTimeout(100, TimeUnit.SECONDS)
+                connectTimeout(0, TimeUnit.SECONDS)
             }
         }
 
@@ -146,6 +146,27 @@ object KtorClient {
             )
         }
         return response.bodyAsText()
+    }
+
+    suspend fun uploadAvatar(file: File): Int{
+        val response = client.post {
+            url {
+                encodedPath = "files/upload-avatar"
+                parameter("user_id", GlobalData.userId)
+            }
+            headers {
+                append(HttpHeaders.Authorization, "Bearer ${GlobalData.token}")
+                append(HttpHeaders.ContentType, ContentType.MultiPart.FormData)
+            }
+            setBody(
+                MultiPartFormDataContent(formData {
+                    append("image", file.readBytes(), Headers.build {
+                        append(HttpHeaders.ContentDisposition, "filename=${file.name}")
+                    })
+                })
+            )
+        }
+        return response.status.value
     }
 
     // Model

@@ -26,7 +26,7 @@ class ProfileViewModel: ViewModel() {
         fetchModelList()
     }
 
-    private fun getUserData() {
+        fun getUserData() {
         viewModelScope.launch {
             val userData = KtorClient.getProfile(GlobalData.username)
             _userData.value = userData
@@ -58,5 +58,8 @@ class ProfileViewModel: ViewModel() {
             result = response
         }
         return result
+    }
+    suspend fun uploadAvatar(file: java.io.File): Int {
+        return KtorClient.uploadAvatar(file)
     }
 }

@@ -5,16 +5,23 @@ import android.util.Log
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.util.TypedValueCompat
 import androidx.core.view.marginEnd
 import androidx.core.view.marginTop
+import androidx.lifecycle.viewModelScope
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.CollapsingToolbarLayout
+import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayoutMediator
+import com.squareup.picasso.Picasso
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 import vn.edu.usth.mobile_app.R
 import vn.edu.usth.mobile_app.databinding.ActivityUserProfileBinding
+import java.io.File
 import java.text.DateFormat
 import kotlin.math.abs
 import kotlin.math.cos
@@ -42,6 +49,35 @@ class ProfileActivity : AppCompatActivity() {
     private var avatarSizeChangePercent = 0.25F
     private var lastSizeChangeValue = 0F
 
+    private val getFileLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        if (uri == null) {
+            return@registerForActivityResult
+        }
+        val fileMIMEType = contentResolver.getType(uri)
+        Log.d("FILE", fileMIMEType!!)
+        val fileType = fileMIMEType.split("/")[0]
+        val fileExtension = fileMIMEType.split("/")[1]
+        val inputStream = contentResolver.openInputStream(uri)
+        val byteArray = inputStream?.readBytes()
+        val file = File.createTempFile(fileType, ".${fileExtension}", cacheDir)
+        file.writeBytes(byteArray!!)
+        Log.d("FILE", file.name)
+        viewModel.viewModelScope.launch {
+            Snackbar.make(binding.root, getString(R.string.Uploading), Snackbar.LENGTH_INDEFINITE)
+                .setAction(getString(R.string.Cancel)) {
+                    this.cancel()
+                }
+                .show()
+            val code = viewModel.uploadAvatar(file)
+            if (code == 200) {
+                Snackbar.make(binding.root, getString(R.string.UploadSuccessful), Snackbar.LENGTH_SHORT).show()
+                viewModel.getUserData()
+            } else {
+                Snackbar.make(binding.root, getString(R.string.UploadFailed), Snackbar.LENGTH_SHORT).show()
+            }
+        }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         _binding = ActivityUserProfileBinding.inflate(layoutInflater)
@@ -53,7 +89,9 @@ class ProfileActivity : AppCompatActivity() {
         username = binding.textViewProfileUsername
         joinDate = binding.textViewProfileJoin
 
-        binding.materialToolbarProfile.setNavigationOnClickListener{ finish() }
+        viewModel.userData.observe(this) {
+            Picasso.get().load("http://" + it.avatarUrl).into(userAvatar)
+        }
 
         val popupMenu = PopupMenu(this, userAvatar)
         popupMenu.menuInflater.inflate(R.menu.avatar_options_menu, popupMenu.menu)
@@ -61,6 +99,7 @@ class ProfileActivity : AppCompatActivity() {
             when (menuItem.itemId) {
                 R.id.action_upload_avatar -> {
                     Log.d("Avatar", "Upload")
+                    getFileLauncher.launch("image/*")
                     true
                 }
                 else -> false

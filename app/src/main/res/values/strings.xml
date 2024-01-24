@@ -276,4 +276,5 @@
     <string name="Cancel">Cancel</string>
     <string name="Run">Run</string>
     <string name="Close">Close</string>
+    <string name="Upload_Avatar">Upload Avatar</string>
 </resources>
